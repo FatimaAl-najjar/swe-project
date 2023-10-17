@@ -1,0 +1,13 @@
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.row.image{
+    flex:1 1 45rem ;
+}
+.row.image img{
+     width : 100%
+}
+ 
