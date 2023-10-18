@@ -28,14 +28,14 @@ include_once "includes/db.inc.php"
 
     <?php
     if($_SERVER["REQUEST_METHOD"]=="POST"){
-        $FirstName=htmlspecialchars($_POST["FirstName"]);
-        $LastName=htmlspecialchars($_POST["LastName"]);
-        $Email=htmlspecialchars($_POST["Email"]);
-        $Password=htmlspecialchars($_POST["Password"]);
-        $Phonenumber=htmlspecialchars($_POST["Phonenumber"]);
-        $sql=$sql="insert into patients(FirstName,LastName,Email,Password,Phonenumber) 
+        $FirstName = htmlspecialchars($_POST["FirstName"]);
+        $LastName = htmlspecialchars($_POST["LastName"]);
+        $Email = htmlspecialchars($_POST["Email"]);
+        $Password = htmlspecialchars($_POST["Password"]);
+        $Phonenumber = htmlspecialchars($_POST["Phonenumber"]);
+        $sql = "insert into patients(FirstName,LastName,Email,Password,Phonenumber) 
         values('$FirstName','$LastName','$Email','$Password','$Phonenumber')";
-        $result=mysqli_query($conn,$sql);
+        $result = mysqli_query($conn, $sql);
 
         if($result){
             header("location:login.php");
