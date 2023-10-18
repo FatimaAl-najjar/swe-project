@@ -5,7 +5,11 @@
     <style>
         /* Add any desired styling to your navigation bar */
         /* For example: */
-        ul.navbar {
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999; /* Adjust the z-index value as per your needs */
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -13,11 +17,11 @@
             background-color: #f1f1f1;
         }
 
-        ul.navbar li {
+        .navbar li {
             float: left;
         }
 
-        ul.navbar li a {
+        .navbar li a {
             display: block;
             color: #333;
             text-align: center;
@@ -25,7 +29,7 @@
             text-decoration: none;
         }
 
-        ul.navbar li a:hover {
+        .navbar li a:hover {
             background-color: #ddd;
         }
 
@@ -38,6 +42,10 @@
             height: 50px;
             width: 50px;
             /* Add any specific styling for your scrolled logo image */
+        }
+        /* Add styling to push the content down to make space for the fixed navigation bar */
+        body {
+            margin-top: 70px; /* Adjust the value to match the height of the navigation bar */
         }
     </style>
     <script>
