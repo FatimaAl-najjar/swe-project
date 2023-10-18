@@ -12,7 +12,7 @@ include_once "includes/db.inc.php"
 <body>
     <form action="" method="post">
     <label>FirstName:</label>
-    <input type="text" name="FirstName" placeholder="pkease enter your firstname"><br>
+    <input type="text" name="FirstName" placeholder="please enter your firstname"><br>
     <label>LastName:</label>
     <input type="text" name="LastName" placeholder="please enter your lastname"><br>
     <label>Email:</label>
