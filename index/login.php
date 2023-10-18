@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $Password=$_Post["Password"];
 
     //akhod data mn data base b2a
-    $sql= "selct * from patients where Email='$Email' and Password='$Password' ";
+    $sql= "select * from patients where Email='$Email' and Password='$Password' ";
     $result=mysqli_query($conn,$sql);
     if($row=mysqli_fetch_array($result)){
         $_SESSION["ID"]=$row[0];
