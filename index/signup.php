@@ -27,7 +27,7 @@ include_once "../includes/dbh.inc.php";
         </form>
 
         <?php
-        if($_SERVER["REQUEST_METHOD"]=="POST"){
+        if($_SERVER["REQUEST_METHOD"]=="POST") {
             $FirstName = htmlspecialchars($_POST["FirstName"]);
             $LastName = htmlspecialchars($_POST["LastName"]);
             $Email = htmlspecialchars($_POST["Email"]);
@@ -35,6 +35,7 @@ include_once "../includes/dbh.inc.php";
             $Phonenumber = htmlspecialchars($_POST["Phonenumber"]);
             $sql = "insert into patients(FirstName,LastName,Email,Password,Phonenumber) 
             values('$FirstName','$LastName','$Email','$Password','$Phonenumber')";
+
             $result = mysqli_query($conn, $sql);
 
             if($result){
