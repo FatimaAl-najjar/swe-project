@@ -27,21 +27,31 @@ include_once "../includes/dbh.inc.php";
         </form>
 
         <?php
-        if($_SERVER["REQUEST_METHOD"]=="POST") {
+    
+        session_start();
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $FirstName = htmlspecialchars($_POST["FirstName"]);
             $LastName = htmlspecialchars($_POST["LastName"]);
             $Email = htmlspecialchars($_POST["Email"]);
             $Password = htmlspecialchars($_POST["Password"]);
             $Phonenumber = htmlspecialchars($_POST["Phonenumber"]);
-            $sql = "insert into patients(FirstName,LastName,Email,Password,Phonenumber) 
-            values('$FirstName','$LastName','$Email','$Password','$Phonenumber')";
-
+            $sql = "INSERT INTO patients(FirstName, LastName, Email, Password, Phonenumber) 
+                    VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+        
             $result = mysqli_query($conn, $sql);
 
-            if($result){
-                header("location:login.php");
+            echo $result ? "yes":"no";
+        
+            if ($result) {
+                // Redirect after a successful registration
+                header("Location: ../login.php");
+                exit;
+                
             }
         }
+        
+      
         ?>
     </body>
 </html>
