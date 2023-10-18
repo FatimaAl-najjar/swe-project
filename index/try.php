@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Navigation Bar Example</title>
+    <title>Nav bar</title>
     <style>
         /* Add any desired styling to your navigation bar */
         /* For example: */
@@ -53,8 +53,12 @@
             var logo = document.querySelector(".logo-image");
             if (window.scrollY > 0) { // Change the value as per your requirement for when the scroll should trigger the logo change
                 logo.classList.add("logo-scroll");
+                logo.src = "../images/logo3.png"; // Path to the second logo image
+                logo.alt = "Logo2"; // Alternate text for the second logo image
             } else {
                 logo.classList.remove("logo-scroll");
+                logo.src = "../images/L1.png"; // Path to the original logo image
+                logo.alt = "Logo1"; // Alternate text for the original logo image
             }
         });
     </script>
