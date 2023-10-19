@@ -1,15 +1,5 @@
 <?php
 session_start();
-
-// echo "User Name:" . $_SESSION["FirstName"]. " ". $_SESSION["LastName"]. "<br>";
-// echo "Email:" . $_SESSION["Email"]."<br>";
-// echo "Password:" . $_SESSION["Password"]."<br>";
-
-// if ($_SESSION["PhoneNumber"] != "") {
-//     echo "Phone Number:" . $_SESSION["Phonenumber"]."<br>";
-// }
-
-
 ?>
 
 <head>
@@ -27,11 +17,17 @@ session_start();
             <div class="form view_form"></div>
             <form action="#">
                 <h2>My profile</h2>
-                <?php
-                echo "User Name:" . $_SESSION["FirstName"]. " ". $_SESSION["LastName"]. "<br>";
-                echo "Email:" . $_SESSION["Email"]."<br>";
-                echo "Password:" . $_SESSION["Password"]."<br>";
-                ?>
+                <br><hr><br>
+                <div class="profile-info">
+                    <p class="profile-label">User Name:</p>
+                    <p class="profile-value"><?php echo $_SESSION["FirstName"] . " " . $_SESSION["LastName"]; ?></p>
+                        
+                    <p class="profile-label">Email:</p>
+                    <p class="profile-value"><?php echo $_SESSION["Email"]; ?></p>
+                        
+                    <p class="profile-label">Password:</p>
+                    <p class="profile-value"><?php echo $_SESSION["Password"]; ?></p>
+                </div>
             </form>
         </div>
     </section>
