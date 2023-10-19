@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["Phonenumber"] = $row["Phonenumber"];
 
         // Redirect after a successful login
-        header("Location: ../signup.php");
+        header("Location:signup.php");
         exit;
     }
 }
