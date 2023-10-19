@@ -23,7 +23,11 @@
             display: block;
             color: #484da2;
             text-align: center;
-            padding: 20px 20px;
+            padding-top: 35px;
+            padding-left: 20px;
+            padding-right: 3px;
+            margin:8px;
+            font-size: 20px;
             text-decoration: none;
         }
 
@@ -46,20 +50,40 @@
     width: 100%; /* Expand the width of the line when hovering */
 }
         .logo-image {
-            height: 80px;
+            padding-left:10px;
+            height: 90px;
             width: 300px;
         }
         .logo-scroll {
             height: 70px;
             width: 85px;
         }
-       
-        body {
-            padding:50px;
-            margin-top: 70px; 
-        }
+        @media only screen and (max-width: 68px) {
+  /* Styles for screens smaller than 768px */
+  .navbar li {
+    float: none;
+  }
+
+  .navbar li a {
+    padding: 10px 10px;
+    font-size: 16px;
+  }
+
+  .logo-image {
+    height: 60px;
+    width: 200px;
+  }
+}
+body {
+      padding:50px;
+     margin-top: 70px; 
+ }
+
+ div{
+    padding-left:410px;
+ }
     </style>
-    <script>
+<script>
         window.addEventListener('scroll', function() {
             var logo = document.querySelector(".logo-image");
             if (window.scrollY > 0) { 
@@ -75,12 +99,16 @@
     </script>
 </head>
 <body>
+    
     <ul class="navbar">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <div>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Sign Up</a></li>
+         </div>
     </ul>
     <!-- test -->
     
