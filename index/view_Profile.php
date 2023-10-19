@@ -27,7 +27,11 @@ session_start();
             <div class="form view_form"></div>
             <form action="#">
                 <h2>My profile</h2>
-
+                <?php
+                echo "User Name:" . $_SESSION["FirstName"]. " ". $_SESSION["LastName"]. "<br>";
+                echo "Email:" . $_SESSION["Email"]."<br>";
+                echo "Password:" . $_SESSION["Password"]."<br>";
+                ?>
             </form>
         </div>
     </section>
