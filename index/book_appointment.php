@@ -1,5 +1,6 @@
 <?php
-require_once "book_db.php";
+// require_once "book_db.php";
+include_once "book_db.php";
 include_once "../includes/dbh.inc.php";
 ?>
 <!DOCTYPE html>
@@ -39,6 +40,14 @@ include_once "../includes/dbh.inc.php";
         $sql = "INSERT INTO timeslots(date, duration) 
                 VALUES ('$Date', '$Duration')";
     
+
+     
+    // $pdo=new booking_details();
+     
+    // $rv=$pdo->get_all_patient_info($dbo);
+    // print_r($rv);
+
+
         $result = mysqli_query($conn, $sql);
 
         

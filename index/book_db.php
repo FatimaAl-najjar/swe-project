@@ -17,11 +17,12 @@ class booking_details{
    
    from timeslots as pd ,patients as dd where pd.patients_id=dd.id ";
 
-   $statment = $dbo->conn->prepare($cmd);
-   $statment->execute();
+   $statement =$dbo=conn->prepare($cmd);
+   $statement->execute();
 
    $rv= $statment->fetchAll(PDO::FETCH_ASSOC);
    return $rv;
  }
 }
+ 
 ?>
