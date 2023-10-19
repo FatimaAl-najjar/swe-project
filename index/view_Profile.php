@@ -22,7 +22,7 @@ session_start();
     <!-- Home  -->
     <section class="home">
         <div class="form-container">
-            <i class="uil uil-times"></i>
+            <i class="uil uil-times form_close"></i>
             <!-- Form  -->
             <div class="form view_form"></div>
             <form action="#">
