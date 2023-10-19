@@ -31,9 +31,12 @@
 }
 .row.image{
     flex:1 1 45rem ;
+    width : 10cm;
+    height: 7cm;
 }
 .row.image img{
-     width : 100%
+     width : 10cm;
+    height: 7cm;
 }
 .btn{
     display: block;
@@ -72,10 +75,42 @@
     text-align: center;
     padding: 2rem;
     border-radius: .5rem;
+    /* margin: 3rem; */
+    width: 100%;
+    
 }
  .row form h3{
     color: var(--black);
     padding-bottom: 1rem;
     font-size: 3rem;
  }
- 
+ .row form .box{
+    width: 100%;
+   
+    margin: .7rem 0;
+    border-radius: .5rem;
+    border: var(--border);
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    padding: 1rem;
+ }
+ .row form .btn{
+    padding: 1rem 4rem;
+ }
+ /* @media(max-width:991px)
+ {
+    html{
+        font-size: 55%;
+    }
+ }
+ @media(max-width:768px)
+ {
+    
+ }
+ @media(max-width:450px)
+ {
+    html{
+        font-size: 50%;
+    }
+ } */
