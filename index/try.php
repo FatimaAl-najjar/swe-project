@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Nav bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         
         .navbar {
@@ -21,6 +22,7 @@
         }
 
         .navbar li a {
+            float: left;
             display: block;
             color: #484da0;
             text-align: center;
@@ -87,9 +89,31 @@ body {
     -ms-border-radius: 10px;
     border-radius: 10px;
 }
- /* div{
-    padding-left:410px;
- } */
+
+.navbar .icon {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+ @media screen and (max-width: 800px) {
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
     </style>
 <script>
         window.addEventListener('scroll', function() {
@@ -108,7 +132,7 @@ body {
 </head>
 <body>
     
-    <ul class="navbar">
+    <ul class="navbar" id="myTopnav">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
@@ -119,7 +143,9 @@ body {
                 <a href="#"><button style="right: 110px;">Log in</button></a>
                 <a href="#"><button>sign up</button></a>
             </div>
-   
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
     </ul>
     <!-- test -->
     
@@ -134,6 +160,16 @@ body {
     <br>
     <img src="../images/L1.png" alt="Logo1">
     <br>
-    
+
+<script>
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "navbar") {
+x.className += " responsive";
+} else {
+x.className = "navbar";
+}
+}
+</script>
 </body>
 </html>
