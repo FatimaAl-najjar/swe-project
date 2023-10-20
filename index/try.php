@@ -13,7 +13,7 @@
             margin-top: 0px;
             padding: 0px;
             overflow: hidden;
-            background-color: #c5b974;
+            background-color: #ffffff
         }
 
         .navbar li {
@@ -22,11 +22,11 @@
 
         .navbar li a {
             display: block;
-            color: #484da2;
+            color: #484da0;
             text-align: center;
-            padding-top: 35px;
-            padding-left: -10px;
-            padding-right: 3px;
+            padding-top: 30px;
+            padding-left: 5px;
+            padding-right: 5px;
             padding-bottom: 10px;
             margin:8px;
             font-size: 20px;
@@ -54,8 +54,9 @@
 }
 .logo-image {
   padding-left:10px;
+  padding-right:290px;
   height: 90px;
-  width: 300px;
+  width: 330px;
  }
 .logo-scroll {
     height: 80px;
@@ -68,6 +69,24 @@ body {
      
  }
 
+ .nav_btn button {
+    margin: 3px;
+    padding: 7px;
+    font-size: 20px;
+    position: fixed;
+    top : 26px;
+    right: 20px;
+    outline:none;
+    border: 3px solid #484da0;
+    -o-border-radius: 10px;
+    cursor: pointer;
+    color: #484da0;
+    background: #ffffff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+}
  /* div{
     padding-left:410px;
  } */
@@ -91,13 +110,16 @@ body {
     
     <ul class="navbar">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-         <div>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Announcements</a></li>
             <!-- <li><a href="#">Sign Up</a></li>
             <li><a href="#">Sign Up</a></li> -->
-    </div>
+            <div class="nav_btn">
+                <a href="#"><button style="right: 110px;">Log in</button></a>
+                <a href="#"><button>sign up</button></a>
+            </div>
+   
     </ul>
     <!-- test -->
     
