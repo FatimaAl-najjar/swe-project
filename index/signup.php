@@ -1,5 +1,8 @@
+
 <?php
+   session_start();
 include_once "../includes/dbh.inc.php";
+include "../includes/nav.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +16,7 @@ include_once "../includes/dbh.inc.php";
         <title>Sign up</title>
     </head>
     <?php    
-        session_start();
+     
         $errorMessage="";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,6 +59,7 @@ include_once "../includes/dbh.inc.php";
         
         ?>
 <body>
+    <br><br><br>
     <div class=signup>
         <form action="" method="post">
         <label>FirstName:</label>

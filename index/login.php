@@ -1,18 +1,20 @@
 <?php
+   session_start();
 include_once "../includes/dbh.inc.php";
+include "../includes/nav.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="../css/signup.css">
 </head>
 
 
 <?php
 
 
-session_start();
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -68,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
 </head>
 <body>
+<br><br><br>
     <h1>Login</h1>
     <form action="" method="POST">
         <label>Email:</label>
