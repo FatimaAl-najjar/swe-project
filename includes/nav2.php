@@ -86,7 +86,7 @@
                 font-size: 20px;
                 position: fixed;
                 top: 26px;
-                right: 20px;
+                left: 1400px;
                 outline: none;
                 border: 3px solid #484da0;
                 -o-border-radius: 10px;
@@ -104,7 +104,7 @@
                 font-size: 30px;
                 position: fixed;
                 top: 26px;
-                right: 210px;
+                right: 150px;
                 outline: none;
                 border: 3px solid #484da0;
                 -o-border-radius: 10px;
