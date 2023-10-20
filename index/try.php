@@ -193,7 +193,7 @@
 
 
     <!-- starting footer -->
-<footer class="footer-main">
+<!-- <footer class="footer-main">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -219,4 +219,54 @@
     <div class="text-center p-3">
         <p>&copy; 2023 Your Website. All rights reserved.</p>
     </div>
-</footer>
+</footer> -->
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+</head>
+
+<body>
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h1 class="footer-title">
+                <p>Tamarai</p>
+            </h1>
+
+        </div>
+
+        <div class="words">
+        <p class="info">We could not have reached this milestone of achievement without you.</p>
+        <p class="info">Support Emails - help@tamarai.com, support@tamarai.com</p>
+        <p class="info">Telephone - 0123456789</p>
+        </div>
+
+        <div class="footer-social-container">
+
+            <div class="linkers">
+                <a href="#" class="social-link">Terms & Services</a>
+                <a href="#" class="social-link">Privacy & Policy</a>
+            </div>
+            <div>
+
+                <div class="social-media">
+
+                    <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+                    <a href="#"><i class="bx bxl-facebook-square"></i></a>
+                    <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+                    <a href="#"><i class="bx bxl-github"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+        <p class="footer-credit">Tamarai, Best Online store.</p>
+    </footer>
+</body>
+
+</html>
