@@ -77,7 +77,6 @@
 
         body {
             margin-top: 70px;
-            background-color: #000040;
         }
 
         .nav_btn button {
