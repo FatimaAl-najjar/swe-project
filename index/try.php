@@ -97,13 +97,13 @@
             -ms-border-radius: 10px;
             border-radius: 10px;
         }
-        .nav_btn a {
+        .nav_btn i {
             margin: 3px;
-            padding: 7px;
-            font-size: 27px;
+            padding: 4px;
+            font-size: 30px;
             position: fixed;
             top: 26px;
-            right: 20px;
+            right: 210px;
             outline: none;
             border: 3px solid #484da0;
             -o-border-radius: 10px;
@@ -171,8 +171,8 @@
         <li><a href="#">Services</a></li>
         <li><a href="#">Announcements</a></li>
         <div class="nav_btn">
+        <a href="#"><i class="fa fa-user"></i></a>
             <a href="#"><button style="right: 110px;">Logout</button></a>
-            <a href="#"><i class="fa fa-user"></i></a>
         </div>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>

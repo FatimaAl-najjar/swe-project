@@ -117,7 +117,7 @@
         }
 
         /* Hide the li elements in the navbar when the page is resized */
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 1400px) {
             .navbar:not(.responsive) li:not(:first-child) {
                 display: none;
             }
