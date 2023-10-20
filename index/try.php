@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!-- <!-- <!DOCTYPE html>
     <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -221,7 +221,7 @@
     </div>
 </footer> -->
 
-<html>
+<!-- <html>
 
 <head>
     <link rel="stylesheet" href="../css/footer.css" />
@@ -233,9 +233,8 @@
     <footer>
 
         <div class="footer-content">
-
             <h1 class="footer-title">
-                <p>Tamarai</p>
+               <img src="../images/L1.png" alt="logo" />
             </h1>
 
         </div>
@@ -269,4 +268,4 @@
     </footer>
 </body>
 
-</html>
+</html> --> -->

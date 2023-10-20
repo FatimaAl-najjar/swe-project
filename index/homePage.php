@@ -1,7 +1,9 @@
 <title>homepage</title>
-<?php include '../includes/nav2.php';?>
-<h1>HOME</h1>
+<?php include '../includes/nav.php';?>
+<h1 style="padding-top:30px;">HOME</h1>
 
 <a href='view_profile.php'>View Profile</a>
-<br>
-<a href="feedback.php">Feedback</a>
+
+<footer><?php include '../includes/footer.php';?></footer>
+    
+

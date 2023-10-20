@@ -4,6 +4,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
     <style>
         .navbar {
             position: fixed;
@@ -98,17 +100,6 @@
             border-radius: 10px;
         }
 
-        // .nav_btn button.bt {
-        //     margin: 3px;
-        //     padding: 7px;
-        //     font-size: 20px;
-        //     position: fixed;
-        //     top: 50px;
-        //     right: 20px;
-        //     outline: none;
-        //     color: #484da0;
-        //     background: #ffffff;
-        // }
 
         .navbar .icon {
             display: none;
@@ -159,6 +150,7 @@
     </script>
 </head>
 <body>
+
     <ul class="navbar" id="myTopnav">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
         <li><a href="#">About Me</a></li>
@@ -172,6 +164,7 @@
             <i class="fa fa-bars"></i>
         </a>
     </ul>
+    
     <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");
@@ -182,6 +175,8 @@
             }
         }
     </script>
+
+    
 </body>
 </html>';
 ?>

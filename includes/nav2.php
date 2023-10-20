@@ -63,7 +63,7 @@
     
             .logo-image {
                 padding-left: 50px;
-                padding-right: 300px;
+                padding-right: 170px;
                 height: 90px;
                 width: 330px;
             }
@@ -72,7 +72,7 @@
                 padding-left: 180px;
                 height: 80px;
                 width: 96px;
-                padding-right: 405px;
+                padding-right: 276px;
             }
     
             body {
@@ -170,6 +170,7 @@
             <li><a href="#">About Me</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Announcements</a></li>
+            <li><a href="#">Book an appointment</a></li>
             <div class="nav_btn">
             <a href="#"><i class="fa fa-user"></i></a>
                 <a href="#"><button style="right: 110px;">Logout</button></a>
@@ -178,17 +179,6 @@
                 <i class="fa fa-bars"></i>
             </a>
         </ul>
-        
-        <script>
-            function myFunction() {
-                var x = document.getElementById("myTopnav");
-                if (x.className === "navbar") {
-                    x.className += " responsive";
-                } else {
-                    x.className = "navbar";
-                }
-            }
-        </script>
     </body>
     </html>';
 ?>
