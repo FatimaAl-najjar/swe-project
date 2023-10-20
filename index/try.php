@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
     <html>
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -75,7 +75,7 @@
     
             body {
                 margin-top: 70px;
-                
+                background-color: #000040;
             }
     
             .nav_btn button {
@@ -189,7 +189,34 @@
             }
         </script>
     </body>
-    </html>
+    </html> -->
 
 
     <!-- starting footer -->
+<footer class="footer-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="add-icon">
+                    <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="add-content">
+                    <h5>Address</h5>
+                    <p>123 Street, City, Country</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="add-icon">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="add-content">
+                    <h5>Email</h5>
+                    <p>example@example.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3">
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </div>
+</footer>
