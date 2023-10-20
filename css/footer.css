@@ -1,84 +1,42 @@
-*
-{
+* {
     font-family: 'poppins', sans-serif;
     font-family: 'Roboto', sans-serif;
     font-family: 'Ubuntu', sans-serif;
-    
 }
 
 footer {
     position: relative;
-    width: 100%;
-    height: 100%;
     min-width: 700px;
     min-height: 250px;
-    padding: 10px 10px;
-    background: #1C4C56;
+    padding: 10px 1px;
+    left:-2px;
+    background: #6469bf;
 }
 
-.category {
-    margin-top: 10%;
-    width: 200px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    list-style: none;
-}
-
-.category-title {
-    grid-column: span 2;
-    text-transform: capitalize;
-    color: #fff;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.category .footer-link {
-    text-decoration: none;
-    text-transform: capitalize;
-    color: #fff;
-}
-
-.footer-link:hover {
-    color: #d6bd91;
-}
-
-.footer-title {
-    color: #fff;
-    font-size: 3vw;
-}
-.footer-title p{
-    position: absolute;
-    top: 0%;
-    left: 7%;
-}
 
 .footer-title img{
     position: absolute;
-    top: 10%;
-    width:70px;
-    height:70px;
-    color: #fff;
+    top: 15%;
+    width:150px;
+    height:120px;
+    color: #02309b;
 }
 
-.footer-social-container {
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-between;
-}
-
+/* privacy link */
 .linkers
 {
     position: absolute;
     top: 60%;
-    left: 5%;
+    left: 21%;
+    font-size: 20px;
 }
 
 .words{
-    position: absolute;
+    position: relative;
     top: 10%;
-    left: 30%;
-    margin: 10px;
+    left: 20%;
+    margin: 3px;
+    font-size: 18px;
 }
 
 .info
@@ -94,17 +52,18 @@ footer {
 
 .social-media {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 80%;
     margin-right: 22px;
     font-size: 40px;
 }
+
 .social-media a {
     color: #fff;
 }
 
 .social-media a:hover {
-    color: #d6bd91;
+    color: #02309b;
 }
 
 .social-link:nth-child(1) {
@@ -113,7 +72,7 @@ footer {
 
 .footer-credit {
     width: 90%;
-    padding: 10px;
+    padding: 8px;
     position: absolute;
     left:5%;
     bottom: 0%;
@@ -122,3 +81,38 @@ footer {
     background: rgba(0, 0, 0, 0.3); 
 }
 
+/* Media Queries for responsiveness */
+
+@media (max-width: 408px) {
+
+
+    .footer-social-container {
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+    /* .social-media {
+        top: unset;
+        left: unset;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 30px;
+        text-align: center;
+    } */
+}
+
+@media (max-width: 480px) {
+    .footer-title {
+        font-size: 7vw;
+    }
+
+    .footer-title p {
+        left: 3%;
+    }
+
+    .footer-title img{
+        top: 5px;
+        width: 40px;
+        height: 40px;
+    }
+}
