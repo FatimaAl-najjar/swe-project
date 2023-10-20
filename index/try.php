@@ -3,16 +3,17 @@
 <head>
     <title>Nav bar</title>
     <style>
+        
         .navbar {
             position: fixed;
             top: 0px;
             width: 100%;
-            z-index: 999; /* Adjust the z-index value as per your needs */
             list-style-type: none;
-            margin: 0px;
+            margin-left: -9px;
+            margin-top: 0px;
             padding: 0px;
             overflow: hidden;
-            background-color: #fff;
+            background-color: #c5b974;
         }
 
         .navbar li {
@@ -24,10 +25,12 @@
             color: #484da2;
             text-align: center;
             padding-top: 35px;
-            padding-left: 20px;
+            padding-left: -10px;
             padding-right: 3px;
+            padding-bottom: 10px;
             margin:8px;
             font-size: 20px;
+            font-weight: bold;
             text-decoration: none;
         }
 
@@ -38,10 +41,10 @@
 .navbar li a::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 3px;
     background-color: #02309b; /* Set the color of the horizontal line */
     transition: width 0.3s ease-out; /* Add a transition effect for smooth animation */
 }
@@ -49,39 +52,25 @@
 .navbar li a:hover::after {
     width: 100%; /* Expand the width of the line when hovering */
 }
-        .logo-image {
-            padding-left:10px;
-            height: 90px;
-            width: 300px;
-        }
-        .logo-scroll {
-            height: 70px;
-            width: 85px;
-        }
-        @media only screen and (max-width: 68px) {
-  /* Styles for screens smaller than 768px */
-  .navbar li {
-    float: none;
-  }
-
-  .navbar li a {
-    padding: 10px 10px;
-    font-size: 16px;
-  }
-
-  .logo-image {
-    height: 60px;
-    width: 200px;
-  }
+.logo-image {
+  padding-left:10px;
+  height: 90px;
+  width: 300px;
+ }
+.logo-scroll {
+    height: 80px;
+    width: 96px;
 }
+    
 body {
-      padding:50px;
      margin-top: 70px; 
+     background-color: #000040;
+     
  }
 
- div{
+ /* div{
     padding-left:410px;
- }
+ } */
     </style>
 <script>
         window.addEventListener('scroll', function() {
@@ -102,13 +91,13 @@ body {
     
     <ul class="navbar">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-        <div>
+         <div>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Sign Up</a></li>
-         </div>
+            <li><a href="#">Announcements</a></li>
+            <!-- <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Sign Up</a></li> -->
+    </div>
     </ul>
     <!-- test -->
     
