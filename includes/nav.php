@@ -100,6 +100,18 @@
             border-radius: 10px;
         }
 
+        // .nav_btn button.bt {
+        //     margin: 3px;
+        //     padding: 7px;
+        //     font-size: 20px;
+        //     position: fixed;
+        //     top: 50px;
+        //     right: 20px;
+        //     outline: none;
+        //     color: #484da0;
+        //     background: #ffffff;
+        // }
+
         .navbar .icon {
             display: none;
         }
