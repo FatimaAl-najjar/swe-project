@@ -1,100 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Nav bar</title>
     <style>
         .navbar {
             position: fixed;
             top: 0px;
-            left: 0px;
             width: 100%;
             z-index: 999; /* Adjust the z-index value as per your needs */
             list-style-type: none;
             margin: 0px;
             padding: 0px;
-            background-color: #ddd;
+            overflow: hidden;
+            background-color: #fff;
         }
 
         .navbar li {
-            display: block;
+            float: left;
         }
 
         .navbar li a {
             display: block;
             color: #484da2;
             text-align: center;
-            padding: 10px;
+            padding-top: 35px;
+            padding-left: 20px;
+            padding-right: 3px;
+            margin:8px;
             font-size: 20px;
             text-decoration: none;
         }
 
-        .navbar .logo-image {
+        .navbar li a {
+    position: relative; /* Add relative positioning to the anchor element */
+}
+
+.navbar li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #02309b; /* Set the color of the horizontal line */
+    transition: width 0.3s ease-out; /* Add a transition effect for smooth animation */
+}
+
+.navbar li a:hover::after {
+    width: 100%; /* Expand the width of the line when hovering */
+}
+        .logo-image {
+            padding-left:10px;
             height: 90px;
             width: 300px;
-            padding-left: 10px;
-            display: inline-block;
         }
-
-        .navbar .logo-image-scroll {
+        .logo-scroll {
             height: 70px;
             width: 85px;
         }
+        @media only screen and (max-width: 68px) {
+  /* Styles for screens smaller than 768px */
+  .navbar li {
+    float: none;
+  }
 
-        .navbar .menu-icon {
-            display: none;
-            font-size: 26px;
-            float: right;
-        }
+  .navbar li a {
+    padding: 10px 10px;
+    font-size: 16px;
+  }
 
-        .menu {
-            display: none;
-            margin-top: 50px;
-        }
+  .logo-image {
+    height: 60px;
+    width: 200px;
+  }
+}
+body {
+      padding:50px;
+     margin-top: 70px; 
+ }
 
-        .menu li {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .menu li a {
-            display: inline-block;
-            width: 100%;
-            padding: 8px 0;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .navbar li {
-                display: none;
-            }
-
-            .navbar .menu-icon {
-                display: block;
-            }
-
-            .menu {
-                display: block;
-                margin-top: 0;
-            }
-        }
+ div{
+    padding-left:410px;
+ }
     </style>
+<script>
+        window.addEventListener('scroll', function() {
+            var logo = document.querySelector(".logo-image");
+            if (window.scrollY > 0) { 
+                logo.classList.add("logo-scroll");
+                logo.src = "../images/L1.png"; 
+                logo.alt = "Logo2"; 
+            } else {
+                logo.classList.remove("logo-scroll");
+                logo.src = "../images/logo3.png"; 
+                logo.alt = "Logo1"; 
+            }
+        });
+    </script>
 </head>
 <body>
     
     <ul class="navbar">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-        <li class="menu-icon"><span class="glyphicon">&#xe236;</span></li>
-        <ul class="menu">
+        <div>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Login</a></li>
             <li><a href="#">Sign Up</a></li>
             <li><a href="#">Sign Up</a></li>
-        </ul>
+         </div>
     </ul>
     <!-- test -->
     
@@ -110,13 +124,5 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <img src="../images/L1.png" alt="Logo1">
     <br>
     
-    <script>
-        var menuIcon = document.querySelector('.menu-icon');
-        var menu = document.querySelector('.menu');
-
-        menuIcon.addEventListener('click', function() {
-            menu.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
