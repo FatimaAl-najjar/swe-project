@@ -1,34 +1,20 @@
 <?php
-   session_start();
+session_start();
 include_once "../includes/dbh.inc.php";
-include "../includes/nav.php";
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/signup.css">
-</head>
-
-
-<?php
-
-
-
-
+$errormessage="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
 
     // Validate email (you can add more comprehensive email validation)
     if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
-        echo "<p style='color: red;'>Invalid email format.</p>";
+         $errormessage= "<p style='color: red;'>Invalid email format.</p>";
     } else {
         // Use prepared statements to prevent SQL injection
         $sql = "SELECT * FROM patients WHERE Email = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        
+
         // Bind parameter
         mysqli_stmt_bind_param($stmt, "s", $Email);
 
@@ -50,34 +36,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["Phonenumber"] = $row["Phonenumber"];
 
                 // Redirect after a successful login
-                header("Location: ../homePage.php");
+                header("Location: ../index/homePage.php");
                 exit;
-            } 
-            else {
-                echo "<p style='color: red;'>Incorrect password.</p>";
+            } else {
+                $errormessage="<p style='color: red;'>Incorrect password.</p>";
             }
         } else {
-            echo "<p style='color: red;'>Email not found.</p>";
+            $errormessage= "<p style='color: red;'>Email not found.</p>";
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
-<br><br><br>
-    <h1>Login</h1>
-    <form action="" method="POST">
-        <label>Email:</label>
-        <input type="text" placeholder="please enter your email" name="Email" required><br>
-        <label>Password:</label>
-        <input type="password" placeholder="please enter your password" name="Password" required><br>
-        <button type="submit" value="submit">Login</button>
-    </form>
+<?php
+include "../includes/nav.php";
+?>
+<br><br><br><br>
+<h1>Login</h1>
+<form action="" method="POST">
+    <label>Email:</label>
+    <input type="text" placeholder="please enter your email" name="Email" required><br>
+    <label>Password:</label>
+    <input type="password" placeholder="please enter your password" name="Password" required><br>
+    <button type="submit" value="submit">Login</button>
+     
+<?php
+echo $errormessage;
+?>
+</form>
+ 
 </body>
 </html>
