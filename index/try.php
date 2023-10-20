@@ -11,11 +11,17 @@
             list-style-type: none;
             margin-left: -9px;
             margin-top: 0px;
+            z-index: 9999;
             padding: 0px;
             overflow: hidden;
             background-color: #ffffff;
         }
-
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         .navbar li {
             float: left;
         }
@@ -55,15 +61,17 @@
         }
 
         .logo-image {
-            padding-left: 10px;
-            padding-right: 290px;
+            padding-left: 50px;
+            padding-right: 300px;
             height: 90px;
             width: 330px;
         }
 
         .logo-scroll {
+            padding-left: 180px;
             height: 80px;
             width: 96px;
+            padding-right: 405px;
         }
 
         body {
@@ -96,19 +104,31 @@
 
         /* Hide the li elements in the navbar when the page is resized */
         @media screen and (max-width: 800px) {
-            .navbar li:not(:first-child) {
+            .navbar:not(.responsive) li:not(:first-child) {
                 display: none;
+            }
+
+            .navbar .nav_btn {
+                display: none;
+            }
+
+            .navbar .icon {
+                display: block;
+                position: absolute;
+                font-size: 34px;
+                top: 30px;
+                color:#484da0;
+                right: 20px;
+            }
+
+            .navbar.responsive .icon {
+                top: 26px;
             }
 
             .navbar.responsive li {
                 display: block;
             }
-
-            .navbar.responsive .icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
+            
         }
     </style>
     <script>
@@ -129,7 +149,7 @@
 <body>
     <ul class="navbar" id="myTopnav">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="#">About Me</a></li>
         <li><a href="#">Services</a></li>
         <li><a href="#">Announcements</a></li>
         <div class="nav_btn">
@@ -140,18 +160,7 @@
             <i class="fa fa-bars"></i>
         </a>
     </ul>
-    <!-- test -->
-    <br>
-    <img src="../images/L1.png" alt="Logo1">
-    <br>
-    <img src="../images/L1.png" alt="Logo1">
-    <br>
-    <img src="../images/L1.png" alt="Logo1">
-    <br>
-    <img src="../images/L1.png" alt="Logo1">
-    <br>
-    <img src="../images/L1.png" alt="Logo1">
-    <br>
+    
     <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");
