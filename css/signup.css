@@ -1,0 +1,10 @@
+
+body{
+    background: rgb(240, 244, 187);
+       color: rgb(0, 0, 0);
+   }
+div{
+    border: 20%;
+    border-color: black;
+    border-radius: 20%;
+}

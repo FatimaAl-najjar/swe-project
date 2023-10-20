@@ -10,34 +10,35 @@ include_once "../includes/dbh.inc.php";
 
 
 <?php
-include_once "../includes/dbh.inc.php";
+
 
 session_start();
 
-$errormessage="";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
 
     // Validate email (you can add more comprehensive email validation)
     if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
-        $errormessage= "<p style='color: red;'>Invalid email format.</p>";
+        echo "<p style='color: red;'>Invalid email format.</p>";
     } else {
         // Use prepared statements to prevent SQL injection
         $sql = "SELECT * FROM patients WHERE Email = ?";
         $stmt = mysqli_prepare($conn, $sql);
         
-        // btakhod data mn db w bt7aded type hena s for string w bt-bind it with the input data 
+        // Bind parameter
         mysqli_stmt_bind_param($stmt, "s", $Email);
-        //harfeyan btexcute existing query eli talbanaha fo2 
+
+        // Execute the query
         mysqli_stmt_execute($stmt);
 
-       //bnstore result bt3 stmt
+        // Get the result
         $result = mysqli_stmt_get_result($stmt);
 
         if ($row = mysqli_fetch_assoc($result)) {
-          
-            if (password_verify($Password, $row["Password"])) {
+            // Verify the password
+            if ($Password === $row["Password"]) {
                 // Set session variables
                 $_SESSION["ID"] = $row["ID"];
                 $_SESSION["FirstName"] = $row["FirstName"];
@@ -46,31 +47,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["Password"] = $row["Password"];
                 $_SESSION["Phonenumber"] = $row["Phonenumber"];
 
-                header("Location: homePage.php");
+                // Redirect after a successful login
+                header("Location: ../homePage.php");
                 exit;
-            } else {
-                $errormessage= "<p style='color: red;'>Incorrect password.</p>";
+            } 
+            else {
+                echo "<p style='color: red;'>Incorrect password.</p>";
             }
         } else {
-            $errormessage="<p style='color: red;'>Email not found.</p>";
+            echo "<p style='color: red;'>Email not found.</p>";
         }
     }
 }
+
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
 <body>
     <h1>Login</h1>
     <form action="" method="POST">
-    <label>Email:</label>
-    <input type="text" placeholder="please enter your email" name="Email"><br>
-    <label>password:</label>
-    <input type="Password" placeholder="please enter your password" name="Password"><br>
-    <button type="submit" value="submit">Login</button>
-</form>
-
-<?php
-echo $errormessage;
-?>
-
+        <label>Email:</label>
+        <input type="text" placeholder="please enter your email" name="Email" required><br>
+        <label>Password:</label>
+        <input type="password" placeholder="please enter your password" name="Password" required><br>
+        <button type="submit" value="submit">Login</button>
+    </form>
 </body>
 </html>
