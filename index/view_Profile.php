@@ -1,10 +1,12 @@
-<?php
+<?php include '../includes/nav.php';?>
+
+<!-- <?php
 session_start();
-?>
+?> -->
 
 <head>
     <title>View Profile</title>
-    <link rel="stylesheet" href="../css/viewProfile.css">
+  <!-- //  <link rel="stylesheet" href="../css/viewProfile.css"> -->
 </head>
 <body>
     <!-- Header  -->
@@ -31,4 +33,7 @@ session_start();
             </form>
         </div>
     </section>
+    
+    
 </body>
+<footer><?php include '../includes/footer.php';?></footer>
