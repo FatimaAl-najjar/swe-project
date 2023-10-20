@@ -1,5 +1,8 @@
+
 <?php
+   session_start();
 include_once "../includes/dbh.inc.php";
+include "../includes/nav.php";
 ?>
 
 <!DOCTYPE html>
@@ -7,10 +10,13 @@ include_once "../includes/dbh.inc.php";
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel ="stylesheet" src="nav.css">
+        <link rel="stylesheet" href="../css/signup.css">
         <title>Sign up</title>
     </head>
     <?php    
-        session_start();
+     
         $errorMessage="";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,6 +59,8 @@ include_once "../includes/dbh.inc.php";
         
         ?>
 <body>
+    <br><br><br>
+    <div class=signup>
         <form action="" method="post">
         <label>FirstName:</label>
         <input type="text" name="FirstName" placeholder="please enter your firstname"><br>
@@ -68,7 +76,7 @@ include_once "../includes/dbh.inc.php";
         <input type="number" name="Phonenumber" placeholder="please enter your number"><br>
         <button type="submit" value="submit">Sign up</button>
         </form>
-
+        </div>
         <?php 
         echo $errorMessage;
         ?>
