@@ -49,6 +49,7 @@ session_start();
                     <textarea class="form-control" name="feedback" id="feedback" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="homePage.php"><button type="button" class="btn btn-primary">Back</button></a>
             </form>
             
         </div>
