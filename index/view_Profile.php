@@ -18,7 +18,7 @@ include_once "../includes/dbh.inc.php";
             <!-- Form  -->
             <div class="form view_form"></div>
             <form action="#">
-                <h2>My profile</h2>
+                <h2 style="text-align: center;">My profile</h2>
                 <br><hr><br>
                 <div class="profile-info">
                     <p class="profile-label">User Name:</p>
