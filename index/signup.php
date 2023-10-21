@@ -15,11 +15,6 @@ include_once "../includes/dbh.inc.php";
 </head>
 <body>
     <?php   
-     if (isset($_POST['cancel'])) {
-        header("Location: ../index/homePage.php"); // Modify the URL to your homepage
-        exit;
-    }
- 
         $errorMessage = "";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -54,6 +49,11 @@ include_once "../includes/dbh.inc.php";
                 }
             }
         }
+         // Cancel button functionality
+         if (isset($_POST['cancel'])) {
+            header("Location: ../index/landing.php");
+            exit;
+        }
     ?>
     
     <br><br><br>
@@ -71,11 +71,8 @@ include_once "../includes/dbh.inc.php";
             <input type="password" name="repeatPassword" placeholder="Re-enter your password" required><br>
             <label>Phone number:</label>
             <input type="text" name="Phonenumber" placeholder="Enter your phone number"><br>
-            <div class="clearfix">
             <button class="btn" type="submit" value="submit">Sign Up</button>
-            <button type="button" class="btn">Cancel</button>
-            </div>
-
+            <button class="btn" name="cancel" formnovalidate>Cancel</button>
         </form>
     </div>
     <?php echo $errorMessage; ?>
