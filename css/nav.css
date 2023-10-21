@@ -69,6 +69,25 @@
             padding-right: 405px;
         }
 
+        .nav_btn i {
+            margin: 3px;
+            padding: 4px;
+            font-size: 30px;
+            position: fixed;
+            top: 26px;
+            right: 150px;
+            outline: none;
+            border: 3px solid #484da0;
+            -o-border-radius: 10px;
+            cursor: pointer;
+            color: #484da0;
+            background: #ffffff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            border-radius: 10px;
+}
+
         body {
             margin-top: 70px;
         }
@@ -96,7 +115,7 @@
         .navbar .icon {
             display: none;
         }
-
+         
         /* Hide the li elements in the navbar when the page is resized */
         @media screen and (max-width: 1500px) {
             .navbar:not(.responsive) li:not(:first-child) {

@@ -1,6 +1,6 @@
 <?php
 include_once "../includes/dbh.inc.php";
-// include '../includes/nav2.php';
+ include '../includes/nav2.php';
  
 // include_once "/includes/login.php";
 ?>
@@ -28,7 +28,7 @@ include_once "../includes/dbh.inc.php";
        <!-- ... your form inputs ... -->
        <input type="time" name="time" class="box">
        <input type="date" name="date" class="box">
-       <input type="submit" name="book_now" class="btn">
+       <input type="submit" name="book_now" class="btn1">
         
        </form>
    </div>
@@ -67,6 +67,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
  </body>
 </html>
-<footer>
+
     <?php include '../includes/footer.php';?>
-</footer>
