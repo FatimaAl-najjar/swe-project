@@ -269,3 +269,241 @@
 </body>
 
 </html> --> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box}
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 16px;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<form action="/action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+
+        <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+        <div class="clearfix">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signupbtn">Sign Up</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>Sure! Here's your code with the requested style applied:
+
+```php
+<?php
+session_start();
+include_once "../includes/dbh.inc.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/signup.css">
+    <style>
+        .card {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box}
+
+        /* Full-width input fields */
+        input[type=text], input[type=password], input[type=number] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        h2 {
+            color: red;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+    </style>
+    <title>Sign up</title>
+</head>
+<body>
+    <?php    
+        $errorMessage = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $FirstName = $_POST["FirstName"];
+            $LastName = $_POST["LastName"];
+            $Email = $_POST["Email"];
+            $Password = $_POST["Password"];
+            $repeatPassword = $_POST["repeatPassword"];
+            $Phonenumber = $_POST["Phonenumber"];
+            
+            if (empty($FirstName) || empty($LastName) || empty($Email) || empty($Password) || empty($repeatPassword) || empty($Phonenumber)) {
+                $errorMessage = "<h2>Please fill in all the required fields.</h2>";
+            } elseif ($Password !== $repeatPassword) {
+                $errorMessage = "<h2>Password mismatch.</h2>";
+            } else {
+                $FirstName = mysqli_real_escape_string($conn, $FirstName);
+                $LastName = mysqli_real_escape_string($conn, $LastName);
+                $Email = mysqli_real_escape_string($conn, $Email);
+                $Password = mysqli_real_escape_string($conn, $Password);
+                $Phonenumber = mysqli_real_escape_string($conn, $Phonenumber);
+
+                $sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+                    VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+    
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    // Redirect after a successful registration
+                    header("Location: ../index/login.php");
+                    exit;
+                } else {
+                    $errorMessage = "<h2>An error occurred during registration.</h2>";
+                }
+            }
+        }
+    ?>
+    <?php include "../includes/nav.php"; ?>
+    <br><br><br>
+    <div class="card">
+        <form action="" method="post">
+            <label>First Name:</label>
+            <input type="text" name="FirstName" placeholder="Enter your first name"><br>
+            <label>Last Name:</label>
+            <input type="text" name="LastName" placeholder="Enter your last name"><br>
+            <label>Email:</label>
+            <input type="text" name="Email" placeholder="Enter your email"><br>
+            <label>Password:</label>
+            <input type="password" name="Password" placeholder="Enter your password"><br>
+            <label>Re-enter Password:</label>
+            <input type="password" name="repeatPassword" placeholder="Re-enter your password" required><br>
+            <label>Phone number:</label>
+            <input type="number" name="Phonenumber" placeholder="Enter your phone number"><br>
+            <button type="submit" value="submit">Sign Up</button>
+        </form>
+    </div>
+    <?php echo $errorMessage; ?>
+</body>
+</html>
+```
+
+In this updated code, I added the additional required style to the existing code. The new style includes the card layout for the form container and the updated styles for the labels, inputs, and error message. Feel free to modify the styles further to match
