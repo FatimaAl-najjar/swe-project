@@ -1,66 +1,47 @@
 <?php
-// require_once "book_db.php";
-include_once "book_db.php";
 include_once "../includes/dbh.inc.php";
+// include_once "/includes/login.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/book_appointment.css"  rel ="stylesheet"></link>
- 
-    <title>Book Appointment</title>
+    <!-- ... your HTML head content ... -->
 </head>
 <body>
-   <h1 class="heading"> <span>book</span> now </h1>
-   <div class="row">
-    <div class="image">
-        <img src="../images/waiting_room.jpg" alt = "">
-        </div>
-<form action=""  method="post">
-    <h3 > book appointment </h3>
-    <!-- <input type ="text" placeholder="your name" class="box">
-    <input type ="number" placeholder="your number" class="box">
-    <input type ="email" placeholder="your email" class="box"> -->
-    <input type ="time" name ="time" class="box">
-    <input type ="date" name="date"  class="box">
-    <input type ="submit" placeholder="book now" class="btn">
+   <!-- ... your HTML content ... -->
+   <form action="" method="post">
+       <!-- ... your form inputs ... -->
+       <input type="time" name="time" class="box">
+       <input type="date" name="date" class="box">
+       <input type="submit" name="book_now" class="btn">
+   </form>
 
-</form> 
-</div>
 <?php
-    
-    session_start();
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $Duration =  $_POST["time"];
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ensure that the user is logged in
+    if (isset($_SESSION['ID'])) {
+        $user_id = $_SESSION['ID'];
+
+        $Time = $_POST["time"]; // Modify to match your database column name
         $Date = $_POST["date"];
-        
-        $sql = "INSERT INTO timeslots(date, duration) 
-                VALUES ('$Date', '$Duration')";
-    
 
-     
-    // $pdo=new booking_details();
-     
-    // $rv=$pdo->get_all_patient_info($dbo);
-    // print_r($rv);
-
+        // Insert the appointment into the database along with the user's ID
+        $sql = "INSERT INTO timeslots (date, duration, patients_id) 
+                VALUES ('$Date', '$Time', '$user_id')";
 
         $result = mysqli_query($conn, $sql);
 
-        
-    
         if ($result) {
-            
-            header("Location:./book_appointment.php");
+            header("Location:../index/signup.php");
             exit;
-            
         }
+    } else {
+        // Handle the case when the user is not logged in
+        echo "You must be logged in to book an appointment.";
     }
-    
-  
-    ?>
+}
+?>
 </body>
 </html>
