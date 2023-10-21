@@ -173,7 +173,7 @@
             <li><a href="#">Book an appointment</a></li>
             <div class="nav_btn">
             <a href="#"><i class="fa fa-user"></i></a>
-                <a href="#"><button style="right: 110px;">Logout</button></a>
+                <a href="../index/signout.php"><button style="right: 110px;">Logout</button></a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
