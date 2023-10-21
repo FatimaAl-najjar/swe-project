@@ -35,15 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["Password"] = $row["Password"];
                 $_SESSION["Phonenumber"] = $row["Phonenumber"];
 
-                // Redirect after a successful login
-                header("Location: ../index/book_appointment.php");
-                exit;
-            } else {
-                $errormessage="<p style='color: red;'>Incorrect password.</p>";
-            }
-        } else {
-            $errormessage= "<p style='color: red;'>Email not found.</p>";
-        }
+        // Redirect after a successful login
+        header("Location: ../signup.php");
+        exit;
     }
 }
 ?>
