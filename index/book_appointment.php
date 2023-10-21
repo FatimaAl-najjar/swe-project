@@ -4,7 +4,19 @@ include_once "../includes/dbh.inc.php";
  
 // include_once "/includes/login.php";
 ?>
+<?php
+ 
 
+// Get the current date and time
+$currentDateTime = new DateTime();
+
+// Add 30 minutes to the current date and time
+$halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
+
+// Format the date and time to match the HTML input format
+$halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +38,9 @@ include_once "../includes/dbh.inc.php";
    </div>
    <form action="" method="post">
        <!-- ... your form inputs ... -->
-       <input type="time" name="time" class="box">
-       <input type="date" name="date" class="box">
+       <!-- <input type="time" name="time" class="box"> -->
+       <input type="datetime-local" name="datetime" class="box" min="<?php echo $halfHourLaterFormatted; ?>">
+       <!-- <input type="date" name="date" class="box"> -->
        <input type="submit" name="book_now" class="btn">
         
        </form>
@@ -41,17 +54,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ensure that the user is logged in
     if (isset($_SESSION['ID'])) {
         $user_id = $_SESSION['ID'];
+        $DateTime = $_POST["datetime"];
+        $selectedDateTime = new DateTime($DateTime);
+        $Date = $selectedDateTime->format('Y-m-d');
+        $Time = $selectedDateTime->format('H:i:s');
 
-        $Time = $_POST["time"]; // Modify to match your database column name
-        $Date = $_POST["date"];
+        // Calculate the start and end time of the half-hour range
+        $halfHourEarlier = clone $selectedDateTime;
+        $halfHourEarlier->sub(new DateInterval('PT30M'));
+        $startTime = $halfHourEarlier->format('H:i:s');
+        $endTime = $Time;
 
-        $checkSql = "SELECT * FROM timeslots WHERE date = '$Date' AND duration = '$Time'";
+        // Check if there are any existing appointments within the half-hour range
+        $checkSql = "SELECT * FROM timeslots WHERE date = '$Date' AND duration >= '$startTime' AND duration <= '$endTime'";
         $checkResult = mysqli_query($conn, $checkSql);
 
         if (mysqli_num_rows($checkResult) > 0) {
-            // The time slot is already booked
-            echo "This time slot is already booked. Please choose a different time.";
-        } else {
+            // There is already an appointment within the half-hour range
+            echo "There is already an appointment booked within the selected time range. Please choose a different time.";
+        }  else {
             // Insert the appointment into the database along with the user's ID
             $sql = "INSERT INTO timeslots (date, duration, patients_id) 
                     VALUES ('$Date', '$Time', '$user_id')";
