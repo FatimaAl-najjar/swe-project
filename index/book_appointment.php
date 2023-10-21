@@ -1,6 +1,6 @@
 <?php
 include_once "../includes/dbh.inc.php";
-include '../includes/nav2.php';
+// include '../includes/nav2.php';
  
 // include_once "/includes/login.php";
 ?>
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-            header("Location:../index/signup.php");
+            header("Location:../index/book_appointment.php");
             exit;
         }
     } else {
