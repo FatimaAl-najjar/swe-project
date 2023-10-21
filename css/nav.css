@@ -1,4 +1,5 @@
- .navbar {
+
+        .navbar {
             position: fixed;
             top: 0px;
             width: 100%;
@@ -36,7 +37,7 @@
         }
 
         .navbar li a {
-            position: relative; 
+            position: relative; /* Add relative positioning to the anchor element */
         }
 
         .navbar li a::after {
@@ -70,7 +71,6 @@
 
         body {
             margin-top: 70px;
-            background-color: #000040;
         }
 
         .nav_btn button {
@@ -92,24 +92,13 @@
             border-radius: 10px;
         }
 
-         .nav_btn button.bt {
-           margin: 3px;
-            padding: 7px;
-            font-size: 20px;
-            position: fixed;
-            top: 50px;
-            right: 20px;
-            outline: none;
-            color: #484da0;
-            background: #ffffff;
-         }
 
         .navbar .icon {
             display: none;
         }
 
         /* Hide the li elements in the navbar when the page is resized */
-        @media screen and (max-width: 1400px) {
+        @media screen and (max-width: 1500px) {
             .navbar:not(.responsive) li:not(:first-child) {
                 display: none;
             }
@@ -133,5 +122,5 @@
 
             .navbar.responsive li {
                 display: block;
-            }
+            }    
         }
