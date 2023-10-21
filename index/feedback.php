@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../includes/nav.php';
+// include '../includes/nav.php';
 include_once "../includes/dbh.inc.php";
 ?> 
 
@@ -13,23 +13,27 @@ include_once "../includes/dbh.inc.php";
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     </head>
     <body>
+        <!-- PHP  -->
         <?php
-        echo '<div class="alert alert-warning" role="alert">
-            A simple warning alert—check it out!
-        </div>'
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $email = $_POST['email'];
+            $feedback = $_POST['feedback'];
+            echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Success!</strong> feedback is submitted from ' .$email. ' Thank You!!</div>';
+        }
         ?>
+        <!-- PHP  -->
         <div class="container mt-5">
             <h2>Please, enter your e-mail and feedback.</h2>
-            <form action="../index.php" method="post">
+            <form action="#" method="post">
                 <div class="mb-3">
-                    <label for="ControlInput1" class="form-label">Email address</label>
-                    <input type="email" name="Email" class="form-control" id="ControlInput1" placeholder="name@example.com">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                 </div>
                 <div class="mb-3">
-                    <label for="Txtarea1" class="form-label">Enter your feedback</label>
-                    <textarea class="form-control" name="feedback" id="Txtarea1" rows="3"></textarea>
+                    <label for="feedback" class="form-label">Enter your feedback</label>
+                    <textarea class="form-control" name="feedback" id="feedback" rows="3"></textarea>
                 </div>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             
         </div>
