@@ -6,6 +6,8 @@
 <a href='view_profile.php'>View Profile</a>
 <br>
 <a href='feedback.php'>Feedback</a>
+<br>
+<a href='book_appointment.php'>Book Appointment</a>
 <br><br>
 
 <footer><?php include '../includes/footer.php';?></footer>
