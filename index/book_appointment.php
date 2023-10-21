@@ -28,7 +28,7 @@ include_once "../includes/dbh.inc.php";
        <!-- ... your form inputs ... -->
        <input type="time" name="time" class="box">
        <input type="date" name="date" class="box">
-       <input type="submit" name="book_now" class="btn1">
+       <input type="submit" name="book_now" class="btn">
         
        </form>
    </div>
@@ -45,22 +45,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Time = $_POST["time"]; // Modify to match your database column name
         $Date = $_POST["date"];
 
-        // Insert the appointment into the database along with the user's ID
-        $sql = "INSERT INTO timeslots (date, duration, patients_id) 
-                VALUES ('$Date', '$Time', '$user_id')";
-        $try="SELECT ID FROM timeslots
-        WHERE patients_id = $user_id;";
-        
-        $result = mysqli_query($conn, $sql);
- 
+        $checkSql = "SELECT * FROM timeslots WHERE date = '$Date' AND duration = '$Time'";
+        $checkResult = mysqli_query($conn, $checkSql);
 
-        if ($result) {
-            header("Location:../index/book_appointment.php");
-            exit;
+        if (mysqli_num_rows($checkResult) > 0) {
+            // The time slot is already booked
+            echo "This time slot is already booked. Please choose a different time.";
+        } else {
+            // Insert the appointment into the database along with the user's ID
+            $sql = "INSERT INTO timeslots (date, duration, patients_id) 
+                    VALUES ('$Date', '$Time', '$user_id')";
+            $result = mysqli_query($conn, $sql);
+
+            if ($result) {
+                header("Location:../index/book_appointment.php");
+                exit;
+            } else {
+                echo "Error booking the appointment.";
+            }
         }
     } else {
         // Handle the case when the user is not logged in
-        echo "You must be logged in to book an appointment.";
+        echo"You must be logged in to book an appointment.";
     }
 }
 ?>
