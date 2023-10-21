@@ -1,7 +1,7 @@
 <?php 
 session_start();
 // include '../includes/nav.php';
-include_once "../includes/dbh.inc.php";
+// include_once "../includes/dbh.inc.php";
 ?> 
 
 <!doctype html>
@@ -18,8 +18,22 @@ include_once "../includes/dbh.inc.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST['email'];
             $feedback = $_POST['feedback'];
-            echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Success!</strong> feedback is submitted from ' .$email. ' Thank You!!</div>';
         }
+        $conn = mysqli_connect('localhost', 'root', '', 'clinic');
+        if(!$conn) {
+            echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Connection failed!</strong></div>' .mysqli_connect_error();
+        }
+        else {
+            $sql = "INSERT INTO feedback(Email, Feedback) VALUES ('$email', '$feedback')";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Success!</strong> feedback is submitted from ' .$email. ' Thank You!!</div>';
+            }
+            else {
+                echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Error Uploading data!</strong></div>'.mysqli_error($conn);
+            }
+        }
+
         ?>
         <!-- PHP  -->
         <div class="container mt-5">
