@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
-
+?>
 $errormessage="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST["Email"];

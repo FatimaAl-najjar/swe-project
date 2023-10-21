@@ -1,8 +1,8 @@
 
- <?php
+<?php
 session_start();
-   session_start();
 include_once "../includes/dbh.inc.php";
+ include "../includes/nav.php"; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
