@@ -29,7 +29,24 @@
     flex-wrap: wrap;
     gap: 2rem;
 }
-.row.image{
+.home-img img{
+    border-radius: 20%;
+    max-width: 100%;
+    /* margin: 40px; */
+    /* margin-top: 100px; */
+    /* width: 70%;
+    height: 30%; */
+    margin-top: 55px;
+     padding-left: 20px;
+    width: 540px;
+    height: 470px;
+ }
+ .home-img img{
+    max-width: 100%;
+    width: 540px;
+    height: 500px;
+  }
+/* .row.image{
     flex:1 1 45rem ;
     width : 10cm;
     height: 7cm;
@@ -37,7 +54,7 @@
 .row.image img{
      width : 10cm;
     height: 7cm;
-}
+} */
 .btn{
     display: block;
     margin-top: 1rem;
