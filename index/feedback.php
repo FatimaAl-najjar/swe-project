@@ -1,7 +1,7 @@
 <?php 
 session_start();
-// include '../includes/nav.php';
-include_once "../includes/dbh.inc.php";
+include '../includes/nav.php';
+// include_once "../includes/dbh.inc.php";  // I made it from scratch line 22
 ?> 
 
 <!doctype html>
@@ -18,8 +18,23 @@ include_once "../includes/dbh.inc.php";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST['email'];
             $feedback = $_POST['feedback'];
-            echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Success!</strong> feedback is submitted from ' .$email. ' Thank You!!</div>';
+        
+            $conn = mysqli_connect('localhost', 'root', '', 'clinic');
+            if(!$conn) {
+                echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Connection failed!</strong></div>' .mysqli_connect_error();
+            }
+            else {
+                $sql = "INSERT INTO feedback(Email, Feedback) VALUES ('$email', '$feedback')";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Success!</strong> feedback is submitted from ' .$email. ' Thank You!!</div>';
+                }
+                else {
+                    echo '<div class="alert alert-warning alert-dismissible fade show" role"alert"><strong>Error Uploading data!</strong></div>'.mysqli_error($conn);
+                }
+            }
         }
+
         ?>
         <!-- PHP  -->
         <div class="container mt-5">
@@ -34,10 +49,13 @@ include_once "../includes/dbh.inc.php";
                     <textarea class="form-control" name="feedback" id="feedback" rows="3"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="homePage.php"><button type="button" class="btn btn-primary">Back</button></a>
             </form>
-            
         </div>
+        <br>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
+
+<footer><?php include '../includes/footer.php';?></footer>
