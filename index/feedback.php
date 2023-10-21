@@ -1,3 +1,9 @@
+<?php 
+session_start();
+include '../includes/nav.php';
+include_once "../includes/dbh.inc.php";
+?> 
+
 <!doctype html>
 <html lang="en">
     <head>
