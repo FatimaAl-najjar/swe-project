@@ -36,6 +36,7 @@
                 <i class="fa fa-bars"></i>
             </a>
         </ul>
+        
         <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");
@@ -45,6 +46,7 @@
                 x.className = "navbar";
             }
         }
+
     </script>
     </body>
     </html>';

@@ -1,13 +1,9 @@
 <?php
 include_once "../includes/dbh.inc.php";
-// include '../includes/nav2.php';
+ include '../includes/nav2.php';
  
 // include_once "/includes/login.php";
 ?>
- <img src="../images/L1.png" alt="logo">
- <br>
- <img src="../images/L1.png" alt="logo">
- <br>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +28,41 @@ include_once "../includes/dbh.inc.php";
        <!-- ... your form inputs ... -->
        <input type="time" name="time" class="box">
        <input type="date" name="date" class="box">
-       <input type="submit" name="book_now" class="btn">
+       <input type="submit" name="book_now" class="btn1">
         
        </form>
    </div>
 
+ 
+<?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ensure that the user is logged in
+    if (isset($_SESSION['ID'])) {
+        $user_id = $_SESSION['ID'];
+
+        $Time = $_POST["time"]; // Modify to match your database column name
+        $Date = $_POST["date"];
+
+        // Insert the appointment into the database along with the user's ID
+        $sql = "INSERT INTO timeslots (date, duration, patients_id) 
+                VALUES ('$Date', '$Time', '$user_id')";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            header("Location:../index/book_appointment.php");
+            exit;
+        }
+    } else {
+        // Handle the case when the user is not logged in
+        echo "You must be logged in to book an appointment.";
+    }
+}
+?>
+ 
+ </body>
+</html>
+
+    <?php include '../includes/footer.php';?>

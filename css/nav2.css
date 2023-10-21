@@ -4,7 +4,7 @@
                 top: 0px;
                 width: 100%;
                 list-style-type: none;
-                margin-left: -9px;
+                margin-left: -15px;
                 margin-top: 0px;
                 z-index: 9999;
                 padding: 0px;
@@ -57,20 +57,16 @@
     
             .logo-image {
                 padding-left: 50px;
-                padding-right: 250px;
+                padding-right: 300px;
                 height: 90px;
                 width: 330px;
             }
     
             .logo-scroll {
-                padding-left: 180px;
+                padding-left: 190px;
                 height: 80px;
                 width: 96px;
-                padding-right: 350px;
-            }
-    
-            body {
-                margin-top: 70px;
+                padding-right: 390px;
             }
     
             .nav_btn button {
