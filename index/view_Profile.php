@@ -1,12 +1,12 @@
-<?php include '../includes/nav.php';?>
-
-<!-- <?php
+<?php 
 session_start();
-?> -->
+include '../includes/nav.php';
+include_once "../includes/dbh.inc.php";
+?> 
 
 <head>
     <title>View Profile</title>
-  <!-- //  <link rel="stylesheet" href="../css/viewProfile.css"> -->
+    <!-- <link rel="stylesheet" href="../css/viewProfile.css"> -->
 </head>
 <body>
     <!-- Header  -->
