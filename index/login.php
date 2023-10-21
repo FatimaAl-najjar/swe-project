@@ -1,13 +1,12 @@
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
-?>
-<?php
+
 $errormessage="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
-}
+
     // Validate email (you can add more comprehensive email validation)
     if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
          $errormessage= "<p style='color: red;'>Invalid email format.</p>";
@@ -24,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Get the result
         $result = mysqli_stmt_get_result($stmt);
-    }
+
         if ($row = mysqli_fetch_assoc($result)) {
             // Verify the password
             if ($Password === $row["Password"]) {
@@ -36,11 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["Password"] = $row["Password"];
                 $_SESSION["Phonenumber"] = $row["Phonenumber"];
 
-        // Redirect after a successful login
-        header("Location: ../signup.php");
-        exit;
+                // Redirect after a successful login
+                header("Location: ../index/homePage.php");
+                exit;
+            } else {
+                $errormessage="<p style='color: red;'>Incorrect password.</p>";
+            }
+        } else {
+            $errormessage= "<p style='color: red;'>Email not found.</p>";
+        }
     }
-        
 }
 ?>
 
