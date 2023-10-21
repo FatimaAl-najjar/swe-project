@@ -1,9 +1,10 @@
 <?php
 include_once "../includes/dbh.inc.php";
-include '../includes/nav.php';
+include '../includes/nav2.php';
  
 // include_once "/includes/login.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,8 @@ include '../includes/nav.php';
         
        </form>
    </div>
+
+ 
 <?php
 session_start();
 
@@ -59,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
  
-</body>
+ </body>
 </html>
 <footer>
     <?php include '../includes/footer.php';?>
