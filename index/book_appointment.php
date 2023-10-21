@@ -48,8 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Insert the appointment into the database along with the user's ID
         $sql = "INSERT INTO timeslots (date, duration, patients_id) 
                 VALUES ('$Date', '$Time', '$user_id')";
-
+        $try="SELECT ID FROM timeslots
+        WHERE patients_id = $user_id;";
+        
         $result = mysqli_query($conn, $sql);
+ 
 
         if ($result) {
             header("Location:../index/book_appointment.php");
