@@ -36,6 +36,9 @@ $halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');
    <div class="home-img">
     <img class="my-img" src="../images/waiting_room2.jpg">
    </div>
+   <!-- <div class="message-box">
+     Appointments are available from Saturday to Thursday from 5 pm to 10 pm only.
+   </div> -->
    <form action="" method="post">
        <!-- ... your form inputs ... -->
        <!-- <input type="time" name="time" class="box"> -->

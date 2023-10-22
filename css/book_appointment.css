@@ -29,9 +29,12 @@
   }
 .row{
     display: flex;
-    align-items: center;
+    align-items:center;
     flex-wrap: wrap;
     gap: 2rem;
+    /* position: fixed;
+top: 0;
+left: 0; */
 }
 .home-img img{
     border-radius: 20%;
@@ -125,6 +128,16 @@
     padding: 10px;
     margin-top: 10px;
   }
+  /* .message-box {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 35px;
+} */
  /* @media(max-width:991px)
  {
     html{
