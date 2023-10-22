@@ -87,6 +87,7 @@
     color: #fff;
 }
 .row form{
+    padding-top:70px;
     flex: 1 1 45rem;
     background: #fff;
     border: var(--border);
@@ -105,7 +106,7 @@
  }
  .row form .box{
     width: 87%;
-   
+   height: 100px;
     margin: .4rem 0;
     border-radius: .5rem;
     border: var(--border);
@@ -113,10 +114,17 @@
     color: var(--black);
     text-transform: none;
     padding: 1rem;
+    
  }
  .row form .btn1{
     padding: 0.5rem 0.5rem;
  }
+ .error-box {
+    background-color: #ffcccc;
+    color: #ff0000;
+    padding: 10px;
+    margin-top: 10px;
+  }
  /* @media(max-width:991px)
  {
     html{
