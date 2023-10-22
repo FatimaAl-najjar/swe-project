@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Time = $selectedDateTime->format('H:i:s');
         // Check if the selected day is within Saturday to Thursday
         $selectedDay = $selectedDateTime->format('N'); // 1 (Monday) to 7 (Sunday)
-        if ($selectedDay < 1) { // Not Saturday to Thursday
+        if ($selectedDay ==5) { // Not Saturday to Thursday
             echo "<div class='error-box'>Appointments are only available from Saturday to Thursday.</div>";
             exit;
         }
