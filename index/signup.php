@@ -42,7 +42,7 @@ include_once "../includes/dbh.inc.php";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     // Redirect after a successful registration
-                    header("Location: ../index/login.php");
+                    header("Location: ../index/Homepage.php");
                     exit;
                 } else {
                     $errorMessage = "<h2>An error occurred during registration.</h2>";
