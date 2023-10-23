@@ -18,18 +18,16 @@ include_once "../includes/dbh.inc.php";
 
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            // Get the date of the announcement
-            $dateAdded = strtotime($row["date_added"]);
-            $currentDate = strtotime(date("Y-m-d")); // Get the current date
+            $announcement = $row["announcement"];
+            $dateAdded = date("Y-m-d", strtotime($row["date_added"]));
+            $timeAdded = date("H:i:s", strtotime($row["date_added"]));
     
-            // Calculate the difference in days between the current date and the date the announcement was added
-            $daysDifference = floor(($currentDate - $dateAdded) / (60 * 60 * 24));
+            // Get the current date and time
+            $currentDate = date("Y-m-d");
+            $currentTime = date("H:i:s");
     
-            // Display the announcement if it has been less than or equal to 7 days (1 week)
-            if ($daysDifference <= 7) {
-                echo "<p>" . $row["announcement"] . "</p>";
-            }
-        }
+    
+        }    
     }else {
         echo "<p>No announcements available.</p>";
     }
