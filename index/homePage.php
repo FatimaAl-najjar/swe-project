@@ -9,7 +9,7 @@
 <br>
 <a href='book_appointment.php'>Book Appointment</a>
 <br><br>
-
+<a href='edit.php'>Edit Profile</a><br><br>
 <footer><?php include '../includes/footer.php';?></footer>
     
 

@@ -23,7 +23,7 @@ include_once "../includes/dbh.inc.php";
                 <div class="profile-info">
                     <p class="profile-label">User Name:</p>
                     <p class="profile-value"><?php echo $_SESSION["FirstName"] . " " . $_SESSION["LastName"]; ?></p>
-                        
+  
                     <p class="profile-label">Email:</p>
                     <p class="profile-value"><?php echo $_SESSION["Email"]; ?></p>
                         
