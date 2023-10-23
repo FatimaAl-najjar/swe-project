@@ -59,18 +59,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 include "../includes/nav.php";
 ?>
 <br><br><br><br>
-<h1>Login</h1>
+
+<div class="card">
+    <h1>Login</h1>
 <form action="" method="POST">
     <label>Email:</label>
     <input type="text" placeholder="please enter your email" name="Email" required><br>
     <label>Password:</label>
     <input type="password" placeholder="please enter your password" name="Password" required><br>
-    <button type="submit" value="submit">Login</button>
-     
+    <button class="btn" type="submit" value="submit">Login</button>
+    <a href="signup.php"><button type="button" class="btn">Back</button></a>     </form>
+</div>
 <?php
 echo $errormessage;
 ?>
-</form>
+
  
 </body>
 </html>
