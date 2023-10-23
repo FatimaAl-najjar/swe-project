@@ -1,0 +1,114 @@
+/* styles.css */
+
+/* Optional: Add custom styles for the form container if needed */
+.container {
+    max-width: 600px;
+    margin: 10px auto;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+/* Apply styles to the form elements */
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 13px;
+    font-weight: bold;
+}
+
+input[type="email"]{
+    background-color: #f3e7e7;
+    width: 95%;
+    padding: 10px;
+    -o-border-radius: 7px;
+    border: 3px solid #484da0;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    border-radius: 7px;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 3px solid #484da0;
+    -o-border-radius: 7px;
+    background-color: #f3e7e7;
+    font-size: 16px;
+    resize: none;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    border-radius: 7px;
+}
+button[type="submit"],
+button[type="button"] {
+    padding: 11px 50px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size:15px;
+}
+
+.btn-primary {
+    background-color:#484da0;
+    color: #fff;
+    border: none;
+    opacity: 0.9;
+}
+
+.btn-secondary {
+   background-color:#484da0;;
+    color: #fff;
+    border: none;
+    opacity: 0.9;
+}
+
+.btn-primary:hover {
+    opacity: 1;
+}
+
+.btn-secondary:hover {
+    opacity: 1;
+}
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  
+  .alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+  
+  .alert-dismissible {
+    position: relative;
+    padding-right: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .alert strong {
+    font-weight: bold;
+  }
+  
+  .alert .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    color: inherit;
+  }
+  
+  .alert .close:focus {
+    outline: none;
+    box-shadow: none;
+  }
