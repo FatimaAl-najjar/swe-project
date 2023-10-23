@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
 </head>
-
-<body>
-
-<footer>
+<footer style="background:#484da0;">
     <h1 class="footer-title">
     <img src="../images/L1.png" alt="logo" />
     </h1>
@@ -39,6 +36,5 @@
 <p class="footer-credit">Dr.MERHAN SAMY © 2023 All Rights Reserved.</p>
 </footer>
     
-</body>
 </html>';
 ?>

@@ -1,3 +1,4 @@
+<body>
 <title>homepage</title>
 <?php include '../includes/nav2.php';?>
 <br><br>
@@ -10,6 +11,9 @@
 <a href='book_appointment.php'>Book Appointment</a>
 <br><br>
 <a href='edit.php'>Edit Profile</a><br><br>
+
+</body>
 <footer><?php include '../includes/footer.php';?></footer>
+
     
 

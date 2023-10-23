@@ -134,7 +134,6 @@ include_once "../includes/dbh.inc.php";
             </div>
             <div class="container5">
                 <h1>Client Reviews</h1>
-        
                 <div class="review" id="review1">
                     <div class="avatar"></div>
                     <div class="text">
@@ -192,5 +191,6 @@ include_once "../includes/dbh.inc.php";
         </script> 
 
 </body>
-
-</html><footer><?php include '../includes/footer.php';?></footer>
+<footer  style="background:#484da0;">
+<?php include '../includes/footer.php';?></footer>
+</html>
