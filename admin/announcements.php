@@ -4,8 +4,8 @@ include_once "../includes/dbh.inc.php";
 
 if (isset($_POST['submit'])) {
     $announcement = $_POST['announcement'];
-    $dateAdded = date("Y-m-d"); // Get the current date
-    
+    $dateAdded = date("Y-m-d H:i:s"); // Get the current date and time
+
     // Insert the announcement and current date into the table
     $sql = "INSERT INTO announcements (announcement, date_added) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
