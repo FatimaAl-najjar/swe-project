@@ -7,7 +7,7 @@
             margin-left: -9px;
             margin-top: 0px;
             z-index: 9999;
-            padding: 0px;
+            padding: 10px;
             overflow: hidden;
             background-color: #ffffff;
         }
@@ -117,7 +117,7 @@
         }
          
         /* Hide the li elements in the navbar when the page is resized */
-        @media screen and (max-width: 1500px) {
+        @media screen and (max-width: 1400px) {
             .navbar:not(.responsive) li:not(:first-child) {
                 display: none;
             }
