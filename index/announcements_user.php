@@ -29,8 +29,16 @@ include_once "../includes/dbh.inc.php";
     // Calculate the difference in days between the current date and the date the announcement was added
     $daysDifference = floor((strtotime($currentDate) - strtotime($dateAdded)) / (60 * 60 * 24));
         }    
-        
-    }else {
+         // Display the announcement if it has been less than or equal to 7 days (1 week)
+         if ($daysDifference <= 7) {
+            echo "<p><strong>Date:</strong> $dateAdded</p>";
+            echo "<p><strong>Time:</strong> $timeAdded</p>";
+            echo "<p><strong>Announcement:</strong> $announcement</p>";
+            echo "<hr>";
+        }
+    }
+
+    else {
         echo "<p>No announcements available.</p>";
     }
     ?>
