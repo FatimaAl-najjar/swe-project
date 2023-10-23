@@ -12,7 +12,7 @@ if (isset($_SESSION["Email"])) {
     $password = $_SESSION["Password"];
 } else {
     // Redirect to the login or signup page
-    header("Location: signup.php");
+    header("Location: homepage.php");
     exit();
 }
 ?> 
