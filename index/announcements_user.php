@@ -26,8 +26,10 @@ include_once "../includes/dbh.inc.php";
             $currentDate = date("Y-m-d");
             $currentTime = date("H:i:s");
     
-    
+    // Calculate the difference in days between the current date and the date the announcement was added
+    $daysDifference = floor((strtotime($currentDate) - strtotime($dateAdded)) / (60 * 60 * 24));
         }    
+        
     }else {
         echo "<p>No announcements available.</p>";
     }
