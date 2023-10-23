@@ -9,7 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate email (you can add more comprehensive email validation)
     if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
-         $errormessage= "<p style='color: red;'>Invalid email format.</p>";
+        $errormessage = "<script>alert('Invalid Email Format');</script>";
+
     } else {
         // Use prepared statements to prevent SQL injection
         $sql = "SELECT * FROM patients WHERE Email = ?";
@@ -39,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../index/homePage.php");
                 exit;
             } else {
-                $errormessage="<p style='color: red;'>Incorrect password.</p>";
+                $errormessage = "<script>alert('Incorrect password.');</script>";
             }
         } else {
-            $errormessage= "<p style='color: red;'>Email not found.</p>";
+            $errormessage = "<script>alert('Invalid Email Format');</script>";
         }
     }
 }
