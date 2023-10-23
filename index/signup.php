@@ -41,6 +41,14 @@ include_once "../includes/dbh.inc.php";
     
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
+                    // Set session variables
+                $_SESSION["ID"] = $row["ID"];
+                $_SESSION["FirstName"] = $row["FirstName"];
+                $_SESSION["LastName"] = $row["LastName"];
+                $_SESSION["Email"] = $row["Email"];
+                $_SESSION["Password"] = $row["Password"];
+                $_SESSION["Phonenumber"] = $row["Phonenumber"];
+
                     // Redirect after a successful registration
                     header("Location: ../index/Homepage.php");
                     exit;
