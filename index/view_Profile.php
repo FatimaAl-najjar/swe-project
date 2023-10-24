@@ -22,13 +22,13 @@ include_once "../includes/dbh.inc.php";
                 <br><hr><br>
                 <div class="profile-info">
                     <p class="profile-label">User Name:</p>
-                    <p class="profile-value"><?php    echo $_SESSION["FirstName"] . " " . $_SESSION["LastName"]; ?></p>
+                    <p class="profile-value"><?php if (isset($_SESSION['ID'])){ echo $_SESSION["FirstName"] . " " . $_SESSION["LastName"]; }?></p>
   
                     <p class="profile-label">Email:</p>
-                    <p class="profile-value"><?php   echo $_SESSION["Email"]; ?></p>
+                    <p class="profile-value"><?php  if (isset($_SESSION['ID'])){ echo $_SESSION["Email"];} ?></p>
                         
                     <p class="profile-label">Password:</p>
-                    <p class="profile-value"><?php  echo $_SESSION["Password"]; ?></p>
+                    <p class="profile-value"><?php if (isset($_SESSION['ID'])){ echo $_SESSION["Password"]; }?></p>
                 </div>
             </form>
         </div>
