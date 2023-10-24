@@ -45,6 +45,16 @@
     border-radius: 30px;
     cursor: pointer;
  }
+ @media(max-width:1425px){
+    section{
+        padding: 70px 3%;
+        transition: .3s;
+     }
+     .contact{
+        width: 95%;
+        transition: .3s;
+     }
+    }
  @media(max-width:800px){
     section{
         padding: 65px 3%;
