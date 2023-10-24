@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $dateAdded = date("Y-m-d H:i:s"); // Get the current date and time
 
     if (empty(trim($announcement))) {
-        echo "Error: Announcement field is required";
+        echo " Error: Announcement field is required";
     } else {
         // Insert the announcement and current date into the table
         $sql = "INSERT INTO announcements (announcement, date_added) VALUES (?, ?)";

@@ -45,6 +45,7 @@
     border-radius: 30px;
     cursor: pointer;
  }
+ 
  @media(max-width:1425px){
     section{
         padding: 120px 10%;
