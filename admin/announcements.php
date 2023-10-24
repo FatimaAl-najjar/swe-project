@@ -24,10 +24,26 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <!-- Form for adding new announcements -->
-    <form method="POST" action="">
-        <textarea name="announcement" placeholder="Enter announcement"></textarea>
-        <button type="submit" name="submit">Add Announcement</button>
-    </form>
+    
+    
+    <section class="contact" id="Contact">
+        <div class="container">
+            <div class="center">
+                <h3>Announcements! </h3>
+                <p>Is there any new updates! </p>
+            </div>
+
+             <div class="action">
+               <form method="POST" action="">
+               <textarea name="announcement" placeholder="Enter announcement"></textarea>
+               <button type="submit" name="submit">Add Announcement</button>
+                 <!-- <input type="submit" name="submit" value="Submit"> -->
+
+               </form>
+             </div>
+
+        </div>
+     </section>
  
  </body>
 </html>
