@@ -27,7 +27,7 @@
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
         <li><a href="#">Home</a></li>
         <li><a href="#">Services</a></li>
-         
+        <li><a href="#">Contact</a></li>
         <div class="nav_btn">
             <a href="login.php"><button style="right: 110px;">Log in</button></a>
             <a href="signup.php"><button>Sign up</button></a>
