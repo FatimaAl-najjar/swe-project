@@ -35,3 +35,13 @@
     margin: 0 10px 20px 0;
     border-radius: 30px;
  }
+ .announcement .action form button[type="submit"]{
+    padding: 12px 15px;
+    background: #a6b1e1;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin: 0 10px 20px 0;
+    border-radius: 30px;
+    cursor: pointer;
+ }
