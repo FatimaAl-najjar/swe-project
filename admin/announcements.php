@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
-
+ 
 if (isset($_POST['submit'])) {
     $announcement = $_POST['announcement'];
     $dateAdded = date("Y-m-d H:i:s"); // Get the current date and time
@@ -48,3 +48,4 @@ if (isset($_POST['submit'])) {
  
  </body>
 </html>
+ 

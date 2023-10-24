@@ -17,3 +17,9 @@
     margin-bottom: 3px;
     color: var(--bg-color);
  }
+ .center p{
+    font-size: var(--p-font);
+    color: var(--bg-color);
+    line-height: 26px;
+    margin-bottom: 25px;
+ }
