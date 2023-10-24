@@ -11,3 +11,9 @@
     background-image: url(./images/mauve\ background.jpg);
     background-size: cover;
  }
+ .center h3{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--bg-color);
+ }
