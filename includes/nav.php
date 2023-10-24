@@ -33,7 +33,7 @@
             <a href="login.php"><button style="right: 110px;">Log in</button></a>
             <a href="signup.php"><button>Sign up</button></a>
         </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon2" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
     </ul>

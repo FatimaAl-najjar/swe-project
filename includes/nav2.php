@@ -30,9 +30,9 @@
             <li><a href="#">Book an appointment</a></li>
             <div class="nav_btn">
             <a href="../index/view_Profile.php"><i class="fa fa-user"></i></a>
-                <a href="../index/signout.php"><button class="bt">Logout</button></a>
+                <a href="../index/signout.php"><button >Logout</button></a>
             </div>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <a href="javascript:void(0);" class="icon1" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
         </ul>
