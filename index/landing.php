@@ -14,19 +14,6 @@ include_once "../includes/dbh.inc.php";
     <link rel="stylesheet" type="text/css" href="../css/home.css" />
 </head>
 <body>
-    <!-- <div class="nav">
-        <div class="elementsnav">
-            <div class="leftnav">
-                <img class="navpic" src="./images/pic1.png">
-            </div>
-            <div class="rightnav">
-                <a  id = "aboutdoctor"class ="navbutton"href="#">ABOUT DOCTOR</a><br/>
-                <a  id = "services"class ="navbutton"href="#">SERVICES</a><br/>
-                <a  id = "research"class ="navbutton"href="#">RESEARCH</a><br/>
-                <a  id = "contact"class ="navbutton"href="#">CONTACT US </a><br/>
-            </div>
-        </div>
-    </div> -->
     <div class="container">
         <img class="img" src="../images/background1.jpeg" alt="medicalbackground">
         <div class="text-block">

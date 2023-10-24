@@ -4,7 +4,7 @@
     <html>
     <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/nav2.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
     <script>
             window.addEventListener("scroll", function() {
@@ -30,7 +30,7 @@
             <li><a href="#">Book an appointment</a></li>
             <div class="nav_btn">
             <a href="../index/view_Profile.php"><i class="fa fa-user"></i></a>
-                <a href="../index/signout.php"><button style="right: 110px;">Logout</button></a>
+                <a href="../index/signout.php"><button class="bt">Logout</button></a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
