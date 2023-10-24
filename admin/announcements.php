@@ -20,13 +20,14 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/admin_announcements.css">
     <title>Announcements</title>
 </head>
 <body>
     <!-- Form for adding new announcements -->
     
     
-    <section class="contact" id="Contact">
+    <section class="announcement">
         <div class="container">
             <div class="center">
                 <h3>Announcements! </h3>

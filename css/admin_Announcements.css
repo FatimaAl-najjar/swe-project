@@ -1,0 +1,13 @@
+.announcement{
+    background: #00316e;;
+    width: 64%;
+    margin: 100px auto;
+    padding: 70px 150px;
+    display:flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    border-radius: 12px;
+    background-image: url(./images/mauve\ background.jpg);
+    background-size: cover;
+ }
