@@ -47,22 +47,30 @@
  }
  @media(max-width:1425px){
     section{
-        padding: 70px 3%;
+        padding: 120px 10%;
         transition: .3s;
      }
-     .contact{
-        width: 95%;
+     .announcement{
+        width: 30%;
         transition: .3s;
      }
+    
     }
  @media(max-width:800px){
     section{
-        padding: 65px 3%;
+        padding: 80px 8%;
         transition: .3s;
+     }
+     .announcement .action form textarea[type="text"]{
+        width:280px
      }
   }
  @media(max-width:540px){
-    .contact .action form input[type="email"]{
-       width:310px
+    .announcement{
+        width: 25%;
+        transition: .3s;
+     }
+    .announcement .action form textarea[type="text"]{
+       width:290px
     }
  }
