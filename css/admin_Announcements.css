@@ -45,6 +45,12 @@
     border-radius: 30px;
     cursor: pointer;
  }
+ @media(max-width:800px){
+    section{
+        padding: 65px 3%;
+        transition: .3s;
+     }
+  }
  @media(max-width:540px){
     .contact .action form input[type="email"]{
        width:310px
