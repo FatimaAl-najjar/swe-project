@@ -10,7 +10,7 @@ if (isset($_SESSION["Email"])) {
     $lastName = $_SESSION["LastName"];
     $email = $_SESSION["Email"];
     $password = $_SESSION["Password"];
- 
+} else {
     // Redirect to the login or signup page
     header("Location: view_Profile.php");
     exit();
