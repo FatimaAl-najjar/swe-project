@@ -3,14 +3,6 @@ session_start();
 include '../includes/nav2.php';
 include_once "../includes/dbh.inc.php";
 
- ?>
-
-<head>
-    <title>View Profile</title>
-    <!-- <link rel="stylesheet" href="../css/viewProfile.css"> -->
-</head>
-<body>
-    <?php
 // Check if the user is logged in or signed up
 if (isset($_SESSION["Email"])) {
     // User is logged in or signed up
@@ -24,6 +16,12 @@ if (isset($_SESSION["Email"])) {
     exit();
 }
 ?> 
+
+<head>
+    <title>View Profile</title>
+    <!-- <link rel="stylesheet" href="../css/viewProfile.css"> -->
+</head>
+<body>
     <!-- Header  -->
     <h5>navbar here...</h5>
     <!-- Home  -->
