@@ -12,10 +12,10 @@ include_once "../includes/dbh.inc.php";
 <body>
     <?php
 // Check if the user is logged in or signed up
-if (isset($_SESSION["ID"])) {
+if (isset($_SESSION["Email"])) {
     // User is logged in or signed up
-    $firstName = $_SESSION["firstName"];
-    $lastName = $_SESSION["lastName"];
+    $firstName = $_SESSION["FirstName"];
+    $lastName = $_SESSION["LastName"];
     $email = $_SESSION["Email"];
     $password = $_SESSION["Password"];
  
