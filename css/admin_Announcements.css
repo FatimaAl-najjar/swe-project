@@ -23,3 +23,15 @@
     line-height: 26px;
     margin-bottom: 25px;
  }
+ .announcement .action form textarea[type="text"]{
+
+    max-width: 100%;
+    width: 470px;
+    padding: 12px 15px;
+    background: #ffffff;
+    color:#000;
+    border: none;
+    outline: none;
+    margin: 0 10px 20px 0;
+    border-radius: 30px;
+ }

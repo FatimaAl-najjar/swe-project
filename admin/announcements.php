@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 
              <div class="action">
                <form method="POST" action="">
-               <textarea name="announcement" placeholder="Enter announcement"></textarea>
+               <textarea type="text" name="announcement" placeholder="Enter announcement"></textarea>
                <button type="submit" name="submit">Add Announcement</button>
                  <!-- <input type="submit" name="submit" value="Submit"> -->
 
