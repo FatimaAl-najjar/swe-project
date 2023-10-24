@@ -1,70 +1,69 @@
-
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
- include "../includes/nav.php"; 
+include "../includes/nav.php";
+
+$errorMessage = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $FirstName = $_POST["FirstName"];
+    $LastName = $_POST["LastName"];
+    $Email = $_POST["Email"];
+    $Password = $_POST["Password"];
+    $repeatPassword = $_POST["repeatPassword"];
+    $Phonenumber = $_POST["Phonenumber"];
+
+    if (empty($FirstName) || empty($LastName) || empty($Email) || empty($Password) || empty($repeatPassword) || empty($Phonenumber)) {
+        $errorMessage = "<h2>Please fill in all the required fields.</h2>";
+    } elseif ($Password !== $repeatPassword) {
+        $errorMessage = "<h2>Password mismatch.</h2>";
+    } else {
+        $FirstName = mysqli_real_escape_string($conn, $FirstName);
+        $LastName = mysqli_real_escape_string($conn, $LastName);
+        $Email = mysqli_real_escape_string($conn, $Email);
+        $Password = mysqli_real_escape_string($conn, $Password);
+        $Phonenumber = mysqli_real_escape_string($conn, $Phonenumber);
+
+        $sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+            VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            // Set session variables
+            $_SESSION["ID"] = mysqli_insert_id($conn);
+            $_SESSION["FirstName"] = $FirstName;
+            $_SESSION["LastName"] = $LastName;
+            $_SESSION["Email"] = $Email;
+            $_SESSION["Password"] = $Password;
+            $_SESSION["Phonenumber"] = $Phonenumber;
+
+            // Redirect after a successful registration
+            header("Location: ../index/homepage.php");
+            exit;
+        } else {
+            $errorMessage = "<h2>An error occurred during registration.</h2>";
+        }
+    }
+}
+
+// Cancel button functionality
+if (isset($_POST['cancel'])) {
+    header("Location: ../index/landing.php");
+    exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="../css/signup.css">
- <!-- <link rel="stylesheet" href="../css/nav.css"> -->
+    <link rel="stylesheet" href="../css/signup.css">
     <title>Sign up</title>
 </head>
 <body>
-    <?php   
-        $errorMessage = "";
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $FirstName = $_POST["FirstName"];
-            $LastName = $_POST["LastName"];
-            $Email = $_POST["Email"];
-            $Password = $_POST["Password"];
-            $repeatPassword = $_POST["repeatPassword"];
-            $Phonenumber = $_POST["Phonenumber"];
-            
-            if (empty($FirstName) || empty($LastName) || empty($Email) || empty($Password) || empty($repeatPassword) || empty($Phonenumber)) {
-                $errorMessage = "<h2>Please fill in all the required fields.</h2>";
-            } elseif ($Password !== $repeatPassword) {
-                $errorMessage = "<h2>Password mismatch.</h2>";
-            } else {
-                $FirstName = mysqli_real_escape_string($conn, $FirstName);
-                $LastName = mysqli_real_escape_string($conn, $LastName);
-                $Email = mysqli_real_escape_string($conn, $Email);
-                $Password = mysqli_real_escape_string($conn, $Password);
-                $Phonenumber = mysqli_real_escape_string($conn, $Phonenumber);
-
-                $sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
-                    VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
     
-                $result = mysqli_query($conn, $sql);
-                if ($result) {
-                    // Set session variables
-                $_SESSION["ID"] = $row["ID"];
-                $_SESSION["FirstName"] = $row["FirstName"];
-                $_SESSION["LastName"] = $row["LastName"];
-                $_SESSION["Email"] = $row["Email"];
-                $_SESSION["Password"] = $row["Password"];
-                $_SESSION["Phonenumber"] = $row["Phonenumber"];
-
-                    // Redirect after a successful registration
-                    header("Location: ../index/Homepage.php");
-                    exit;
-                } else {
-                    $errorMessage = "<h2>An error occurred during registration.</h2>";
-                }
-            }
-        }
-         // Cancel button functionality
-         if (isset($_POST['cancel'])) {
-            header("Location: ../index/landing.php");
-            exit;
-        }
-    ?>
-    
-    <br><br><br>
+<br><br><br>
     <div class="card">
         <form action="" method="post">
             <label>First Name:</label>
@@ -82,7 +81,7 @@ include_once "../includes/dbh.inc.php";
             <button class="btn" type="submit" value="submit">Sign Up</button>
             <button class="btn" name="cancel" formnovalidate>Cancel</button>
         </form>
+        <?php echo $errorMessage; ?>
     </div>
-    <?php echo $errorMessage; ?>
 </body>
 </html>

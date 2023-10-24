@@ -24,7 +24,7 @@
     <body>
         <ul class="navbar" id="myTopnav">
             <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-            <li><a href="#">About Me</a></li>
+            <li><a href="homepage.php">Home</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Announcements</a></li>
             <li><a href="#">Book an appointment</a></li>

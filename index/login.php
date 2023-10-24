@@ -69,7 +69,7 @@ include "../includes/nav.php";
     <label>Password:</label>
     <input type="password" placeholder="please enter your password" name="Password" required><br>
     <button class="btn" type="submit" value="submit">Login</button>
-    <a href="signup.php"><button type="button" class="btn">Back</button></a>     </form>
+    <a href="landing.php"><button type="button" class="btn">Back</button></a>     </form>
 </div>
 <?php
 echo $errormessage;

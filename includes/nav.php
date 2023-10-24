@@ -25,7 +25,7 @@
 
     <ul class="navbar" id="myTopnav">
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-        <li><a href="#">About Me</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="#">Services</a></li>
          
         <div class="nav_btn">
