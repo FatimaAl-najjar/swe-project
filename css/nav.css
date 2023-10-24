@@ -51,7 +51,7 @@
 
 .logo-image {
     padding-left: 50px;
-    padding-right: 300px;
+    padding-right: 200px;
     height: 90px;
     width: 330px;
 }
@@ -60,7 +60,7 @@
     padding-left: 180px;
     height: 80px;
     width: 96px;
-    padding-right: 405px;
+    padding-right: 300px;
 }
 
 .nav_btn i {
@@ -69,7 +69,7 @@
     font-size: 30px;
     position: fixed;
     top: 26px;
-    right: 150px;
+    right: 124px;
     outline: none;
     border: 3px solid #484da0;
     -webkit-border-radius: 10px;

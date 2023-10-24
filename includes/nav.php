@@ -27,7 +27,6 @@
         <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
         <li><a href="#">About Me</a></li>
         <li><a href="#">Services</a></li>
-        <li><a href="#">Announcements</a></li>
          
         <div class="nav_btn">
             <a href="login.php"><button style="right: 110px;">Log in</button></a>

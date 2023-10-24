@@ -10,7 +10,7 @@ include_once "../includes/dbh.inc.php";
 </head>
 <body>
     <!-- Header  -->
-    <h5>navbar here...</h5>
+    <br><br><br>
     <!-- Home  -->
     <section class="home">
         <div class="form-container">
