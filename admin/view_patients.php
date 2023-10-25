@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en" title="Coding design">
 
@@ -26,15 +28,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td> 1 </td>
-                        <td> Zinzu Chan Lee</td>
-                        <td> Seoul </td>
-                        <td> 17 Dec, 2022 </td>
-                        <td>
-                            <p class="status delivered">Delivered</p>
-                        </td>
-                    </tr>
+                    <?php foreach ($data as $row): ?>
+                        <tr>
+                            <td><?php echo $row['ID']; ?></td>
+                            <td><?php echo $row['FirstName']; ?></td>
+                            <td><?php echo $row['LastName']; ?></td>
+                            <td><?php echo $row['Email']; ?></td>
+                            <td><?php echo $row['Phonenumber']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </section>
