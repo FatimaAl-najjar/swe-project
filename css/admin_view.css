@@ -17,7 +17,7 @@ body {
 main.table {
     width: 82vw;
     height: 90vh;
-    background-color: #fff5;
+    background-color: rgba(27, 24, 24, 0.333);
 
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
@@ -29,7 +29,7 @@ main.table {
 .table__header {
     width: 100%;
     height: 10%;
-    background-color: #fff4;
+    background-color: rgba(0, 0, 0, 0.267);
     padding: .8rem 1rem;
 
     display: flex;
@@ -40,7 +40,7 @@ main.table {
 .table__header .input-group {
     width: 35%;
     height: 100%;
-    background-color: #fff5;
+    background-color: rgba(0, 0, 0, 0.333);
     padding: 0 .8rem;
     border-radius: 2rem;
 

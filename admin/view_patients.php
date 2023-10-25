@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <body>
     <main class="table">
         <section class="table__header">
-            <h1 style="text-align: center;">All patients</h1>
+            <h1 style="text-align: center; color: white;">All patients</h1>
         </section>
         <section class="table__body">
             <table>
