@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/nav2.php';
+// include '../includes/nav2.php';
 include_once "../includes/dbh.inc.php";
 
 ?>
