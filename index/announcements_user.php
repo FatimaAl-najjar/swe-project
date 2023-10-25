@@ -1,6 +1,6 @@
 <?php
 include_once "../includes/dbh.inc.php";
-
+include '../includes/nav2.php';
 // Retrieve announcements from the database
 $sql = "SELECT * FROM announcements ORDER BY date_added DESC";
 $result = mysqli_query($conn, $sql);
@@ -17,12 +17,15 @@ $announcements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
 <h1>Announcements</h1>
 
-    <!-- Display announcements -->
-    <?php foreach ($announcements as $announcement): ?>
-        <div class="announcement-card">
+<!-- Display announcements -->
+<?php foreach ($announcements as $announcement): ?>
+    <div class="announcement-card">
+        <img class="icon" src="megaphone.jpg" alt="Microphone Icon">
+        <div>
             <p class="date"><?php echo date("F j, Y H:i:s", strtotime($announcement['date_added'])); ?></p>
             <p class="content"><?php echo $announcement['announcement']; ?></p>
         </div>
-    <?php endforeach; ?>
-</body>
+    </div>
+<?php endforeach; ?>
 </html>
+<?php include '../includes/footer.php';?>

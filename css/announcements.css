@@ -1,29 +1,10 @@
 body {
-    background-color: #fff;
-    color: #fff;
     font-family: Arial, sans-serif;
+    margin: 0;
     padding: 20px;
+    background-color: #f8f8f8;
 }
-
 h1 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #a6b1e1;
+    color: #333;
 }
-
-.announcement-card {
-    background-color:#00316e;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.announcement-card p.date {
-    color: #a6b1e1;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.announcement-card p.content {
-    font-size: 18px;
-}
- 
