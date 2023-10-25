@@ -1,4 +1,22 @@
+<?php
+session_start();
+include_once "../includes/dbh.inc.php";
 
+$query = "SELECT * FROM patients";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die('Error executing the query: ' . mysqli_error($conn));
+}
+
+$data = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $data[] = $row;
+}
+
+// mysqli_free_result($result);
+
+?>
 
 <!DOCTYPE html>
 <html lang="en" title="Coding design">
