@@ -24,13 +24,12 @@
     <body>
         <ul class="navbar" id="myTopnav">
             <li><img class="logo-image" src="../images/logo3.png" alt="Logo1"></li>
-            <li><a href="homepage.php">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="announcements_user.php">Announcements</a></li>
-            <li><a href="book_appointment.php">Book an appointment</a></li>
+            <li><a class="yala" href="#">Services</a></li>
+            <li><a class="yala" href="announcements_user.php">Announcements</a></li>
+            <li><a class="yala" href="book_appointment.php">Book an appointment</a></li>
             <div class="nav_btn">
             <a href="../index/view_Profile.php"><i class="fa fa-user"></i></a>
-                <a href="../index/signout.php"><button >Logout</button></a>
+                <a href="../index/signout.php"><button class="btn"  >Logout</button></a>
             </div>
             <a href="javascript:void(0);" class="icon1" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
@@ -53,4 +52,3 @@
     </body>
     </html>';
 ?>
-

@@ -43,7 +43,7 @@ include_once "../includes/dbh.inc.php";
             width: 150px;
         }
 
-        .btn {
+        .btn1 {
             color: white;
             padding: 15px 25px;
             margin: 9px 0;
@@ -72,8 +72,8 @@ include_once "../includes/dbh.inc.php";
 	<input type='text' value="<?=$_SESSION['Password']?>" name='Password'><br>
 	Phone number:<br>
 	<input type='text' value="<?=$_SESSION['Phonenumber']?>" name='Phonenumber'><br>
-	<input class="btn" type='submit' value='Submit' name='Submit'>
-	<a href="homepage.php"><button type="button" class="btn">Back</button></a>
+	<input class="btn1" type='submit' value='Submit' name='Submit'>
+	<a href="homepage.php"><button type="button" class="btn1">Back</button></a>
 </form>
 </div>
 
