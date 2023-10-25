@@ -8,3 +8,12 @@ h1 {
     text-align: center;
     color: #333;
 }
+.announcement-card {
+    background-color: #1e3d59;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+}
