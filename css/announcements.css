@@ -22,3 +22,8 @@ h1 {
     height: 20px;
     margin-right: 10px;
 }
+.announcement-card .date {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
