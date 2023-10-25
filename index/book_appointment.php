@@ -63,6 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Time = $selectedDateTime->format('H:i:s');
         // Check if the selected day is within Saturday to Thursday 
         $selectedDay = $selectedDateTime->format('N'); // 1 (Monday) to 7 (Sunday)
+        if (empty(trim($DateTime))) {
+            echo " <div class='error-box'>Error: pick an appointment first please";
+        }
         if ($selectedDay ==5) { // Not Saturday to Thursday
             echo "<div class='error-box'>Appointments are only available from Saturday to Thursday.</div>";
             exit;
@@ -96,7 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_num_rows($checkResult) > 0) {
             // There is already an appointment within the half-hour range
             echo "<div class='error-box'>There is already an appointment booked within the selected time range. Please choose a different time.</div>";
-        }  else {
+        }  
+        else {
             // Insert the appointment into the database along with the user's ID
             $sql = "INSERT INTO timeslots (date, duration, patients_id) 
                     VALUES ('$Date', '$Time', '$user_id')";
