@@ -57,7 +57,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            
         </section>
+            <center>
+                <button style="width: 250px; height: 45px;">Add</button>
+                <button style="width: 250px; height: 45px;">Edit</button>
+            </center>
     </main>
 </body>
 
