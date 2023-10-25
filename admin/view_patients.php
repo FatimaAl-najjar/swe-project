@@ -5,7 +5,7 @@ include_once "../includes/dbh.inc.php";
 
 
 
-$query = "SELECT * FROM your_table";
+$query = "SELECT * FROM patients";
 $result = mysqli_query($connection, $query);
 
 if (!$result) {
