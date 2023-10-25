@@ -8,18 +8,18 @@
     justify-content: center; 
     text-align: center;
     border-radius: 12px;
-    background-image: url(./images/mauve\ background.jpg);
+    background-image: url('medium-blue-background.jpg');
     background-size: cover;
  }
  .center h3{
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 3px;
-    color: var(--bg-color);
+    color: #fff;
  }
  .center p{
     font-size: var(--p-font);
-    color: var(--bg-color);
+    color: #fff;
     line-height: 26px;
     margin-bottom: 25px;
  }
