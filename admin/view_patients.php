@@ -22,8 +22,12 @@ while ($row = mysqli_fetch_assoc($result)) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient List</title>
+    <title style="text-align: center;">All patients</title>
     <style>
+        title {
+            text-align: center;
+        }
+        
         table {
             border-collapse: collapse;
             width: 100%;
