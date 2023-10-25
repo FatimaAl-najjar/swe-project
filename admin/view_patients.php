@@ -60,8 +60,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             
         </section>
             <center>
-                <button style="width: 250px; height: 45px;">Add</button>
-                <button style="width: 250px; height: 45px;">Edit</button>
+                <button>Add user</button>
+                <button>Edit user</button>
             </center>
     </main>
 </body>
