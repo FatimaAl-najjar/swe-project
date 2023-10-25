@@ -16,11 +16,6 @@ if (!$result) {
     die('Error executing the query: ' . mysqli_error($conn));
 }
 
-$data = array();
-while ($row = mysqli_fetch_assoc($result)) {
-    $data[] = $row;
-}
-
 $rowCount = mysqli_num_rows($result);
 
 ?>
