@@ -23,6 +23,8 @@ $rowCount = mysqli_num_rows($result);
 <h1>Statistics here..</h1>
 <h1>Number of patients: <?php echo "$rowCount"?></h1>
 
-<a href="announcements.php"><button type="button">Announcements</button></a>
+<a href="announcements.php"><button type="button" style="width: 200px; height: 50px; font-size: 16px;">Announcements</button></a>
 <br>
-<a href="view_patients.php"><button type="button">Patients data</button></a>
+<br>
+<br>
+<a href="view_patients.php"><button type="button" style="width: 200px; height: 50px; font-size: 16px;">Patients data</button></a>
