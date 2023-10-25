@@ -11,7 +11,8 @@ h1 {
     color: #333;
 }
 .announcement-card {
-    background-color: #00316e;;
+    background-color: #c0d7f0;
+    background-image:url(/images/baby_blue_background.jpg) ;
     color: #fff;
     padding: 20px;
     margin-bottom: 20px;
