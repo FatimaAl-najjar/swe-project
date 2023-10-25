@@ -17,3 +17,8 @@ h1 {
     display: flex;
     align-items: flex-start;
 }
+.announcement-card .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
