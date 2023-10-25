@@ -16,6 +16,9 @@ h1 {
     border-radius: 10px;
     display: flex;
     align-items: flex-start;
+    margin-left: 200px;
+    /* margin: 70px; */
+    width:70%
 }
 .announcement-card .icon {
     width: 20px;

@@ -20,7 +20,7 @@ $announcements = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <!-- Display announcements -->
 <?php foreach ($announcements as $announcement): ?>
     <div class="announcement-card">
-        <img class="icon" src="megaphone.jpg" alt="Microphone Icon">
+        <img class="icon" src="../images/megaphone.jpg" alt="Microphone Icon">
         <div>
             <p class="date"><?php echo date("F j, Y H:i:s", strtotime($announcement['date_added'])); ?></p>
             <p class="content"><?php echo $announcement['announcement']; ?></p>
