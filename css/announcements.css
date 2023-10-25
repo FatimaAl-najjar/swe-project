@@ -6,6 +6,8 @@ body {
 }
 h1 {
     text-align: center;
+    margin-bottom: 5px;
+    padding: 40px;
     color: #333;
 }
 .announcement-card {
@@ -21,8 +23,8 @@ h1 {
     width:70%
 }
 .announcement-card .icon {
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     margin-right: 10px;
 }
 .announcement-card .date {
@@ -39,6 +41,21 @@ h1 {
     .announcement-card {
         flex-direction: column;
         align-items: flex-start;
+        margin-left: 30px;
+    }
+
+    .announcement-card .icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 150px) {
+    /* Responsive styles for smaller screens */
+    .announcement-card {
+        flex-direction: column;
+        align-items: flex-start;
+        /* margin-right:70px; */
+        margin-left:30pxpx;
     }
 
     .announcement-card .icon {
@@ -51,6 +68,7 @@ h1 {
     .announcement-card {
         flex-direction: column;
         align-items: flex-start;
+        margin-left:30pxpx;
     }
 
     .announcement-card .icon {
