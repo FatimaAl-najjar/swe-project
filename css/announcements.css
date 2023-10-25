@@ -31,3 +31,27 @@ h1 {
     font-weight: bold;
     margin-top: 5px;
 }
+@media screen and (max-width: 600px) {
+    /* Responsive styles for smaller screens */
+    .announcement-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .announcement-card .icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 600px) {
+    /* Responsive styles for smaller screens */
+    .announcement-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .announcement-card .icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
