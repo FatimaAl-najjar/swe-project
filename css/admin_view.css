@@ -179,7 +179,7 @@ tbody tr.hide td img {
     }
 }
 
-thead th span.icon-arrow {
+thead th {
     display: inline-block;
     width: 1.3rem;
     height: 1.3rem;
