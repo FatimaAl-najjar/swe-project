@@ -33,6 +33,10 @@ while ($row = mysqli_fetch_assoc($result)) {
     <main class="table">
         <section class="table__header">
             <h1 style="text-align: center; color: white;">All patients</h1>
+            <div class="buttons-container">
+                <button>Add user</button>
+                <button>Edit user</button>
+            </div>
         </section>
         <section class="table__body">
             <table>
@@ -59,10 +63,6 @@ while ($row = mysqli_fetch_assoc($result)) {
             </table>
             
         </section>
-        <div class="buttons-container">
-            <button>Add user</button>
-            <button>Edit user</button>
-        </div>
     </main>
 </body>
 
