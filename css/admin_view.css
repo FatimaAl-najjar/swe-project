@@ -18,7 +18,7 @@ button {
     width: 250px; 
     height: 45px; 
     font-size: 25px;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 button:hover {
@@ -179,7 +179,7 @@ tbody tr.hide td img {
     }
 }
 
-thead th {
+thead th span.icon-arrow {
     display: inline-block;
     width: 1.3rem;
     height: 1.3rem;
@@ -227,3 +227,34 @@ label{
     transition: .2s ease-in-out;
 }
 
+.buttons-container .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 480px) {
+    .btn {
+      padding: 5px;
+      font-size: 0;
+    }
+  
+    .btn:before {
+      content: "➕";
+      font-size: 16px;
+    }
+  
+    .btn:nth-child(2):before {
+      content: "➖";
+    }
+  
+    .btn:last-child:before {
+      content: "✏️";
+    }
+  }
