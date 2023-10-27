@@ -59,10 +59,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             </table>
             
         </section>
-            <center>
-                <button>Add user</button>
-                <button>Edit user</button>
-            </center>
+        <div class="buttons-container">
+            <button>Add user</button>
+            <button>Edit user</button>
+        </div>
     </main>
 </body>
 
