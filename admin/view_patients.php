@@ -34,8 +34,9 @@ while ($row = mysqli_fetch_assoc($result)) {
         <section class="table__header">
             <h1 style="text-align: center; color: white;">All patients</h1>
             <div class="buttons-container">
-                <button>Add user</button>
-                <button>Edit user</button>
+                <a href="add_user.php"><button>Add user</button></a>
+                <a href="delete_user.php"><button>Delete user</button></a>
+                <a href="edit_user.php"><button>Edit user</button></a>
             </div>
         </section>
         <section class="table__body">
