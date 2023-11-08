@@ -28,17 +28,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $result = mysqli_query($conn, $sql);
         if ($result) {
+            // No sessions needed 
             // Set session variables
-            $_SESSION["ID"] = mysqli_insert_id($conn);
-            $_SESSION["FirstName"] = $FirstName;
-            $_SESSION["LastName"] = $LastName;
-            $_SESSION["Email"] = $Email;
-            $_SESSION["Password"] = $Password;
-            $_SESSION["Phonenumber"] = $Phonenumber;
+            // $_SESSION["ID"] = mysqli_insert_id($conn);
+            // $_SESSION["FirstName"] = $FirstName;
+            // $_SESSION["LastName"] = $LastName;
+            // $_SESSION["Email"] = $Email;
+            // $_SESSION["Password"] = $Password;
+            // $_SESSION["Phonenumber"] = $Phonenumber;
 
             // Redirect after a successful registration
-            header("Location: ../index/homepage.php");
-            exit;
+            header("Location: index.php");
         } else {
             $errorMessage = "<h2>An error occurred during registration.</h2>";
         }
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Cancel button functionality
 if (isset($_POST['cancel'])) {
-    header("Location: ../index/landing.php");
+    header("Location: index.php");
     exit;
 }
 ?>
