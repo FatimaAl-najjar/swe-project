@@ -61,24 +61,37 @@ class Patient
 		return $Result;
 	}
 
-    public function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
-        $FirstName = htmlspecialchars($FirstName);
-        $LastName = htmlspecialchars($LastName);
-        $Email = htmlspecialchars($Email);
-        $Password = htmlspecialchars($Password);
-        $Phonenumber = htmlspecialchars($Phonenumber);
+    // public function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+    //     $FirstName = htmlspecialchars($FirstName);
+    //     $LastName = htmlspecialchars($LastName);
+    //     $Email = htmlspecialchars($Email);
+    //     $Password = htmlspecialchars($Password);
+    //     $Phonenumber = htmlspecialchars($Phonenumber);
 
-        $sql = "INSERT INTO patient(FirstName, LastName, Email, Password, Phonenumber) 
-                VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
-        $result = mysqli_query($this->conn, $sql);
+    //     $sql = "INSERT INTO patient(FirstName, LastName, Email, Password, Phonenumber) 
+    //             VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+    //     $result = mysqli_query($this->conn, $sql);
 
-        if ($result) {
-            echo "Patient added successfully";
+    //     if ($result) {
+    //         echo "Patient added successfully";
+    //     }
+    //     else {
+    //         echo "Error adding patient: " . mysqli_error($this->conn);
+    //     }
+    // }
+
+    static function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber)	{
+		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+		if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo'Patient added succesfully!';
+			return true;
         }
-        else {
-            echo "Error adding patient: " . mysqli_error($this->conn);
+		else {
+            echo 'Error adding patient: ' . mysqli_error( $GLOBALS['conn'] );
+			return false;
         }
-    }
+	}
 
 
     public function UpdatePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
