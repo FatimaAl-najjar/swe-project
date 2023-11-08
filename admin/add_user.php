@@ -28,15 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            // No sessions needed 
-            // Set session variables
-            // $_SESSION["ID"] = mysqli_insert_id($conn);
-            // $_SESSION["FirstName"] = $FirstName;
-            // $_SESSION["LastName"] = $LastName;
-            // $_SESSION["Email"] = $Email;
-            // $_SESSION["Password"] = $Password;
-            // $_SESSION["Phonenumber"] = $Phonenumber;
-
             // Redirect after a successful registration
             header("Location: index.php");
         } else {
