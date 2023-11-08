@@ -54,7 +54,7 @@ class Patient
 	            WHERE id =".$_SESSION['id'];
             $result = mysqli_query($this->conn, $sql);
             if ($result) {
-                echo '';
+                echo 'Patient updated successfully!';
             }
         }
     }
