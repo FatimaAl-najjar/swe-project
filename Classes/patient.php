@@ -94,21 +94,33 @@ class Patient
 	}
 
 
-    public function UpdatePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
-        $FirstName = htmlspecialchars($FirstName);
-        $LastName = htmlspecialchars($LastName);
-        $Email = htmlspecialchars($Email);
-        $Password = htmlspecialchars($Password);
-        $Phonenumber = htmlspecialchars($Phonenumber);
-        if($_SERVER["REQUEST_METHOD"]== "POST"){
-            $sql="UPDATE patients SET FirstName='$FirstName', LastName='$LastName', Email='$Email', Password='$Password',Phonenumber='$Phonenumber' 
-	            WHERE id =".$_SESSION['id'];
-            $result = mysqli_query($this->conn, $sql);
-            if ($result) {
-                echo 'Patient updated successfully!';
-            }
+    // public function UpdatePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+    //     $FirstName = htmlspecialchars($FirstName);
+    //     $LastName = htmlspecialchars($LastName);
+    //     $Email = htmlspecialchars($Email);
+    //     $Password = htmlspecialchars($Password);
+    //     $Phonenumber = htmlspecialchars($Phonenumber);
+    //     if($_SERVER["REQUEST_METHOD"]== "POST"){
+    //         $sql="UPDATE patients SET FirstName='$FirstName', LastName='$LastName', Email='$Email', Password='$Password',Phonenumber='$Phonenumber' 
+	//             WHERE id =".$_SESSION['id'];
+    //         $result = mysqli_query($this->conn, $sql);
+    //         if ($result) {
+    //             echo 'Patient updated successfully!';
+    //         }
+    //     }
+    // }
+
+    function updatePatient(){
+		$sql = "UPDATE patients SET FirstName ='.$this->FirstName.' ,LastName='$this->LastName' ,Password='$this->Password' where ID = ".$this->ID;
+		if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo 'Patient updated successfully!';
+			return true;
         }
-    }
+		else {
+            echo 'Error updating patient: '. mysqli_error( $GLOBALS['conn'] );
+			return false;
+        }	
+	}	
 
     // public function deletePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
     //     if ($_SERVER["REQUEST_METHOD"] == "POST") {
