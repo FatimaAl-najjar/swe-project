@@ -19,10 +19,6 @@ class Patient
     public $Password;
     public $Phonenumber;
 
-    private $conn;
-    // public function __construct($conn) {
-    //     $this->conn = $conn;
-    // }
 
     function __construct($id)	{
 		if ($id !=""){
@@ -61,6 +57,54 @@ class Patient
 		return $Result;
 	}
 
+    static function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber)	{
+		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+		if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo'Patient added succesfully!';
+			return true;
+        }
+		else {
+            echo 'Error adding patient: ' . mysqli_error( $GLOBALS['conn'] );
+			return false;
+        }
+	}
+
+
+    function updatePatient(){
+		$sql = "UPDATE patients SET FirstName ='.$this->FirstName.' ,LastName='$this->LastName' ,Password='$this->Password' where ID = ".$this->ID;
+		if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo 'Patient updated successfully!';
+			return true;
+        }
+		else {
+            echo 'Error updating patient: '. mysqli_error( $GLOBALS['conn'] );
+			return false;
+        }	
+	}	
+
+
+    static function deletePatient($ObjPatient){
+		$sql = "DELETE FROM users WHERE ID = " . $ObjPatient->ID;
+		if (mysqli_query($GLOBALS['conn'],$sql)) {
+            echo 'Patient DELETED successfully!';
+			return true;
+        }        
+		else {
+            echo 'Error deleting patient: '. mysqli_error($GLOBALS['conn']);
+			return false;
+        }
+	}
+}
+
+
+
+
+    // private $conn;
+    // public function __construct($conn) {
+    //     $this->conn = $conn;
+    // }
+
     // public function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
     //     $FirstName = htmlspecialchars($FirstName);
     //     $LastName = htmlspecialchars($LastName);
@@ -79,21 +123,7 @@ class Patient
     //         echo "Error adding patient: " . mysqli_error($this->conn);
     //     }
     // }
-
-    static function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber)	{
-		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
-        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
-		if(mysqli_query($GLOBALS['conn'],$sql)) {
-            echo'Patient added succesfully!';
-			return true;
-        }
-		else {
-            echo 'Error adding patient: ' . mysqli_error( $GLOBALS['conn'] );
-			return false;
-        }
-	}
-
-
+    
     // public function UpdatePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
     //     $FirstName = htmlspecialchars($FirstName);
     //     $LastName = htmlspecialchars($LastName);
@@ -110,18 +140,6 @@ class Patient
     //     }
     // }
 
-    function updatePatient(){
-		$sql = "UPDATE patients SET FirstName ='.$this->FirstName.' ,LastName='$this->LastName' ,Password='$this->Password' where ID = ".$this->ID;
-		if(mysqli_query($GLOBALS['conn'],$sql)) {
-            echo 'Patient updated successfully!';
-			return true;
-        }
-		else {
-            echo 'Error updating patient: '. mysqli_error( $GLOBALS['conn'] );
-			return false;
-        }	
-	}	
-
     // public function deletePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
     //     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //         $id = $_SESSION['id'];
@@ -136,19 +154,5 @@ class Patient
     //         }
     //     }
     // }
-
-    static function deletePatient($ObjPatient){
-		$sql = "DELETE FROM users WHERE ID = " . $ObjPatient->ID;
-		if (mysqli_query($GLOBALS['conn'],$sql)) {
-            echo 'Patient DELETED successfully!';
-			return true;
-        }        
-		else {
-            echo 'Error deleting patient: '. mysqli_error($GLOBALS['conn']);
-			return false;
-        }
-	}
-}
-
 
 ?>
