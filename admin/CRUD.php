@@ -20,6 +20,6 @@ $patient = new Patient($conn);
 
 // Example usage
 $patient->addPatient('John', 'Doe', 'john@example.com', 'password123', '123456789');
-$patient->UpdatePatient(2, 'Jane', 'Smith', 'jane@example.com', 'newpassword456', '987654321');
+$patient->UpdatePatient('Jane', 'Smith', 'jane@example.com', 'newpassword456', '987654321');
 
 ?>
