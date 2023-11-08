@@ -59,7 +59,7 @@ class Patient
         }
     }
 
-    public function DeletePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+    public function deletePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id = $_SESSION['id'];
             
