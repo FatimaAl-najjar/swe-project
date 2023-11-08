@@ -59,8 +59,21 @@ class Patient
         }
     }
 
+    public function DeletePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id = $_SESSION['id'];
+            
+            $sql = "DELETE FROM patients WHERE id = $id";
+            $result = mysqli_query($this->conn, $sql);
+            
+            if ($result) {
+                echo 'Patient deleted successfully!';
+            } else {
+                echo 'Error deleting patient: ' . mysqli_error($this->conn);
+            }
+        }
+    }
 }
-
 
 
 ?>
