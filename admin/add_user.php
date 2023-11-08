@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
-include "../includes/nav.php";
 
 $errorMessage = "";
 
@@ -62,23 +61,22 @@ if (isset($_POST['cancel'])) {
     <title>Add user</title>
 </head>
 <body>
-    
-<br><br><br>
     <div class="card">
+        <h1 style="text-align: center;">Add user</h1>
         <form action="" method="post">
             <label>First Name:</label>
-            <input type="text" name="FirstName" placeholder="Enter your first name"><br>
+            <input type="text" name="FirstName" placeholder="Enter user's first name"><br>
             <label>Last Name:</label>
-            <input type="text" name="LastName" placeholder="Enter your last name"><br>
+            <input type="text" name="LastName" placeholder="Enter user's last name"><br>
             <label>Email:</label>
-            <input type="text" name="Email" placeholder="Enter your email"><br>
+            <input type="text" name="Email" placeholder="Enter user's email"><br>
             <label>Password:</label>
-            <input type="password" name="Password" placeholder="Enter your password"><br>
+            <input type="password" name="Password" placeholder="Enter user's password"><br>
             <label>Re-enter Password:</label>
-            <input type="password" name="repeatPassword" placeholder="Re-enter your password" required><br>
+            <input type="password" name="repeatPassword" placeholder="Re-enter user's password" required><br>
             <label>Phone number:</label>
-            <input type="text" name="Phonenumber" placeholder="Enter your phone number"><br>
-            <button class="btn" type="submit" value="submit">Sign Up</button>
+            <input type="text" name="Phonenumber" placeholder="Enter user's phone number"><br>
+            <button class="btn" type="submit" value="submit">Add user</button>
             <button class="btn" name="cancel" formnovalidate>Cancel</button>
         </form>
         <?php echo $errorMessage; ?>
