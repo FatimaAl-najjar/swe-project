@@ -42,6 +42,23 @@ class Patient
         }
     }
 
+
+    public function UpdatePatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+        $FirstName = htmlspecialchars($FirstName);
+        $LastName = htmlspecialchars($LastName);
+        $Email = htmlspecialchars($Email);
+        $Password = htmlspecialchars($Password);
+        $Phonenumber = htmlspecialchars($Phonenumber);
+        if($_SERVER["REQUEST_METHOD"]== "POST"){
+            $sql="UPDATE patients SET FirstName='$FirstName', LastName='$LastName', Email='$Email', Password='$Password',Phonenumber='$Phonenumber' 
+	            WHERE id =".$_SESSION['id'];
+            $result = mysqli_query($this->conn, $sql);
+            if ($result) {
+                echo '';
+            }
+        }
+    }
+
 }
 
 
