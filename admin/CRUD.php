@@ -20,6 +20,9 @@ $patient = new Patient($conn);
 
 // Example usage
 $patient->addPatient('John', 'Doe', 'john@example.com', 'password123', '123456789');
+$patient->deletePatient(1);
 $patient->UpdatePatient('Jane', 'Smith', 'jane@example.com', 'newpassword456', '987654321');
-
+// Can not do this because they are static
+// $patient->login('john@example.com', 'password123');
+// $patient->signup('Alice', 'Johnson', 'alice@example.com', 'password789', '456789123');
 ?>
