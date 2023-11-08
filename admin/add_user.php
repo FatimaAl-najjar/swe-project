@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $sql);
         if ($result) {
             // Redirect after a successful registration
+            echo "User added successfully";
             header("Location: index.php");
         } else {
             $errorMessage = "<h2>An error occurred during registration.</h2>";
