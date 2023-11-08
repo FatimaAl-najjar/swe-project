@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
+include_once "../Classes/patient.php";
 
 $errorMessage = "";
 
