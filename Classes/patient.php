@@ -35,8 +35,16 @@ class Patient
 		}
 	}
 
+    static function find($id) {
+        $sql= "SELECT * FROM patients WHERE ID='$id'";
+        $result=mysqli_query($GLOBALS['conn'],$sql);
+		if ($row=mysqli_fetch_array($result)){
+			return new Patient($row[0]); 		
+		}
+		return NULL;
+    }
     static function login($FirstName, $LastName, $Password){
-		$sql="SELECT * FROM users WHERE FirstName='$FirstName' AND LastName='$LastName' AND Password='$Password'";	
+		$sql="SELECT * FROM patients WHERE FirstName='$FirstName' AND LastName='$LastName' AND Password='$Password'";	
 		$result=mysqli_query($GLOBALS['conn'],$sql);
 		if ($row=mysqli_fetch_array($result)){
 			return new Patient($row[0]); 		
@@ -45,7 +53,7 @@ class Patient
 	}
 
     static function SelectAllPatients(){
-		$sql="select * from users";
+		$sql="select * from patients";
 		$Patients = mysqli_query($GLOBALS['conn'],$sql);
         $Result = [];
         $i = 0;
@@ -85,7 +93,7 @@ class Patient
 
 
     static function deletePatient($ObjPatient){
-		$sql = "DELETE FROM users WHERE ID = " . $ObjPatient->ID;
+		$sql = "DELETE FROM patients WHERE ID = " . $ObjPatient->ID;
 		if (mysqli_query($GLOBALS['conn'],$sql)) {
             echo 'Patient DELETED successfully!';
 			return true;
@@ -112,7 +120,7 @@ class Patient
     //     $Password = htmlspecialchars($Password);
     //     $Phonenumber = htmlspecialchars($Phonenumber);
 
-    //     $sql = "INSERT INTO patient(FirstName, LastName, Email, Password, Phonenumber) 
+    //     $sql = "INSERT INTO http://localhost/swe-project/admin/view_patients.php(FirstName, LastName, Email, Password, Phonenumber) 
     //             VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
     //     $result = mysqli_query($this->conn, $sql);
 
