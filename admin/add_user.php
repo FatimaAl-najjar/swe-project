@@ -51,25 +51,25 @@ if (isset($_POST['cancel'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/signup.css">
-    <title>Add user</title>
+    <title>Add patient</title>
 </head>
 <body>
     <div class="card">
-        <h1 style="text-align: center;">Add user</h1>
+        <h1 style="text-align: center;">Add patient</h1>
         <form action="" method="post">
             <label>First Name:</label>
-            <input type="text" name="FirstName" placeholder="Enter user's first name"><br>
+            <input type="text" name="FirstName" placeholder="Enter patient's first name"><br>
             <label>Last Name:</label>
-            <input type="text" name="LastName" placeholder="Enter user's last name"><br>
+            <input type="text" name="LastName" placeholder="Enter patient's last name"><br>
             <label>Email:</label>
-            <input type="text" name="Email" placeholder="Enter user's email"><br>
+            <input type="text" name="Email" placeholder="Enter patient's email"><br>
             <label>Password:</label>
-            <input type="password" name="Password" placeholder="Enter user's password"><br>
+            <input type="password" name="Password" placeholder="Enter patient's password"><br>
             <label>Re-enter Password:</label>
-            <input type="password" name="repeatPassword" placeholder="Re-enter user's password" required><br>
+            <input type="password" name="repeatPassword" placeholder="Re-enter patient's password" required><br>
             <label>Phone number:</label>
-            <input type="text" name="Phonenumber" placeholder="Enter user's phone number"><br>
-            <button class="btn" type="submit" value="submit">Add user</button>
+            <input type="text" name="Phonenumber" placeholder="Enter patient's phone number"><br>
+            <button class="btn" type="submit" value="submit">Add patient</button>
             <button class="btn" name="cancel" formnovalidate>Cancel</button>
         </form>
         <?php echo $errorMessage; ?>

@@ -64,15 +64,15 @@ include_once "../includes/dbh.inc.php";
 <form action='' method='post'>
     <!-- It is not supposed to be session because the session contains admin data  -->
 	First Name:<br>
-	<input type='text' value="<?=$_SESSION['FirstName']?>" name='FirstName'><br>
+	<input type='text' value="<?=$_SESSION['FirstName']?>" name="Patient's firstName"><br>
     Last Name:<br>
-	<input type='text' value="<?=$_SESSION['LastName']?>" name='LastName'><br>
+	<input type='text' value="<?=$_SESSION['LastName']?>" name="Patient's lastName"><br>
 	Email:<br>
-	<input type='text' value="<?=$_SESSION['Email']?>" name='Email'><br>
+	<input type='text' value="<?=$_SESSION['Email']?>" name="Patient's email"><br>
 	Password:<br>
-	<input type='text' value="<?=$_SESSION['Password']?>" name='Password'><br>
+	<input type='text' value="<?=$_SESSION['Password']?>" name="Patient's password"><br>
 	Phone number:<br>
-	<input type='text' value="<?=$_SESSION['Phonenumber']?>" name='Phonenumber'><br>
+	<input type='text' value="<?=$_SESSION['Phonenumber']?>" name="Patient's phone number"><br>
 	<input class="btn1" type='submit' value='Submit' name='Submit'>
 	<a href="index.php"><button type="button" class="btn1">Back</button></a>
 </form>
