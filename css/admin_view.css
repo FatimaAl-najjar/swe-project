@@ -18,7 +18,7 @@ button {
     width: 250px; 
     height: 45px; 
     font-size: 25px;
-    /* border-radius: 10%; */
+    border-radius: 10%;
 }
 
 button:hover {
@@ -193,16 +193,16 @@ thead th span.icon-arrow {
     transition: .2s ease-in-out;
 }
 
-thead th:hover span.icon-arrow{
-    border: 1.4px solid #6c00bd;
+thead th:hover {
+    border: 1.4px solid #0422a5;
 }
 
 thead th:hover {
-    color: #6c00bd;
+    color: #0422a5;
 }
 
 thead th.active span.icon-arrow{
-    background-color: #6c00bd;
+    background-color: #0422a5;
     color: #fff;
 }
 
@@ -211,57 +211,10 @@ thead th.asc span.icon-arrow{
 }
 
 thead th.active,tbody td.active {
-    color: #6c00bd;
+    color: #0422a5;
 }
 
-.export__file {
-    position: relative;
-}
-
-.export__file .export__file-btn {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    background: #fff6 url(images/export.png) center / 80% no-repeat;
-    border-radius: 50%;
-    transition: .2s ease-in-out;
-}
-
-.export__file .export__file-btn:hover { 
-    background-color: #fff;
-    transform: scale(1.15);
-    cursor: pointer;
-}
-
-.export__file input {
-    display: none;
-}
-
-.export__file .export__file-options {
-    position: absolute;
-    right: 0;
-    
-    width: 12rem;
-    border-radius: .5rem;
-    overflow: hidden;
-    text-align: center;
-
-    opacity: 0;
-    transform: scale(.8);
-    transform-origin: top right;
-    
-    box-shadow: 0 .2rem .5rem #0004;
-    
-    transition: .2s;
-}
-
-.export__file input:checked + .export__file-options {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 100;
-}
-
-.export__file .export__file-options label{
+label{
     display: block;
     width: 100%;
     padding: .6rem 0;
@@ -274,18 +227,34 @@ thead th.active,tbody td.active {
     transition: .2s ease-in-out;
 }
 
-.export__file .export__file-options label:first-of-type{
-    padding: 1rem 0;
-    background-color: #86e49d !important;
-}
-
-.export__file .export__file-options label:hover{
-    transform: scale(1.05);
-    background-color: #fff;
+.buttons-container .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border: none;
     cursor: pointer;
-}
-
-.export__file .export__file-options img{
-    width: 2rem;
-    height: auto;
-}
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 480px) {
+    .btn {
+      padding: 5px;
+      font-size: 0;
+    }
+  
+    .btn:before {
+      content: "➕";
+      font-size: 16px;
+    }
+  
+    .btn:nth-child(2):before {
+      content: "➖";
+    }
+  
+    .btn:last-child:before {
+      content: "✏️";
+    }
+  }
