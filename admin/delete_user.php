@@ -3,19 +3,24 @@
 session_start();
 // Include connection
 include_once "../includes/dbh.inc.php";
+// Include patient class
 include_once "../Classes/patient.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the patient ID to be deleted
     $patientID = $_POST['patientID'];
-    if ($patientID) {
-        $patient = Patient::find($patientID);
-        echo $patient->ID;
-        echo $patient->FirstName;
-        echo $patient->LastName;
-        echo $patient->Email;
-        echo $patient->Password;
-        echo $patient->Phonenumber;
+    $patient = Patient::find($patientID);
+    if ($patient) {
+        // Get data of the patient
+        echo "ID:" . $patient->ID . "<br>";
+        echo "First name:" . $patient->FirstName . "<br>";
+        echo "Last name:" . $patient->LastName . "<br>";
+        echo "Email:" . $patient->Email . "<br>";
+        echo "password:" . $patient->Password . "<br>";
+        echo "Phone number:" . $patient->Phonenumber;
+    }
+    else {
+        echo "No patient with this id";
     }
     // echo''.$patientID.'';
 
