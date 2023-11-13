@@ -33,12 +33,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="stylesheet" href="../css/signup.css">
         <title>Delete patient</title>
     </head>
+    <style>
+        .card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            /*
+            margin-left: 400px;
+            margin-top: 150px;*/
+        }
+        .form {
+        }
+    </style>
     <body>
-        <form action="" method="post">
-            <label>Patient ID:</label>
-            <input type="text" name="patientID" placeholder="Enter patient's ID"><br>
-            <button class="btn" type="submit" value="submit">Search for patient</button>
-            <button class="btn" name="cancel" formnovalidate>Cancel</button>
-        </form>
+        <div class="card">
+            <form action="" method="post">
+                <h1>Patient ID:</h1>
+                <input type="text" name="patientID" placeholder="Enter patient's ID"><br>
+                <button class="btn" type="submit" value="submit">Search for patient</button>
+                <button class="btn" name="cancel" formnovalidate>Cancel</button>
+            </form>
+        </div>
     </body>
 </html>
