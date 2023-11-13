@@ -44,11 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            /*
-            margin-left: 400px;
-            margin-top: 150px;*/
-        }
-        .form {
         }
     </style>
     <body>
