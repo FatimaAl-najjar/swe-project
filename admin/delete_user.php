@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $patientID = $_POST['patientID'];
     $patient = Patient::find($patientID);
     if ($patient) {
+        // This script will delete all of the HTML components in the document.
+        delete('todelete');
         // Get data of the patient
         echo "ID:" . $patient->ID . "<br>";
         echo "First name:" . $patient->FirstName . "<br>";
@@ -52,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
     <body>
-        <div class="card">
+        <div id="todelete" class="card">
             <form action="" method="post">
                 <h1>Patient ID:</h1>
                 <input type="text" name="patientID" placeholder="Enter patient's ID"><br>
