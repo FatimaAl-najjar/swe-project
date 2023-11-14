@@ -113,10 +113,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<div class='error-box'>Error booking the appointment.</div>";
             }
         }
-    } else {
+    
+    }
+  else {
         // Handle the case when the user is not logged in
         echo"<div class='error-box'>You must be logged in to book an appointment.</div>";
     }
+
 }
 ?>
  
