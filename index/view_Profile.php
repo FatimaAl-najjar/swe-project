@@ -25,7 +25,7 @@ $userInfo = mysqli_fetch_assoc($result);
     
     <title>View Profile</title>
     <style>
-     .card {
+     .card1 {
        border: 3px solid #484da0;
         border-radius: 10px;
         padding: 25px;
@@ -50,7 +50,7 @@ $userInfo = mysqli_fetch_assoc($result);
         margin-bottom: 20px;
     }
 
-    a {
+     a {
         margin-right: 10px;
         text-decoration: none;
         color: blue;
@@ -80,7 +80,7 @@ $userInfo = mysqli_fetch_assoc($result);
             <i class="uil uil-times form_close"></i>
             <div class="form view_form">
                 <form action="#">
-                    <div class="card">
+                    <div class="card1">
                         <h2 style="text-align: center;">My Profile</h2>
                         <br><hr><br>
                         <div class="profile-info">

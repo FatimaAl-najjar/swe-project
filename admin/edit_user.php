@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-include '../includes/nav2.php';
 // Include connection
 include_once "../includes/dbh.inc.php";
 ?>
@@ -59,26 +58,29 @@ include_once "../includes/dbh.inc.php";
         }
 
 </style>
-<br><br><br>
+
+
 <div class="card">
 <form action='' method='post'>
+    <!-- It is not supposed to be session because the session contains admin data  -->
 	First Name:<br>
-	<input type='text' value="<?=$_SESSION['FirstName']?>" name='FirstName'><br>
+	<input type='text' value="<?=$_SESSION['FirstName']?>" name="Patient's firstName"><br>
     Last Name:<br>
-	<input type='text' value="<?=$_SESSION['LastName']?>" name='LastName'><br>
+	<input type='text' value="<?=$_SESSION['LastName']?>" name="Patient's lastName"><br>
 	Email:<br>
-	<input type='text' value="<?=$_SESSION['Email']?>" name='Email'><br>
+	<input type='text' value="<?=$_SESSION['Email']?>" name="Patient's email"><br>
 	Password:<br>
-	<input type='text' value="<?=$_SESSION['Password']?>" name='Password'><br>
+	<input type='text' value="<?=$_SESSION['Password']?>" name="Patient's password"><br>
 	Phone number:<br>
-	<input type='text' value="<?=$_SESSION['Phonenumber']?>" name='Phonenumber'><br>
+	<input type='text' value="<?=$_SESSION['Phonenumber']?>" name="Patient's phone number"><br>
 	<input class="btn1" type='submit' value='Submit' name='Submit'>
-	<a href="homepage.php"><button type="button" class="btn1">Back</button></a>
+	<a href="index.php"><button type="button" class="btn1">Back</button></a>
 </form>
 </div>
 
 <?php
-if($_SERVER['REQUEST_METHOD']== "POST"){ //check if form was submitted
+if($_SERVER['REQUEST_METHOD']== "POST"){ 
+    //check if form was submitted
 	$FirstName=$_POST["FirstName"];
     $LastName=$_POST["LastName"];
 	$Email=$_POST["Email"];;
@@ -90,15 +92,15 @@ if($_SERVER['REQUEST_METHOD']== "POST"){ //check if form was submitted
 
 	$result=mysqli_query($conn,$sql);
 	if($result)	{
-		$_SESSION["FirstName"]=$FirstName;
-        $_SESSION["LastName"]=$LastName;
-		$_SESSION["Email"]=$Email;
-		$_SESSION["Password"]=$Password;
-		$_SESSION["Phonenumber"]=$Phonenumber;
-		header("Location:../index/edit.php");
+		// $_SESSION["FirstName"]=$FirstName;
+        // $_SESSION["LastName"]=$LastName;
+		// $_SESSION["Email"]=$Email;
+		// $_SESSION["Password"]=$Password;
+		// $_SESSION["Phonenumber"]=$Phonenumber;
+		header("Location:index.php");
 	}
 	else {
-		echo $sql;
+		echo 'Error editting patient: ' . mysqli_error($conn);
 	}
 }
 ?>

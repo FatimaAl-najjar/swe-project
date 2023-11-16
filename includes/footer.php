@@ -12,7 +12,6 @@
     </h1>
 
 <div class="words">
-<p class="info">We could not have reached this milestone of achievement without you.</p>
 <p class="info">Support Emails - help@Clinic.com, support@Clinic.com</p>
 <p class="info">Telephone - 0123456789</p>
 </div>
