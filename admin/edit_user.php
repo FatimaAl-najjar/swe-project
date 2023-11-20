@@ -59,7 +59,34 @@ include_once "../includes/dbh.inc.php";
 
 </style>
 
+<?php
+if($_SERVER['REQUEST_METHOD']== "POST"){ 
+    //check if form was submitted
+	$FirstName=$_POST["FirstName"];
+    $LastName=$_POST["LastName"];
+	$Email=$_POST["Email"];;
+	$Password=$_POST["Password"];
+	$Phonenumber=$_POST["Phonenumber"];
 
+	$sql="update  patients set FirstName='$FirstName',LastName='$LastName', Email='$Email', Password='$Password',Phonenumber='$Phonenumber'
+	where ID =".$_SESSION['ID'];
+
+	$result=mysqli_query($conn,$sql);
+	if($result)	{
+		 $_SESSION["FirstName"]=$FirstName;
+         $_SESSION["LastName"]=$LastName;
+		 $_SESSION["Email"]=$Email;
+		 $_SESSION["Password"]=$Password;
+		 $_SESSION["Phonenumber"]=$Phonenumber;
+		header("Location:index.php");
+	}
+	else {
+		echo 'Error editting patient: ' . mysqli_error($conn);
+	}
+}
+?>
+
+<body>
 <div class="card">
 <form action='' method='post'>
     <!-- It is not supposed to be session because the session contains admin data  -->
@@ -77,30 +104,4 @@ include_once "../includes/dbh.inc.php";
 	<a href="index.php"><button type="button" class="btn1">Back</button></a>
 </form>
 </div>
-
-<?php
-if($_SERVER['REQUEST_METHOD']== "POST"){ 
-    //check if form was submitted
-	$FirstName=$_POST["FirstName"];
-    $LastName=$_POST["LastName"];
-	$Email=$_POST["Email"];;
-	$Password=$_POST["Password"];
-	$Phonenumber=$_POST["Phonenumber"];
-
-	$sql="update  patients set FirstName='$FirstName',LastName='$LastName', Email='$Email', Password='$Password',Phonenumber='$Phonenumber'
-	where ID =".$_SESSION['ID'];
-
-	$result=mysqli_query($conn,$sql);
-	if($result)	{
-		// $_SESSION["FirstName"]=$FirstName;
-        // $_SESSION["LastName"]=$LastName;
-		// $_SESSION["Email"]=$Email;
-		// $_SESSION["Password"]=$Password;
-		// $_SESSION["Phonenumber"]=$Phonenumber;
-		header("Location:index.php");
-	}
-	else {
-		echo 'Error editting patient: ' . mysqli_error($conn);
-	}
-}
-?>
+</body>
