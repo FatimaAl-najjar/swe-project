@@ -1,5 +1,4 @@
 <?php
-require "../patient.php";
 $servername = "localhost";
 $username = "root";
 $password = "";
