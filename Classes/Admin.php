@@ -1,4 +1,5 @@
 <?php
+require "../patient.php";
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -60,6 +61,55 @@ class Admin{
             return true;
         }else{
             return false;
+        }
+    }
+
+    static function addUser($FirstName, $LastName, $Email, $Password, $Phonenumber)	{
+		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+		if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo'Patient added succesfully!';
+			return true;
+        }
+		else {
+            echo 'Error adding patient: ' . mysqli_error( $GLOBALS['conn'] );
+			return false;
+        }
+	}
+
+    function editUser(){
+		$sql = "UPDATE patients SET FirstName ='.$this->FirstName.' ,LastName='$this->LastName' ,Password='$this->Password' where ID = ".$this->ID;
+		if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo 'Patient updated successfully!';
+			return true;
+        }
+		else {
+            echo 'Error updating patient: '. mysqli_error( $GLOBALS['conn'] );
+			return false;
+        }	
+	}	
+
+    static function deleteUser($ObjPatient){
+		$sql = "DELETE FROM patients WHERE ID = " . $ObjPatient->ID;
+		if (mysqli_query($GLOBALS['conn'],$sql)) {
+            echo 'Patient DELETED successfully!';
+			return true;
+        }        
+		else {
+            echo 'Error deleting patient: '. mysqli_error($GLOBALS['conn']);
+			return false;
+        }
+	}
+
+    static function addAnnouncement($announcement,$date_added){
+        $sql = "INSERT INTO announcements (announcement, date_added) VALUES (?, ?)";
+        if(mysqli_query($GLOBALS['conn'],$sql)) {
+            echo'announcement added succesfully!';
+			return true;
+        }
+		else {
+            echo 'Error adding announcement: ' . mysqli_error( $GLOBALS['conn'] );
+			return false;
         }
     }
 
