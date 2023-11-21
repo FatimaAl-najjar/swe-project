@@ -3,6 +3,7 @@
 session_start();
 // Include connection
 include_once "../includes/dbh.inc.php";
+include_once "../Classes/patient.php";
 
 if($_SERVER['REQUEST_METHOD']== "POST"){ 
     //check if form was submitted
@@ -17,11 +18,11 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
 
 	$result=mysqli_query($conn,$sql);
 	if($result)	{
-		 $_SESSION["FirstName"]=$FirstName;
-         $_SESSION["LastName"]=$LastName;
-		 $_SESSION["Email"]=$Email;
-		 $_SESSION["Password"]=$Password;
-		 $_SESSION["Phonenumber"]=$Phonenumber;
+		$_SESSION["FirstName"]=$FirstName;
+        $_SESSION["LastName"]=$LastName;
+		$_SESSION["Email"]=$Email;
+		$_SESSION["Password"]=$Password;
+		$_SESSION["Phonenumber"]=$Phonenumber;
 		header("Location:index.php");
 	}
 	else {
