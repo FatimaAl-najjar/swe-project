@@ -12,7 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $patient = Patient::find($patientID);
     if ($patient) {
         // This script will delete all of the HTML components in the document.
-        delete('todelete');
+        // delete('todelete');              // Not working
+        ?>
+        <script>
+            var delete =document.getElementById('todelete');
+            function removeDOMElement() {
+                delete.remove();
+                down.innerHTML = "The paragraph is deleted.";
+            }
+        </script>
+        <?php
         // Get data of the patient
         echo "ID:" . $patient->ID . "<br>";
         echo "First name:" . $patient->FirstName . "<br>";
@@ -56,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <div id="todelete" class="card">
             <form action="" method="post">
-                <h1>Patient ID:</h1>
+                <h1>Search by patient's ID:</h1>
                 <input type="text" name="patientID" placeholder="Enter patient's ID"><br>
                 <button class="btn" type="submit" value="submit">Search for patient</button>
                 <button class="btn" name="cancel" formnovalidate>Cancel</button>
