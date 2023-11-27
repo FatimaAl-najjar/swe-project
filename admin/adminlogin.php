@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             $_SESSION["Password"]=$row["Password"];
 
             
-            header("Location: ../view_patients.php");
+            header("Location: ./view_patients.php");
         }
         else{
             $errorMessage="<h2>incorrect password</h2>";

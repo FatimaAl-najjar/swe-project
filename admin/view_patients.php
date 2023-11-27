@@ -48,6 +48,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <th> Last name </th>
                         <th> Email </th>
                         <th> Phone number </th>
+                        <th> Actions </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +59,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                             <td><?php echo $row['LastName']; ?></td>
                             <td><?php echo $row['Email']; ?></td>
                             <td><?php echo $row['Phonenumber']; ?></td>
+                            <td>
+                                <a href="edit_patient.php/?user=<?=$row['ID']?>"><button>Edit user</button></a>
+                                <!-- Delete button  -->
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
