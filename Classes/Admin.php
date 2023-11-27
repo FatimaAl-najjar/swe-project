@@ -100,17 +100,7 @@ class Admin{
         }
 	}
 
-    static function addAnnouncement($announcement,$date_added){
-        $sql = "INSERT INTO announcements (announcement, date_added) VALUES (?, ?)";
-        if(mysqli_query($GLOBALS['conn'],$sql)) {
-            echo'announcement added succesfully!';
-			return true;
-        }
-		else {
-            echo 'Error adding announcement: ' . mysqli_error( $GLOBALS['conn'] );
-			return false;
-        }
-    }
+
 
     
 }
