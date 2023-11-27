@@ -106,16 +106,24 @@ class Patient
         }
     }
 
-    function addFeedback($feedback)
+}
+
+class Feedback extends Patient
+{
+    public $feedback;
+    
+    function __construct($id)
     {
-        $sql = "INSERT INTO feedback (PatientID, Feedback) VALUES ('$this->ID', '$feedback')";
-        if (mysqli_query($GLOBALS['conn'], $sql)) {
-            echo 'Feedback added successfully!';
-            return true;
-        } else {
-            echo 'Error adding feedback: ' . mysqli_error($GLOBALS['conn']);
-            return false;
+        parent::__construct($id);
+        if ($this->ID != "") {
+            $sql = "SELECT * FROM feedback WHERE PatientID = $id";
+            $result = mysqli_query($GLOBALS['conn'], $sql);
+            if ($row = mysqli_fetch_array($result)) {
+                $this->Comment = $row["Comment"];
+            }
         }
     }
+    
+    // Other methods specific to Feedback
 }
 ?>
