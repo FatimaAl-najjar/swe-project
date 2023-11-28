@@ -17,7 +17,7 @@ class Doctor{
 
     function __construct($id){
         $sql="SELECT * FROM admin where ID=$id";
-        $admin= mysqli_query($GLOBALS['con'],$sql);
+        $admin= mysqli_query($GLOBALS['conn'],$sql);
         if($row= mysqli_fetch_array($admin)){
             $this->Email=$row["Email"];
             $this->Username=$row["Username"];

@@ -9,6 +9,72 @@ $conn = mysqli_connect($servername, $username, $password, $DB);
 if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+class User
+{
+	public $UserName;
+	public $Password;
+	public $UserType_obj;
+	public $ID;
+	
+	function __construct($id)	{
+		if ($id !=""){
+			$sql="select * from users where 	ID=$id";
+			$User = mysqli_query($GLOBALS['con'],$sql);
+			if ($row = mysqli_fetch_array($User)){
+				$this->UserName=$row["UserName"];
+				$this->Password=$row["Password"];
+				$this->ID=$row["ID"];
+				$this->UserType_obj=new UserType($row["UserType_id"]);
+			}
+		}
+	}
+	
+	static function login($UserName,$Password){
+		$sql="SELECT * FROM users WHERE UserName='$UserName' and Password='$Password'";	
+		$result=mysqli_query($GLOBALS['con'],$sql);
+		if ($row=mysqli_fetch_array($result)){
+			return new User($row[0]); 		
+		}
+		return NULL;
+	}
+	
+	static function SelectAllUsersInDB(){
+		$sql="select * from users";
+		$Users = mysqli_query($con,$sql);
+		$i=0;
+		$Result;
+		while ($row = mysql_fetch_array(Users)){
+			$MyObj= new User($row["ID"]);
+			$Result[$i]=$MyObj;
+			$i++;
+		}
+		return $Result;
+	}
+	
+	static function deleteUser($ObjUser){
+		$sql="delete from users where ID=".$ObjUser->ID;
+		if(mysqli_query($GLOBALS['con'],$sql))
+			return true;
+		else
+			return false;
+	}
+	
+	static function InsertinDB_Static($UN,$PW)	{
+		$sql="insert into users(UserName,Password,UserType_id) values ('$UN','$PW',2)";
+		if(mysqli_query($GLOBALS['con'],$sql))
+			return true;
+		else
+			return false;
+	}
+	
+	function UpdateMyDB(){
+		$sql="update users set UserName='".$this->UserName."' ,Password='$this->Password' where ID=".$this->ID."";
+		if(mysqli_query($GLOBALS['con'],$sql))
+			return true;
+		else
+			return false;	
+	}	
+}
 
 class UserType {
 	public $ID;
