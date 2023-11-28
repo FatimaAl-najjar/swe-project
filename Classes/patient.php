@@ -1,4 +1,5 @@
 <?php
+require_once 'User.php';
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -10,7 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-class Patient
+class Patient extends User
 {
     public $ID;
     public $FirstName;
