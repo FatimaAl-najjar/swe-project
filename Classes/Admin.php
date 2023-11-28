@@ -12,6 +12,7 @@ if(!$conn) {
 }
 
 class Admin extends User{
+    public $ID;
     public $Email;
     public $Username;
     public $Password;
@@ -20,6 +21,7 @@ class Admin extends User{
         $sql="SELECT * FROM admin where ID=$id";
         $admin= mysqli_query($GLOBALS['conn'],$sql);
         if($row= mysqli_fetch_array($admin)){
+            $this->ID = $row["ID"];
             $this->Email=$row["Email"];
             $this->Username=$row["Username"];
             $this->Password=$row["Password"];

@@ -8,12 +8,18 @@ include_once "../Classes/Admin.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the patient ID to be deleted
-    $patientID = $_POST['patientID'];
-    $patient = Patient::find($patientID);
-    if ($patient) {
-        // This script will delete all of the HTML components in the document.
-        delete('todelete');
-        // Get data of the patient
+    $adminID = $_POST['adminID'];
+    $patient = Admin::find($adminID);
+    if ($admin) {
+        ?>
+        <script>
+            var delete =document.getElementById('todelete');
+            function removeDOMElement() {
+                delete.remove();
+                down.innerHTML = "The paragraph is deleted.";
+            }
+        </script>
+        <?php
         echo "ID:" . $admin->ID . "<br>";
         echo "Email:" . $admin->Email . "<br>";
         echo "Username:" . $admin->Usernameame . "<br>";
