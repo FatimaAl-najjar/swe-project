@@ -1,43 +1,28 @@
 <?php
 
 session_start();
-// Include connection
+
 include_once "../includes/dbh.inc.php";
-// Include patient class
 include_once "../Classes/patient.php";
+include_once "../Classes/Admin.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['patientIDToDelete'])) {
     // Get the patient ID to be deleted
-    $patientID = $_POST['patientID'];
-    $patient = Patient::find($patientID);
-    if ($patient) {
-        // This script will delete all of the HTML components in the document.
-        // delete('todelete');              // Not working
-        ?>
-        <script>
-            var delete =document.getElementById('todelete');
-            function removeDOMElement() {
-                delete.remove();
-                down.innerHTML = "The paragraph is deleted.";
-            }
-        </script>
-        <?php
-        // Get data of the patient
-        echo "ID:" . $patient->ID . "<br>";
-        echo "First name:" . $patient->FirstName . "<br>";
-        echo "Last name:" . $patient->LastName . "<br>";
-        echo "Email:" . $patient->Email . "<br>";
-        echo "password:" . $patient->Password . "<br>";
-        echo "Phone number:" . $patient->Phonenumber;
+    $patientIDToDelete = $_POST['patientIDToDelete'];
+    $patient = patient::find($patientIDToDelete);
+    if($patient){
+        $result= Admin::deleteUser($patient);
+        if($result){
+            echo"Patient with ID $patientIDToDelete has been successfully deleted";
+        }else{
+            echo"Error deleting patient with ID: $patientIDToDelete";
+        }
+    }else{
+        echo"patient ID $patientIDToDelete doesn't exist ";
     }
-    else {
-        echo "No patient with this id";
-    }
-    // echo''.$patientID.'';
-
+    
 }
-// Prepare the DELETE query
-// $sql = "DELETE FROM patients WHERE patientID = ?";
 ?>
 
 
@@ -64,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
     <body>
         <div id="todelete" class="card">
-            <form action="" method="post">
-                <h1>Search by patient's ID:</h1>
+            <form id="deleteForm" action="" method="post">
+                <h1>delete patient by ID:</h1>
                 <input type="text" name="patientID" placeholder="Enter patient's ID"><br>
-                <button class="btn" type="submit" value="submit">Search for patient</button>
+                <button class="btn" type="submit" value="submit">Delete patient</button>
                 <button class="btn" name="cancel" formnovalidate>Cancel</button>
             </form>
         </div>

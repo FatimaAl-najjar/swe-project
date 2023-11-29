@@ -58,13 +58,23 @@ class Admin extends User{
     }
 
     static function deleteadmin($objAdmin){
-        $sql="DELETE FROM admin WHERE ID=".$ObjAdmin->ID;
+        $sql="DELETE FROM admin WHERE ID=" .$objAdmin->ID;
         if(mysqli_query($GLOBALS['conn'],$sql)){
             return true;
         }else{
             return false;
         }
     }
+
+    /*static function deleteadmin($objAdmin) {
+        $sql = "DELETE FROM admin WHERE ID=" . $objAdmin->ID;
+    
+        if (mysqli_query($GLOBALS['conn'], $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }*/
 
     static function addUser($FirstName, $LastName, $Email, $Password, $Phonenumber)	{
 		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
