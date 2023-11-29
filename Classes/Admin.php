@@ -36,6 +36,15 @@ class Admin extends User{
 		}
 		return NULL;
     }
+    
+    static function findPatient($id) {
+        $sql = "SELECT * FROM patients WHERE ID='$id'";
+        $result = mysqli_query($GLOBALS['conn'], $sql);
+        if ($row = mysqli_fetch_array($result)) {
+            return new Patient($row["ID"]);
+        }
+        return NULL;
+    }
 
     static function login($Email,$Username,$Password){
         $sql="SELECT * FROM admin WHERE Email='$Email' and Username='$Username' and Password ='$Password'";
