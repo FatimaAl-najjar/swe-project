@@ -2,16 +2,17 @@
 session_start();
 include_once "../includes/dbh.inc.php";
 include_once "../Classes/patient.php";
+include_once "../Classes/Admin.php";
 
 $errorMessage = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $FirstName = $_POST["FirstName"];
-    $LastName = $_POST["LastName"];
-    $Email = $_POST["Email"];
-    $Password = $_POST["Password"];
-    $repeatPassword = $_POST["repeatPassword"];
-    $Phonenumber = $_POST["Phonenumber"];
+
+    $FirstName = isset($_POST["FirstName"])? $_POST["FirstName"]:"";
+    $LastName = isset($_POST["LastName"])?$_POST["LastName"]:"";
+    $Email = isset($_POST["Email"]) ? $_POST["Email"] : "";
+    $Password = isset($_POST["Password"])?$_POST["Password"]:"";
+    $repeatPassword = isset($_POST["repeatPassword"])?$_POST["repeatPassword"]:"";
+    $Phonenumber = isset($_POST["Phonenumber"])?$_POST["Phonenumber"]:"";
 
     if (empty($FirstName) || empty($LastName) || empty($Email) || empty($Password) || empty($repeatPassword) || empty($Phonenumber)) {
         $errorMessage = "<h2>Please fill in all the required fields.</h2>";
@@ -24,10 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Password = mysqli_real_escape_string($conn, $Password);
         $Phonenumber = mysqli_real_escape_string($conn, $Phonenumber);
 
-        $sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        /*$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
             VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
-
-        $result = mysqli_query($conn, $sql);
+        */
+        $result = Admin::addUser($FirstName, $LastName, $Email, $Password, $Phonenumber);
         if ($result) {
             // Redirect after a successful registration
             echo "User added successfully";
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorMessage = "<h2>An error occurred during registration.</h2>";
         }
     }
-}
+
 
 // Cancel button functionality
 if (isset($_POST['cancel'])) {

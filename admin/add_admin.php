@@ -20,10 +20,10 @@ include_once "../Classes/Admin.php";
    }
    $errormessage="";
 
-   if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $Email = $_POST["Email"];
-    $Username=$_POST["Username"];
-    $Password=$_POST["Password"];
+
+   $Email = isset($_POST["Email"]) ? $_POST["Email"] : "";
+   $Username = isset($_POST["Username"]) ? $_POST["Username"] : "";
+   $Password = isset($_POST["Password"]) ? $_POST["Password"] : "";
    
 
    if(empty($Username)||empty($Email)||empty($Password)){
@@ -33,10 +33,10 @@ include_once "../Classes/Admin.php";
     $Username = mysqli_real_escape_string($conn, $Username);
     $Password = mysqli_real_escape_string($conn, $Password);
 
-    $sql="INSERT INTO admin (Email ,Username ,Password) 
-        VALUES ('$Email','$Username','$Password')" ;  
+   /* $sql="INSERT INTO admin (Email ,Username ,Password) 
+        VALUES ('$Email','$Username','$Password')" ;  */
 
-    $result=mysqli_query($conn,$sql);
+    $result=Admin::addadmin($Email,$Username,$Password);
 
     if($result){
         header("Location: ../adminlogin.php");
@@ -45,7 +45,7 @@ include_once "../Classes/Admin.php";
         $errormessage= "<h2>An error occurred during registration.</h2>";
     }
 }
-}
+
    ?> 
       <br><br><br>
     <div class="card">
