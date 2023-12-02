@@ -6,18 +6,19 @@ require_once(__ROOT__ . "controller/Controller.php");
 
 class AppointmentsController extends Controller {
     public function insert() {
-        $name = $_REQUEST['name'];
-        $date = $_REQUEST['date'];
-        $time = $_REQUEST['time'];
+        $name = $_REQUEST['patients_id'];
+        $date = $_REQUEST['day'];
+        $time = $_REQUEST['duration'];
 
-        $this->model->insertAppointment($name, $date, $time);
+        $this->model->insertAppointment( $date, $time);
+        header("Location:appointment_index.php");
     }
 
     public function edit() {
         $id = $_REQUEST['id'];
-        $name = $_REQUEST['name'];
-        $date = $_REQUEST['date'];
-        $time = $_REQUEST['time'];
+        $name = $_REQUEST['patients_id'];
+        $date = $_REQUEST['day'];
+        $time = $_REQUEST['duration'];
 
         $this->model->editAppointment($id, $name, $date, $time);
     }
@@ -29,4 +30,4 @@ class AppointmentsController extends Controller {
     }
 }
 ?>
-?>
+ 

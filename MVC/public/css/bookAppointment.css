@@ -1,0 +1,156 @@
+@import url('https//fonts.googleapis.com/css2?family=Poppins:wgt@100;200;300;400;500;600;700&display=swap');
+:root{
+   --blue:#00316e;
+   --black:#444;
+   --light-color:#fdfcfa;
+   --box-shadow:.5rem .5rem 0 rgba(22,160,133,.2);
+   --text-shadow:.4rem .4rem 0 rgba(0,0,0,.2);
+   --border:.2rem solid  var(--blue);
+
+}
+/* *{
+   font-family:'Poppins',sans-serif;
+   margin: 0; padding: 0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-transform: capitalize;
+   transition: all .2s ease-out;
+   text-decoration: none;
+}
+ html{
+   font-size:62.5%;
+   overflow: hidden;
+   scroll-padding-top: 7rem;
+   scroll-behavior: smooth;
+ } */
+
+ body{
+   padding-top:50px;
+ }
+.row{
+   display: flex;
+   align-items:center;
+   flex-wrap: wrap;
+   gap: 2rem;
+   /* position: fixed;
+top: 0;
+left: 0; */
+}
+.home-img img{
+   border-radius: 20%;
+   max-width: 100%;
+   /* margin: 40px; */
+   /* margin-top: 100px; */
+   /* width: 70%;
+   height: 30%; */
+   margin-top: 55px;
+    padding-left: 20px;
+   width: 540px;
+   height: 470px;
+}
+.home-img img{
+   max-width: 100%;
+   width: 380px;
+   height: 400px;
+ }
+/* .row.image{
+   flex:1 1 45rem ;
+   width : 10cm;
+   height: 7cm;
+}
+.row.image img{
+    width : 10cm;
+   height: 7cm;
+} */
+.btn1{
+   display: block;
+   margin-top: 1rem;
+   border: var(--border);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   color: var(--blue);
+   cursor: pointer;
+   font-size: 1.4rem;
+   background: #fff;
+}
+.btn1 span{
+   padding: .7rem 1rem;
+   border-radius: .5rem;
+   background: var(--blue);
+   color: #fff;
+
+}
+.btn1:hover{
+    color:var(--blue);
+    background: #fff;
+    margin-left: 1rem;
+}
+.btn1:hover span{
+   background:var(--blue);
+   color: #fff;
+}
+.row form{
+   padding-top:70px;
+   flex: 1 1 45rem;
+   background: #fff;
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   text-align: center;
+   padding: 1rem;
+   border-radius: .5rem;
+   /* margin: 3rem; */
+   width: 100%;
+   
+}
+.row form h3{
+   color: var(--black);
+   padding-bottom: 0.5rem;
+   font-size: 1rem;
+}
+.row form .box{
+   width: 87%;
+  height: 100px;
+   margin: .4rem 0;
+   border-radius: .5rem;
+   border: var(--border);
+   font-size: 1.6rem;
+   color: var(--black);
+   text-transform: none;
+   padding: 1rem;
+   
+}
+.row form .btn1{
+   padding: 0.5rem 0.5rem;
+}
+.error-box {
+   background-color: #ffcccc;
+   color: #ff0000;
+   padding: 10px;
+   margin-top: 10px;
+ }
+ /* .message-box {
+   background-color: darkblue;
+   color: white;
+   padding: 10px;
+   text-align: center;
+   font-size: 14px;
+   width: 50%;
+   margin: 0 auto;
+   margin-top: 35px;
+} */
+/* @media(max-width:991px)
+{
+   html{
+       font-size: 55%;
+   }
+}
+@media(max-width:768px)
+{
+   
+}
+@media(max-width:450px)
+{
+   html{
+       font-size: 50%;
+   }
+} */
