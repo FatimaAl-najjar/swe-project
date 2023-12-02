@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../MVC/db/dbh.php");
+require_once("../app/db/Dbh.php");
 abstract class Model{
     protected $db;
     protected $conn;
