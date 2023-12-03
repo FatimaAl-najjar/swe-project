@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once "../includes/dbh.inc.php";
+include_once "../Classes/Admin.php";
+
 
 $query = "SELECT * FROM patients";
 $result = mysqli_query($conn, $query);
@@ -52,7 +54,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data as $row): ?>
+                    <?php 
+                    $userData=Admin::viewUser();
+                    foreach ($userData as $row): 
+                    ?>
                         <tr>
                             <td><?php echo $row['ID']; ?></td>
                             <td><?php echo $row['FirstName']; ?></td>

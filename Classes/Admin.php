@@ -122,7 +122,20 @@ class Admin extends User{
         }
 	}
 
+    static function viewUser(){
+        $sql="SELECT * FROM patients";
+        $result= mysqli_query($GLOBALS['conn'],$sql);
 
+        if(!$result){
+            die('Error executimg thid query:' .mysqli_error($GLOBALS['conn']));
+
+        }
+        $data=array();
+        while($row = mysqli_fetch_assoc($result)){
+            $data[]=$row;
+        }
+        return $data;
+    }
 
     
 }
