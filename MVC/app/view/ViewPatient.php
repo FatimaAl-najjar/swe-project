@@ -4,16 +4,16 @@ require_once(__ROOT__ . "view/View.php");
 
 class ViewPatient extends View{	
 	public function output(){
-		$str="";
-		$str.="<h1>Welcome ".$this->model->getName()."</h1>";
-		$str.="<h5>Age: ".$this->model->getAge()."</h5>";
-		$str.="<h5>Phone: ".$this->model->getPhone()."</h5>";
-		$str.="<br><br>";
-		$str.="<a href='profile.php?action=edit'>Edit Profile </a><br><br>";
-		$str.="<a href='profile.php?action=movie'>My Movies </a><br><br>";
-		$str.="<a href='profile.php?action=signOut'>SignOut </a><br><br>";
-		$str.="<a href='profile.php?action=delete'>Delete Account </a>";
-		return $str;
+		// $str="";
+		// $str.="<h1>Welcome ".$this->model->getName()."</h1>";
+		// $str.="<h5>Age: ".$this->model->getAge()."</h5>";
+		// $str.="<h5>Phone: ".$this->model->getPhone()."</h5>";
+		// $str.="<br><br>";
+		// $str.="<a href='profile.php?action=edit'>Edit Profile </a><br><br>";
+		// $str.="<a href='profile.php?action=movie'>My Movies </a><br><br>";
+		// $str.="<a href='profile.php?action=signOut'>SignOut </a><br><br>";
+		// $str.="<a href='profile.php?action=delete'>Delete Account </a>";
+		// return $str;
 	}
 	
 	function loginForm(){
