@@ -5,20 +5,20 @@ require_once(__ROOT__ . "view/View.php");
  <?php
 class ViewAppointment extends View {
     public function outputPatientView() {
+        $currentDateTime = new DateTime();
+$halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
+$halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');
         $str = "";
-
-        // Patient view: Appointment booking form
-        $str .= "<h1>Book Appointment</h1>";
-        $str .= "<form action='appointment_index.php?action=insert' method='POST'>";
-        // $str .= "<label>Name:</label>";
-        // $str .= "<input type='text' name='name'><br><br>";
-        $str .= "<label>Date:</label>";
-        $str .= "<input type='date' name='day'><br><br>";
-        $str .= "<label>Time:</label>";
-        $str .= "<input type='time' name='duration'><br><br>";
-        $str .= "<input type='submit' value='Book Appointment'>";
-        $str .= "</form>";
-
+        $str .= "<div class='row'>\n";
+        $str .= "<div class='home-img'>\n";
+        $str .= "<img class='my-img' src='images/waiting_room2.jpg'>\n";
+        $str .= "</div>\n";
+        $str .= "<form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>\n";
+        $str .= "<input type='datetime-local' name='datetime' class='box' min='" . $halfHourLaterFormatted . "'>\n";
+        $str .= "<input type='submit' name='book_now' class='btn1'>\n";
+        $str .= "</form>\n";
+        $str .= "</div>\n";
+        
         return $str;
     }
 

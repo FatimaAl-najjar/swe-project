@@ -13,19 +13,6 @@ include_once "../includes/dbh.inc.php";
     <link rel="stylesheet" type="text/css" href="../css/home.css" />
 </head>
 <body>
-    <!-- <div class="nav">
-        <div class="elementsnav">
-            <div class="leftnav">
-                <img class="navpic" src="./images/pic1.png">
-            </div>
-            <div class="rightnav">
-                <a  id = "aboutdoctor"class ="navbutton"href="#">ABOUT DOCTOR</a><br/>
-                <a  id = "services"class ="navbutton"href="#">SERVICES</a><br/>
-                <a  id = "research"class ="navbutton"href="#">RESEARCH</a><br/>
-                <a  id = "contact"class ="navbutton"href="#">CONTACT US </a><br/>
-            </div>
-        </div>
-    </div> -->
     <div class="container">
         <img class="img" src="../images/background1.jpeg" alt="medicalbackground">
         <div class="text-block">
@@ -83,32 +70,7 @@ include_once "../includes/dbh.inc.php";
 
 
             </div>
-            <!-- <div class="container2">
-                <div class="circle">
-                    <div class="icon">&#9873;</div> 
-                    <div class="title">Diabetes Mellitus</div>
-                    <div class="description">A group of metabolic disorders characterized by high blood sugar levels.</div>
-                </div>
-        
-                <div class="circle">
-                    <div class="icon">&#9732;</div> 
-                    <div class="title">Pituitary & Adrenal Glands Disorders</div>
-                    <div class="description">Conditions affecting the pituitary and adrenal glands, leading to hormonal imbalances.</div>
-                </div>
-        
-                <div class="circle">
-                    <div class="icon">&#9733;</div> 
-                    <div class "title">Growth Disorders</div>
-                    <div class="description">Conditions that affect a person's physical growth or development.</div>
-                </div>
-        
-                <div class="circle">
-                    <div class="icon">&#9734;</div> 
-                    <div class="title">Thyroid Disorders</div>
-                    <div class="description">Problems with the thyroid gland that can lead to various health issues.</div>
-                </div>
-            </div> -->
-        
+
         
             <div class="container3">
                 <img class="landscape" src="../images/landscape.jpeg" alt="landscape">
@@ -157,13 +119,6 @@ include_once "../includes/dbh.inc.php";
         
                 <!-- Add more reviews as needed -->
             </div>
-<!--         
-            <div class="footer">
-                <p>&copy; 2023 Dr. Merhan Samy clinic. All rights reserved.</p>
-                <p>6 mahmoud hafez st safeer square, Cairo, Egypt, 4470351</p>
-                <p>Phone: (+20) 01207238450 | Email: Merhan_nasr@hotmail.com</p>
-                <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
-            </div> -->
       <script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';

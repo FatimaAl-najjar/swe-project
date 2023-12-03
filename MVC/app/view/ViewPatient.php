@@ -2,7 +2,7 @@
 
 require_once(__ROOT__ . "view/View.php");
 
-class ViewAdmin extends View{
+class ViewPatient extends View{	
 	public function output(){
 		$str="";
 		$str.="<h1>Welcome ".$this->model->getName()."</h1>";
@@ -17,19 +17,11 @@ class ViewAdmin extends View{
 	}
 	
 	function loginForm(){
-		$str='<div class="card">
-            <h1>Login</h1>
-            <form action="" method="POST">
-            <label>Email:</label>
-            <input type="text" placeholder="please enter your email" name="Email" required><br>
-            <label>Password:</label>
-            <input type="password" placeholder="please enter your password" name="Password" required><br>
-            <button class="btn" type="submit" value="submit">Login</button>
-            <a href="landing.php"><button type="button" class="btn">Back</button></a>     </form>
-            </div>
-            <?php
-            echo $errormessage;
-            ?>';
+		$str='<form action="index.php" method="post">
+		<div><input type="text" name="name" placeholder="Enter name"/></div><br>
+		<div><input type="password" name="password" placeholder="Enter password"/></div><br>
+		<div><input type="submit" name="login"/></div>
+		</form>';
 		return $str;
 	}
 

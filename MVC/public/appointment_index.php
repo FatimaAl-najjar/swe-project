@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="css/appointment_index.css">
+<link rel="stylesheet" href="css/bookAppointment.css">
 <?php
 
 define('__ROOT__', "../app/");
