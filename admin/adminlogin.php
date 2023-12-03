@@ -6,35 +6,28 @@ $errorMessage="";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $Email=$_POST["Email"];
+    $Username=$_POST["Username"];
     $Password=$_POST["Password"];
     if(!FILTER_Var($Email,FILTER_VALIDATE_EMAIL))
     {
         $errorMessage="invalid email format";
     }
-    $sql="SELECT * FROM admin WHERE Email=?";
-    $stmt= mysqli_prepare($conn,$sql);
-    mysqli_stmt_bind_param($stmt, "s", $Email);
     
-    mysqli_stmt_execute($stmt);
-    $result=mysqli_stmt_get_result($stmt);
+    $admin=Admin::login($Email,$Username,$Password);
+   
+    if($admin){
+        $_SESSION["ID"]=$admin->ID;
+        $_SESSION["Username"]=$admin->Username;
+        $_SESSION["Email"]=$admin->Email;
+        $_SESSION["Password"]=$admin->Password;
 
-    if($row=mysqli_fetch_assoc($result)){
-        if($Password === $row['Password']){
-            $_SESSION["ID"]=$row["ID"];
-            $_SESSION["Username"]=$row["Username"];
-            $_SESSION["Email"]=$row["Email"];
-            $_SESSION["Password"]=$row["Password"];
-
-            
-            header("Location: ./view_patients.php");
-        }
+        header("Location: ./view_patients.php");
+        
         else{
-            $errorMessage="<h2>incorrect password</h2>";
+            $errorMessage="<h2>incorrect email,username or password</h2>";
         }
     }
-    else{
-        $errorMessage="incorrect Email";
-    }
+   
 }
 ?>
 

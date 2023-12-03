@@ -10,7 +10,7 @@ include_once "../Classes/Admin.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adminlogin</title>
+    <title>add admin </title>
 </head>
 <body>
    <?php
