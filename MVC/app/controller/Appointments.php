@@ -1,6 +1,6 @@
 <?php
 // include '../includes/nav2.php';
- 
+
 
 require_once(__ROOT__ . "controller/Controller.php");
 
