@@ -16,7 +16,6 @@ class Patients extends Model {
 			array_push($this->patients, new Patient($row["ID"],$row["FirstName"],$row["LastName"],$row["Email"],$row["Password"],$row["Phonenumber"]));
 		}
 	}
-
 	function getPatients() {
 		return $this->patients;
 	}
