@@ -17,14 +17,15 @@ class ViewPatient extends View{
 		$str .= '<br><hr><br>';
 		$str .= '<div class="profile-info">';
 		$str .= '<label for="firstname" class="profile-label">First Name:</label>';
-		$str .= '<p class="profile-value">Welcome ' . $this->model->getFName() . '</p>';
+		$str .= '<p class="profile-value"> ' . $this->model->getFName() . '</p>';
 		$str .= '<label for="lastname" class="profile-label">Last Name:</label>';
-		$str .= '<p class="profile-value">Welcome ' . $this->model->getLName() . '</p>';
+		$str .= '<p class="profile-value"> ' . $this->model->getLName() . '</p>';
 		$str .= '<label for="email" class="profile-label">Email:</label>';
+		$str .= '<p class="profile-value"> ' . $this->model->getEmail() . '</p>';
 		$str .= '<label for="password" class="profile-label">Password:</label>';
-		$str .= '<p class="profile-value">password: ' . $this->model->getPassword() . '</p>';
+		$str .= '<p class="profile-value"> ' . $this->model->getPassword() . '</p>';
 		$str .= '<label for="phone" class="profile-label">Phone Number:</label>';
-		$str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
+		$str .= '<p class="profile-value"> ' . $this->model->getPhonenumber() . '</p>';
 	
 		$str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
 		$str .= '<a href="PatientProfile.php?action=signOut" class="button-link">Sign Out</a><br><br>';
