@@ -75,7 +75,7 @@ $userInfo = mysqli_fetch_assoc($result);
 </head>
 <body>
     <br><br><br>
-    <section class="home">
+    $str='<section class="home">
         <div class="form-container">
             <i class="uil uil-times form_close"></i>
             <div class="form view_form">
@@ -84,23 +84,26 @@ $userInfo = mysqli_fetch_assoc($result);
                         <h2 style="text-align: center;">My Profile</h2>
                         <br><hr><br>
                         <div class="profile-info">
+                            $str="";
                             <label for="username" class="profile-label">User Name:</label>
-                            <p class="profile-value"><?php echo $userInfo["FirstName"] . " " . $userInfo["LastName"]; ?></p>
+                            $str .= '<p class="profile-value">Welcome ' . $this->model->getFName() . '</p>';
 
                             <label for="email" class="profile-label">Email:</label>
-                            <p class="profile-value"><?php echo $userInfo["Email"]; ?></p>
+                            $str .= '<p class="profile-value">LastName ' . $this->model->getLName() . '</p>';
+
 
                             <label for="phone" class="profile-label">Phone Number:</label>
-                            <p class="profile-value"><?php echo $userInfo["Phonenumber"]; ?></p>
+                            $str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
 
-                            <a href="../index/homepage.php" class="button-link">&#128072; Back</a>
-                            <a href="../index/edit.php" class="button-link">&#9997; Edit</a>
+                            $str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
+                            $str .= '<a href="PatientProfile.php?action=signOut" class="button-link">Sign Out</a><br><br>';
+                            $str .= '<a href="PatientProfile.php?action=delete" class="button-link">Delete Account</a>';
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    </section>
+    </section>';
 </body>
 <footer><?php include '../includes/footer.php'; ?></footer>
 </html>

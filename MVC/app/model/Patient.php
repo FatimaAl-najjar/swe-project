@@ -16,7 +16,7 @@ class Patient extends Model {
 	    $this->db = $this->connect();
 
     if(""===$FirstName){
-      $this->readUser($ID);
+      $this->readPatient($ID);
     }else{
       $this->FirstName = $FirstName;
       $this->LastName = $LastName;
@@ -62,7 +62,7 @@ function getEmail() {
   }
 // get the id
   function getID() {
-    return $this->id;
+    return $this->ID;
   }
 
   function readPatient($ID){
@@ -72,7 +72,7 @@ function getEmail() {
     if ($result->num_rows == 1){
         $row = $db->fetchRow();
         $this->FirstName = $row["FirstName"];
-		$_SESSION["Email"]=$row["Email"];
+		$_SESSION["FirstName"]=$row["FirstName"];
         $this->LastName = $row["LastName"];
 		 $this->Email = $row["Email"];
          $this->Password=$row["Password"];

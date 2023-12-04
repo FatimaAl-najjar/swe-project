@@ -8,9 +8,10 @@ define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/Appointment.php");
 require_once(__ROOT__ . "controller/Appointments.php");
 require_once(__ROOT__ . "view/ViewAppointment.php");
-
+ 
 // Create instances of the model, controller, and view
-$model = new Appointment("0");
+$model = new Appointment("");
+ 
 $controller = new AppointmentsController($model);
 $view = new ViewAppointment($controller, $model);
 
@@ -20,7 +21,9 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
     // Call the appropriate method in the controller
     if ($action == 'insert') {
+        
         $controller->insert();
+   
     } elseif ($action == 'edit') {
         $controller->edit();
     } elseif ($action == 'delete') {
