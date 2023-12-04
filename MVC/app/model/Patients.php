@@ -34,7 +34,7 @@ class Patients extends Model {
 	}
 
 	function insertPatient($FirstName,$LastName,$Email,$Password,$Phonenumber){
-		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) VALUES ('$FirstName','$LastName', '$Email','$Password','$Phonenumber')";
+		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) VALUES ('$FirstName','$LastName', '$Email','$Password', '$Phonenumber')";
 		if($this->db->query($sql) === true){
 			echo "Records inserted successfully.";
 			$this->fillArray();

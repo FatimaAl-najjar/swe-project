@@ -2,7 +2,7 @@
 
 require_once(__ROOT__ . "controller/Controller.php");
 
-class PatientsController extends Controller{
+class PatientController extends Controller{
 	public function insert() {
 		$FirstName = $_REQUEST['FirstName'];
         $LastName = $_REQUEST['LastName'];

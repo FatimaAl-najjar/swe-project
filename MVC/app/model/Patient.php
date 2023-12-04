@@ -20,7 +20,7 @@ class Patient extends Model {
     }else{
       $this->FirstName = $FirstName;
       $this->LastName = $LastName;
-      this->Email=$Email;
+      $this->Email=$Email;
 	  $this->Password=$Password;
       $this->Phonenumber = $Phonenumber;
     }
@@ -72,7 +72,7 @@ function getEmail() {
     if ($result->num_rows == 1){
         $row = $db->fetchRow();
         $this->FirstName = $row["FirstName"];
-		$_SESSION["FirstName"]=$row["FirstName"];
+		$_SESSION["Email"]=$row["Email"];
         $this->LastName = $row["LastName"];
 		 $this->Email = $row["Email"];
          $this->Password=$row["Password"];
@@ -81,7 +81,7 @@ function getEmail() {
     else {
         $this->FirstName = $FirstName;
         $this->LastName = $LastName;
-        this->Email=$Email;
+        $this->Email=$Email;
         $this->Password=$Password;
         $this->Phonenumber = $Phonenumber;
     }

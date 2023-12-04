@@ -18,7 +18,7 @@ class ViewPatient extends View{
 	function loginForm(){
 		$str='<div class="card">
 		<h1>Login</h1>
-	<form action="index.php" method="POST">
+	<form action="index.php" method="post">
 		<label>Email:</label>
 		<input type="text" placeholder="please enter your email" name="Email" required><br>
 		<label>Password:</label>
@@ -30,8 +30,8 @@ class ViewPatient extends View{
 	}
 
 	function signupForm(){
-		$str='   <div class="card">
-        <form action="" method="post">
+		$str='<div class="card">
+        <form action="index.php?action=insert" method="post">
             <label>First Name:</label>
             <input type="text" name="FirstName" placeholder="Enter your first name"><br>
             <label>Last Name:</label>
@@ -47,7 +47,6 @@ class ViewPatient extends View{
             <button class="btn" type="submit" value="submit">Sign Up</button>
             <button class="btn" name="cancel" formnovalidate>Cancel</button>
         </form>
-        <?php echo $errorMessage; ?>
     </div>';
 		return $str;
 	}
