@@ -2,13 +2,13 @@
 <?php
 
 define('__ROOT__', "../app/");
-require_once(__ROOT__ . "model/Patients.php");
-require_once(__ROOT__ . "controller/PatientController.php");
-require_once(__ROOT__ . "view/ViewPatient.php");
+require_once(__ROOT__ . "model/Admin.php");
+require_once(__ROOT__ . "controller/AdminController.php");
+require_once(__ROOT__ . "view/ViewAdmin.php");
 
-$model = new Patients("");
-$controller = new PatientController($model);
-$view = new ViewPatient($controller, $model);
+$model = new Admin("");
+$controller = new AdminController($model);
+$view = new ViewAdmin($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
@@ -17,7 +17,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 if(isset($_POST['login']))	{
 	$Email=$_REQUEST["Email"];
 	$Password=$_REQUEST["Password"];
-	$sql = "SELECT * FROM patients where Email='$Email' and Password='$Password'";
+	$sql = "SELECT * FROM patient where Email='$Email' and password='$password'";
 	$dbh = new Dbh();
 	$result = $dbh->query($sql);
 	if ($result->num_rows == 1){
@@ -29,147 +29,5 @@ if(isset($_POST['login']))	{
 }
 ?>
 
-<div class="container">
-        <img class="img" src="../images/background1.jpeg" alt="medicalbackground">
-        <div class="text-block">
-          <h4>Dr.Merhan Samy Nasr</h4>
-          <br>
-
-          <h1>Live a healthy life style</h1>
-          <p>Prof. of diabetes,internal medecine and endocrinology<br>
-            AIN SHAMS UNIVERSITY
-          </p>
-          <button class="explorebutton">Explore More</button>
-        </div>
-      </div>    
-      <div class="container2">
-                <div class="card">
-            <div class="circle">
-                <img src="../images/cycle5.jpeg" class="circlepic">
-                </div>
-                <div class="content">
-                    <h3>Diabetes mellitus</h3>
-                    <p>Type 1&2 Diabetic Emergencies
-                    </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="circle">
-                        <img src="../images/cycle2.jpeg" class="circlepic">
-                        </div>
-                        <div class="content">
-                            <h3>pituitary and adrenal glands disorders</h3>
-                            <p>Prolactinoma,Cushing,
-                                addison,pheochromocytoma and infertility</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="circle">
-                                <img src="../images/circle6.webp" class="circlepic">
-                                </div>
-                                <div class="content">
-                                    <h3>growth disorders </h3>
-                                    <p>Gigantism and short-stature</p>
-                                    </div>
-                        </div>
-                        <div class="card">
-                            <div class="circle">
-                                <img src="../images/cycle4.jpeg" class="circlepic">
-                                </div>
-                                <div class="content">
-                                    <h3>thyroid disorders </h3>
-                                    <p>Hypothyroidism,
-                                        Hyperthyroidism,and
-                                        Thyroditis</p>
-                                    </div>
-                        </div>
-
-
-            </div>
-
-        
-            <div class="container3">
-                <img class="landscape" src="../images/landscape.jpeg" alt="landscape">
-            </div>
-            <div class="container4">
-                    <div class="leftpart">
-                        <img class="profilepicture" src="../images/profile.jpeg" alt="doctor pic">
-                    </div>
-                    <div class="profileinfo">
-                        <h2>Dr.Merhan Samy Nasr </h2>
-                        <p>Prof merhan samy worked since 2002 at el demerdash hospitals ASU  starting as a resident till became a professor in 2020 
-                            During these years she also worked as a consultant at ain shams specialized hospital clinics, diabetic foot center at the greek hospital and at el haya hospital clinics before founding her own private clinic in 2015.</p>
-                   <div class="buttons-info">
-                        <button class="btn1-info">Get to Know More</button>
-                        <button class="btn2-info">Contact Us!</button>
-
-                   </div>
-
-                    </div>           
-                    
- 
-            </div>
-            <div class="container5">
-                <h1>Client Reviews</h1>
-                <div class="review" id="review1">
-                    <div class="avatar"></div>
-                    <div class="text">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dapibus, felis ac fringilla."</p>
-                        <p><strong>John Doe</strong></p>
-                    </div>
-                </div>
-        
-                <div class="review" id="review2">
-                    <div class="avatar"></div>
-                    <div class="text">
-                        <p>"Sed euismod augue et tortor fringilla, ac sollicitudin felis tempor. Nunc at feugiat sapien."</p>
-                        <p><strong>Jane Smith</strong></p>
-                    </div>
-                </div>
-        
-                <!-- Add more reviews as needed -->
-        
-                <div class="nav-arrow prev" onclick="showReview(-1)">❮</div>
-                <div class="nav-arrow next" onclick="showReview(1)">❯</div>
-            </div>
-        
-                <!-- Add more reviews as needed -->
-            </div>
-      <script>
-        document.getElementsByClassName("explorebutton").onclick = function() {
-             window.location.href='aboutdoctor.html';
-             }
-             let currentReview = 1;
-        const reviews = document.querySelectorAll('.review');
-
-        function showReview(direction) {
-            reviews[currentReview - 1].style.display = 'none';
-            currentReview += direction;
-
-            if (currentReview < 1) {
-                currentReview = reviews.length;
-            } else if (currentReview > reviews.length) {
-                currentReview = 1;
-            }
-
-            reviews[currentReview - 1].style.display = 'flex';
-        }
-
-        // Initially, show the first review
-        showReview(0);
-
-        </script> 
-
-<table width='100%' align='center' border=1 >
-	<tr>
-		<td align="center">Login</td>
-		<td></td>
-		<td align="center">SignUp</td>
-	</tr>
-	<tr>
-		<td width='40%' align="center"><?php echo $view->loginForm();?></td>
-		<td align="center">OR</td>
-		<td width='40%' align="center"><?php echo $view->signupForm();?></td>
-	</tr>
-</table>
-
+<!-- What will appear in the php form  -->
+<?php echo $view->loginForm();?>
