@@ -5,9 +5,9 @@ require_once(__ROOT__ . "view/View.php");
  <?php
 class ViewAppointment extends View {
     public function outputPatientView() {
-        $currentDateTime = new DateTime();
-$halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
-$halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');
+//         $currentDateTime = new DateTime();
+// $halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
+// $halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');
         // $str = "";
         // $str .= "<div class='row'>\n";
         // $str .= "<div class='home-img'>\n";

@@ -76,7 +76,7 @@ class Appointment extends Model {
     function insertAppointment( $date, $time) {
         // Validate appointment time
         if (!$this->validateAppointmentTime($time)) {
-            echo "ERROR: Invalid appointment time.";
+            echo "Appointments are only available from 5pm to 10pm";
             exit;
         }
 
