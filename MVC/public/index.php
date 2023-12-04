@@ -15,15 +15,15 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 }
 
 if(isset($_POST['login']))	{
-	$Email=$_REQUEST["Email"];
+	$FirstName=$_REQUEST["FirstName"];
 	$Password=$_REQUEST["Password"];
-	$sql = "SELECT * FROM patients where Email='$Email' and Password='$Password'";
+	$sql = "SELECT * FROM patients where FirstName='$FirstName' and Password='$Password'";
 	$dbh = new Dbh();
 	$result = $dbh->query($sql);
 	if ($result->num_rows == 1){
 		$row = $dbh->fetchRow();
 		$_SESSION["ID"]=$row["ID"];
-		$_SESSION["Email"]=$row["Email"];
+		$_SESSION["FirstName"]=$row["FirstName"];
 		header("Location:PatientProfile.php");
 	}
 }

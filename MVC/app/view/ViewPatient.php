@@ -1,31 +1,49 @@
+<link rel="stylesheet" href="css/PatientProfile.css">
+
 <?php
 
 require_once(__ROOT__ . "view/View.php");
 
 class ViewPatient extends View{	
-	public function output(){
-		$str="";
-		$str.="<h1>Welcome ".$this->model->getFName()."</h1>";
-		$str.="<h5>LastName: ".$this->model->getLName()."</h5>";
-		$str.="<h5>Phone: ".$this->model->getPhonenumber()."</h5>";
-		$str.="<br><br>";
-		$str.="<a href='PatientProfile.php?action=edit'>Edit Profile </a><br><br>";
-		$str.="<a href='PatientProfile.php?action=signOut'>SignOut </a><br><br>";
-		$str.="<a href='PatientProfile.php?action=delete'>Delete Account </a>";
+	public function output() {
+		$str = "";
+		$str .= '<section class="home">';
+		$str .= '<div class="form-container">';
+		$str .= '<i class="uil uil-times form_close"></i>';
+		$str .= '<div class="form view_form">';
+		$str .= '<form action="#">';
+		$str .= '<div class="card1">';
+		$str .= '<h2 style="text-align: center;">My Profile</h2>';
+		$str .= '<br><hr><br>';
+		$str .= '<div class="profile-info">';
+		$str .= '<label for="firstname" class="profile-label">First Name:</label>';
+		$str .= '<p class="profile-value">Welcome ' . $this->model->getFName() . '</p>';
+		$str .= '<label for="lastname" class="profile-label">Last Name:</label>';
+		$str .= '<p class="profile-value">Welcome ' . $this->model->getLName() . '</p>';
+		$str .= '<label for="email" class="profile-label">Email:</label>';
+		$str .= '<label for="password" class="profile-label">Password:</label>';
+		$str .= '<p class="profile-value">password: ' . $this->model->getPassword() . '</p>';
+		$str .= '<label for="phone" class="profile-label">Phone Number:</label>';
+		$str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
+	
+		$str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
+		$str .= '<a href="PatientProfile.php?action=signOut" class="button-link">Sign Out</a><br><br>';
+		$str .= '</div>';
+		$str .= '</div>';
+		$str .= '</form>';
+		$str .= '</div>';
+		$str .= '</div>';
+		$str .= '</section>';
 		return $str;
 	}
+
 	
 	function loginForm(){
-		$str='<div class="card">
-		<h1>Login</h1>
-	<form action="index.php" method="post">
-		<label>Email:</label>
-		<input type="text" placeholder="please enter your email" name="Email" required><br>
-		<label>Password:</label>
-		<input type="password" placeholder="please enter your password" name="Password" required><br>
-		<button class="btn" type="submit" value="submit">Login</button>
-		<a href="landing.php"><button type="button" class="btn">Back</button></a>     </form>
-	</div>';
+		$str='<form action="index.php" method="post">
+		<div><input type="text" name="FirstName" placeholder="Enter name"/></div><br>
+		<div><input type="password" name="Password" placeholder="Enter password"/></div><br>
+		<div><input class="btn" type="submit" name="login"/></div>
+		</form>';
 		return $str;
 	}
 
@@ -52,7 +70,14 @@ class ViewPatient extends View{
 	}
 
 	public function editForm(){
-		
+		$str='<form action="PatientProfile.php?action=editaction" method="post">
+		<div>First Name:</div><div> <input type="text" name="FirstName" value="'.$this->model->getFName().'"/></div><br>
+		<div>First Name:</div><div> <input type="text" name="LastName" value="'.$this->model->getLName().'"/></div><br><div>Email:</div><div>
+		 <input type="text" name="Email" value="'.$this->model->getEmail().'"/></div><br>
+		<div>Password:</div><div> <input type="password" name="Password" value="'.$this->model->getPassword().'"/></div><br>
+		<div>Phone: </div><div><input type="text" name="Phonenumber" value="'.$this->model->getPhonenumber().'"/></div><br>
+		<div><input type="submit" /></div>';
+		return $str;
 	}
 }
 ?>
