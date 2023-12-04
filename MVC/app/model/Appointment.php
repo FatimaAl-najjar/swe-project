@@ -74,9 +74,13 @@ class Appointment extends Model {
         }
     }
     function insertAppointment( $date, $time) {
+        // $selectedDay = $selectedDateTime->format('N'); // 1 (Monday) to 7 (Sunday)
+        if (empty(trim($date))) {
+            echo " <div class='error-box'>Error: pick an appointment first please <br></br>";
+        }
         // Validate appointment time
         if (!$this->validateAppointmentTime($time)) {
-            echo "Appointments are only available from 5pm to 10pm";
+            echo " <div class='error-box'>Appointments are only available from 5pm to 10pm";
             exit;
         }
 
@@ -90,13 +94,13 @@ class Appointment extends Model {
 
         // Check appointment availability
         if (!$this->checkAppointmentAvailability($date, $time)) {
-            echo "ERROR: The selected appointment slot is already booked.";
+            echo "<div class='error-box'> The selected appointment slot is already booked.";
             exit;
         }
 
         // Insert the appointment into the database
         $sql = "INSERT INTO appointments (  day, duration) VALUES (   '$date', '$time')";
-
+         
         if ($this->db->query($sql) === true) {
             echo "Appointment created successfully.";
         } else {
