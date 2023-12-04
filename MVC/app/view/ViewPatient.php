@@ -16,12 +16,13 @@ class ViewPatient extends View{
 		$str .= '<h2 style="text-align: center;">My Profile</h2>';
 		$str .= '<br><hr><br>';
 		$str .= '<div class="profile-info">';
-		$str .= '<label for="username" class="profile-label">User Name:</label>';
+		$str .= '<label for="firstname" class="profile-label">First Name:</label>';
 		$str .= '<p class="profile-value">Welcome ' . $this->model->getFName() . '</p>';
-	
+		$str .= '<label for="lastname" class="profile-label">Last Name:</label>';
+		$str .= '<p class="profile-value">Welcome ' . $this->model->getLName() . '</p>';
 		$str .= '<label for="email" class="profile-label">Email:</label>';
-		$str .= '<p class="profile-value">LastName ' . $this->model->getLName() . '</p>';
-	
+		$str .= '<label for="password" class="profile-label">Password:</label>';
+		$str .= '<p class="profile-value">password: ' . $this->model->getPassword() . '</p>';
 		$str .= '<label for="phone" class="profile-label">Phone Number:</label>';
 		$str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
 	
@@ -69,7 +70,14 @@ class ViewPatient extends View{
 	}
 
 	public function editForm(){
-		
+		$str='<form action="PatientProfile.php?action=editaction" method="post">
+		<div>First Name:</div><div> <input type="text" name="FirstName" value="'.$this->model->getFName().'"/></div><br>
+		<div>First Name:</div><div> <input type="text" name="LastName" value="'.$this->model->getLName().'"/></div><br><div>Email:</div><div>
+		 <input type="text" name="Email" value="'.$this->model->getEmail().'"/></div><br>
+		<div>Password:</div><div> <input type="password" name="Password" value="'.$this->model->getPassword().'"/></div><br>
+		<div>Phone: </div><div><input type="text" name="Phonenumber" value="'.$this->model->getPhonenumber().'"/></div><br>
+		<div><input type="submit" /></div>';
+		return $str;
 	}
 }
 ?>
