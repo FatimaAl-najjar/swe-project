@@ -11,6 +11,7 @@ class AppointmentsController extends Controller {
         $time = $_REQUEST['duration'];
 
         $this->model->insertAppointment( $date, $time);
+        
         header("Location:appointment_index.php");
     }
 

@@ -1,9 +1,10 @@
 <?php
-
+require_once(__ROOT__ . "model/Appointment.php");
 require_once(__ROOT__ . "view/View.php");
  ?>
  <?php
 class ViewAppointment extends View {
+
     public function outputPatientView() {
 //         $currentDateTime = new DateTime();
 // $halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
@@ -28,6 +29,13 @@ class ViewAppointment extends View {
         $str .= "</div>\n";
         // $str .= "<h1>Book Appointment</h1>";
         $str .= "<form action='appointment_index.php?action=insert' method='POST'>";
+          if (!empty($this->errors)) {
+            $str .= "<div class='error-box'>";
+            foreach ($this->errors as $error) {
+                $str .= "<p>$error</p>";
+            }
+            $str .= "</div>";
+        }
         // $str .= "<label>Name:</label>";
         // $str .= "<input type='text' name='name' class='box'><br><br>";
         $str .= "<label class='box'>Date:</label>";
@@ -35,6 +43,7 @@ class ViewAppointment extends View {
         $str .= "<label class='box'>Time:</label>";
         $str .= "<input type='time' name='duration'  class='box'><br><br>";
         $str .= "<input type='submit' value='Book Appointment' class='btn1'>";
+       
         $str .= "</form>";
         $str .= "</div>\n";
         return $str;

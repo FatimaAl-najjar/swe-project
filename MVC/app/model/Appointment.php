@@ -1,9 +1,10 @@
 
 <?php
-
+require_once(__ROOT__ . "view/ViewPatient.php");
 require_once(__ROOT__ . "model/Model.php")
 ?>
 <?php
+// $view = new ViewAppointment($controller, $model);
 class Appointment extends Model {
     // ...
     private $id;
@@ -103,6 +104,7 @@ class Appointment extends Model {
          
         if ($this->db->query($sql) === true) {
             echo "Appointment created successfully.";
+            exit;
         } else {
             echo "ERROR: Could not able to execute $sql. " . $this->db->error;
         }
