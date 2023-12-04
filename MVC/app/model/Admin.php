@@ -10,18 +10,17 @@ require_once(__ROOT__ . "model/Model.php");
 <?php
 class Admin extends Model {
     private $id;
-    private $FirstName;
-    private $LastName;
     private $Email;
+    private $Username;
     private $Password;
-    private $Phonenumber;
+ 
 
-  function __construct($id,$FirstName="",$LastName="",$Email="",$Password="",$Phonenumber="") {
+  function __construct($id,$Email="",$Username="",$Password="") {
     $this->id = $id;
 	  $this->db = $this->connect();
 
-    if(""===$FirstName){
-      $this->findPatient($id);
+    if(""===$Email){
+      $this->find($id);
     }else{
       $this->FirstName = $FirstName;
       $this->LastName = $LastName;
@@ -32,15 +31,36 @@ class Admin extends Model {
   }
 
   // Apply setter and getter here ..
+  function getEmail() {
+    return $this->Email;
+  }
+  function setEmail($Email) {
+    return $this->Email = $Email;
+  }
+  function getUsername() {
+    return $this->Username;
+  }
+  function setUsername($Username) {
+    return $this->Username = $Username;
+  }
+  function getPassword() {
+    return $this->Password;
+  }
+  function setPassword($Password) {
+    return $this->Password = $Password;
+  }
+  function getID() {
+    return $this->id;
+  }
 
   //Edit this function to satisfy your needs
   function findPatient($id){
-    $sql = "SELECT * FROM patients where ID=".$id;
-    // $db = $this->connect();
-    // $result = $db->query($sql);
-    // if ($result->num_rows == 1){
-    //     $row = $db->fetchRow();
-    //     $this->name = $row["Name"];
+   // $sql = "SELECT * FROM admin where ID=".$id;
+    //$db = $this->connect();
+    //$result = $db->query($sql);
+    //if ($result->num_rows == 1){
+    //$row = $db->fetchRow();
+    // $this->name = $row["Name"];
 		// $_SESSION["Name"]=$row["Name"];
 		// $this->password=$row["Password"];
     //     $this->age = $row["Age"];
