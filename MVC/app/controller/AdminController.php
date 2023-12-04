@@ -10,20 +10,33 @@ class AdminController extends Controller{
 		$Password = $_REQUEST['Password'];
 		$Phonenumber = $_REQUEST['Phonenumber'];
 
-		$this->model->insertUser($FirstName,$LastName,$Email,$Password,$Phonenumber);
+		$this->model->addUser($FirstName,$LastName,$Email,$Password,$Phonenumber);
 	}
 
-	public function edit() {
-		// $name = $_REQUEST['name'];
-		// $password = $_REQUEST['password'];
-		// $age = $_REQUEST['age'];
-		// $phone = $_REQUEST['phone'];
+	public function editUser() {
+		$FirstName = $_REQUEST['FirstName'];
+		$LastName = $_REQUEST['LastName'];
+		$Email = $_REQUEST['Email'];
+		$Password = $_REQUEST['Password'];
+		$Phonenumber = $_REQUEST['Phonenumber'];
 
-		// $this->model->editUser($name,$password,$age,$phone);
+		$this->model->editUser($FirstName,$LastName,$Email,$Password,$Phonenumber);
 	}
 	
-	public function delete(){
-		// $this->model->deleteUser();
+	public function deleteUser(){
+		 $this->model->deleteUser();
 	}
+
+	public function addAdmin(){
+		$Email=$_REQUEST['Email'];
+		$Username=$_REQUEST['Username'];
+		$Password=$_REQUEST['Password'];
+
+		$this->model->addadmin($Email,$Username,$Password);
+	}
+	public function deleteAdmin(){
+		$this->model->deleteadmin();
+	}
+
 }
 ?>
