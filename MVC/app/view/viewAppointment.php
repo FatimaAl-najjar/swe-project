@@ -30,9 +30,9 @@ class ViewAppointment extends View {
         $str .= "<form action='appointment_index.php?action=insert' method='POST'>";
         // $str .= "<label>Name:</label>";
         // $str .= "<input type='text' name='name' class='box'><br><br>";
-        $str .= "<label>Date:</label>";
+        $str .= "<label class='box'>Date:</label>";
         $str .= "<input type='date' name='day' class='box'><br><br>";
-        $str .= "<label>Time:</label>";
+        $str .= "<label class='box'>Time:</label>";
         $str .= "<input type='time' name='duration'  class='box'><br><br>";
         $str .= "<input type='submit' value='Book Appointment' class='btn1'>";
         $str .= "</form>";
