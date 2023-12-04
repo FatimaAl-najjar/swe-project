@@ -4,7 +4,7 @@ require_once(__ROOT__ . "view/View.php");
 
 class DoctorAnnouncementsView extends View {
     public function output() {
-        echo '
+        $str = '
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -30,9 +30,9 @@ class DoctorAnnouncementsView extends View {
                     </div>
                 </div>
             </section>
-        </body>
-        </html>
         ';
+
+        echo $str;
     }
 }
 ?>
