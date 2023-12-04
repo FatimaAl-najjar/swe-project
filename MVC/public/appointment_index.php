@@ -10,7 +10,7 @@ require_once(__ROOT__ . "controller/Appointments.php");
 require_once(__ROOT__ . "view/ViewAppointment.php");
 
 // Create instances of the model, controller, and view
-$model = new Appointment("0");
+$model = new Appointment("");
 $controller = new AppointmentsController($model);
 $view = new ViewAppointment($controller, $model);
 
