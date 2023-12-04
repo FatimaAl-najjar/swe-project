@@ -8,8 +8,8 @@ class DoctorAnnouncementsModel extends Model {
         $stmt = $this->db->prepare($sql);
         // $stmt = mysqli_prepare($this->conn, $sql);
         $stmt->bind_param("ss", $announcement, $dateAdded);
-        $stmt->execute();
-        $stmt->close();
+        // $stmt->execute();
+        // $stmt->close();
     }
 }
 ?>
