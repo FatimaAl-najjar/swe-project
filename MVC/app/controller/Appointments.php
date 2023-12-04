@@ -6,7 +6,7 @@ require_once(__ROOT__ . "controller/Controller.php");
 
 class AppointmentsController extends Controller {
     public function insert() {
-        $name = $_REQUEST['patients_id'];
+        // $name = $_REQUEST['patients_id'];
         $date = $_REQUEST['day'];
         $time = $_REQUEST['duration'];
 
