@@ -33,9 +33,13 @@ class Patients extends Model {
 	}
 
 	function insertPatient($FirstName,$LastName,$Email,$Password,$Phonenumber){
+		$errormessage="";
 		$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) VALUES ('$FirstName','$LastName', '$Email','$Password', '$Phonenumber')";
 		if($this->db->query($sql) === true){
-			echo "Records inserted successfully.";
+			
+			echo "<script>";
+echo "alert('Records inserted successfully');";
+echo "</script>";
 			$this->fillArray();
 		} 
 		else{

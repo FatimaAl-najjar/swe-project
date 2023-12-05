@@ -12,20 +12,6 @@ $view = new ViewPatient($controller, $model);
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
-
-if(isset($_POST['login']))	{
-	$FirstName=$_REQUEST["FirstName"];
-	$Password=$_REQUEST["Password"];
-	$sql = "SELECT * FROM patients where FirstName='$FirstName' and Password='$Password'";
-	$dbh = new Dbh();
-	$result = $dbh->query($sql);
-	if ($result->num_rows == 1){
-		$row = $dbh->fetchRow();
-		$_SESSION["ID"]=$row["ID"];
-		$_SESSION["FirstName"]=$row["FirstName"];
-		header("Location:PatientProfile.php");
-	}
-}
 ?>
  <div class="container">
         <img class="img" src="Images/background1.jpeg" alt="medicalbackground">
@@ -121,12 +107,12 @@ if(isset($_POST['login']))	{
                         <p><strong>Jane Smith</strong></p>
                     </div>
                 </div>
-        
-                <!-- Add more reviews as needed -->
-        
+
                 <div class="nav-arrow prev" onclick="showReview(-1)">❮</div>
                 <div class="nav-arrow next" onclick="showReview(1)">❯</div>
             </div>
+ <a href="login.php"><button style="right: 110px;">Log in</button></a>
+            <a href="signup.php"><button>Sign up</button></a>
 			<script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';
