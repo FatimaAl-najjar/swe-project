@@ -125,6 +125,12 @@ if(isset($_POST['login']))	{
                 <div class="nav-arrow next" onclick="showReview(1)">❯</div>
             </div>
 
+
+            <a href="login.php"><button style="right: 110px;">Log in</button></a>
+            <a href="signup.php"><button>Sign up</button></a>
+
+
+
 			<script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';
@@ -151,6 +157,4 @@ if(isset($_POST['login']))	{
         </script> 
         <link rel="stylesheet" href="css/index.css">
 
-        <td width='40%' align="center"><?php echo $view->loginForm();?></td>
-		<td align="center">OR</td>
-		<td width='40%' align="center"><?php echo $view->signupForm();?></td>
+<?php echo $view->loginForm();?>
