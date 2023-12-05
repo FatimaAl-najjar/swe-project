@@ -28,19 +28,6 @@ if(isset($_POST['login']))	{
 	}
 }
 ?>
-
-<!-- What will appear in the php form  -->
-
-<table width='100%' align='center' border=1 >
-	<tr>
-		<td align="center">Login</td>
-		<td></td>
-		<td align="center">SignUp</td>
-	</tr>
-	<tr>
-		<td width='40%' align="center"><?php echo $view->loginForm();?></td>
-		<td align="center">OR</td>
-		<td width='40%' align="center"><?php echo $view->signupForm();?></td>
-	</tr>
-</table>
-
+<!-- No tables needed -->
+<!-- What will appear in the php form -->
+<?php echo $view->loginForm();?>
