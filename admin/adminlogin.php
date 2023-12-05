@@ -22,12 +22,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION["Password"]=$admin->Password;
 
         header("Location: ./view_patients.php");
-        
-        else{
-            $errorMessage="<h2>incorrect email,username or password</h2>";
-        }
     }
-   
+    else{
+        $errorMessage="<h2>incorrect email,username or password</h2>";
+    }
+     
 }
 ?>
 
