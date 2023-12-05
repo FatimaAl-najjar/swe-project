@@ -22,11 +22,12 @@ class Admin extends Model {
     if(""===$Email){
       $this->find($id);
     }else{
-      $this->FirstName = $FirstName;
-      $this->LastName = $LastName;
+      // $this->FirstName = $FirstName;
+      // $this->LastName = $LastName;
+      $this->Username = $Username;
       $this->Email = $Email;
       $this->Password = $Password;
-      $this->Phonenumber = $Phonenumber;
+      // $this->Phonenumber = $Phonenumber;
     }
   }
 
@@ -54,7 +55,7 @@ class Admin extends Model {
   }
 
   //Edit this function to satisfy your needs
-  function findPatient($id){
+  function find($id){
    // $sql = "SELECT * FROM admin where ID=".$id;
     //$db = $this->connect();
     //$result = $db->query($sql);
