@@ -40,7 +40,7 @@ class ViewPatient extends View{
 
 	
 	function loginForm(){
-		$str='<form action="index.php" method="post">
+		$str='<form action="PatientProfile.php" method="post">
 		<div><input type="text" name="FirstName" placeholder="Enter name"/></div><br>
 		<div><input type="password" name="Password" placeholder="Enter password"/></div><br>
 		<div><input class="btn" type="submit" name="login"/></div>
