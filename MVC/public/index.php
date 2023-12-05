@@ -12,6 +12,19 @@ $view = new ViewPatient($controller, $model);
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
+if(isset($_POST['login']))	{
+	$name=$_REQUEST["FirstName"];
+	$password=$_REQUEST["Password"];
+	$sql = "SELECT * FROM patients where FirstName ='$FirstName' and Password='Password'";
+	$dbh = new Dbh();
+	$result = $dbh->query($sql);
+	if ($result->num_rows == 1){
+		$row = $dbh->fetchRow();
+		$_SESSION["ID"]=$row["ID"];
+		$_SESSION["FirstName"]=$row["FirstName"];
+		header("Location:PatientProfile.php");
+	}
+}
 ?>
  <div class="container">
         <img class="img" src="Images/background1.jpeg" alt="medicalbackground">
@@ -117,7 +130,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             <a href="signup.php"><button>Sign up</button></a>
 
 
-			
+
 			<script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';
@@ -142,3 +155,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
         showReview(0);
 
         </script> 
+        <link rel="stylesheet" href="css/index.css">
+
+<?php echo $view->loginForm();?>
