@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/home.css">
+
 <?php
 
 define('__ROOT__', "../app/");
@@ -28,6 +29,3 @@ if(isset($_POST['login']))	{
 	}
 }
 ?>
-<!-- No tables needed -->
-<!-- What will appear in the php form -->
-<?php echo $view->loginForm();?>
