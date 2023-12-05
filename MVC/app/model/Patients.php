@@ -38,12 +38,16 @@ class Patients extends Model {
 		if($this->db->query($sql) === true){
 			
 			echo "<script>";
-echo "alert('Records inserted successfully');";
-echo "</script>";
+            echo "alert('Records inserted successfully');";
+            echo "</script>";
 			$this->fillArray();
 		} 
 		else{
 			echo "ERROR: Could not able to execute $sql. " . $conn->error;
+			echo "<script>";
+            echo "alert('ERROR: Could not able to execute $sql. ' . $conn->error);";
+            echo "</script>";
+
 		}
 	}
 }
