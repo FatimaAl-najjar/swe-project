@@ -1,7 +1,7 @@
 <?php
 require_once("config.php");
 
-class DBh{
+class Dbh{
 	private $servername;
 	private $username;
 	private $password;
@@ -41,7 +41,9 @@ class DBh{
 			return false;
 		}
 	}
-
+    public function prepare($sql) {
+        return $this->conn->prepare($sql);
+    }
 	function fetchRow($result=""){
 		if (empty($result)){ 
 			$result = $this->result; 

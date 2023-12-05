@@ -28,9 +28,11 @@ class DoctorAnnouncementsView extends View {
     }
 }
 ?>
+
+
 <!-- <?php
  
-// require_once(__ROOT__ . "model/doctor'sAnnouncements.php");
+// require_once(__ROOT__ . "model/doctorAnnouncements.php");
 // require_once(__ROOT__ . "view/View.php");
  
  
