@@ -50,7 +50,7 @@ class ViewPatient extends View{
 
 	function signupForm(){
 		$str='<div class="card">
-        <form action="signup.php?action=insert" method="post">
+        <form action="index.php?action=insert" method="post">
             <label>First Name:</label>
             <input type="text" name="FirstName" placeholder="Enter your first name"><br>
             <label>Last Name:</label>
