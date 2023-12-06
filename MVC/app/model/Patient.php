@@ -77,4 +77,43 @@ class Patient extends Model {
         }
     }
 	 
+    function getFirstName() {
+        return $this->FirstName;
+    }
+
+    function getLastName() {
+        return $this->LastName;
+    }
+
+    function getEmail() {
+        return $this->Email;
+    }
+
+    function getPassword() {
+        return $this->Password;
+    }
+
+    function getPhonenumber() {
+        return $this->Phonenumber;
+    }
+
+    function setFirstName($FirstName) {
+        return $this->FirstName = $FirstName;
+    }
+
+    function setLastName($LastName) {
+        return $this->LastName = $LastName;
+    }
+
+    function setEmail($Email) {
+        return $this->Email = $Email;
+    }
+
+    function setPassword($Password) {
+        return $this->Password = $Password;
+    }
+
+    function setPhonenumber($Phonenumber) {
+        return $this->Phonenumber = $Phonenumber;
+    }
 }
