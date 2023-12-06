@@ -79,5 +79,10 @@ class Feedback extends Model {
     function setMessage($Message) {
         $this->Message = $Message;
     }
+
+    function getFeedbacks() {
+        return $this->ID;
+        return $this->Message;
+    }
 }
 ?>

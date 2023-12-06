@@ -1,5 +1,6 @@
 <?php
 require_once(__ROOT__ . "model/Feedback.php");
+require_once(__ROOT__ . "controller/Controller.php");
 
 class FeedbackController extends Controller {
     public function addFeedback($Patient, $Message) {

@@ -10,7 +10,7 @@ require_once(__ROOT__ . "view/ViewFeedback.php");
 // Create instances of the model, controller, and view
 $model = new Feedback("0");
 $controller = new FeedbackController($model);
-$view = new ViewFeedback($controller, $model);
+$view = new FeedbackView($controller, $model);
 
-echo $view->outputFeedback();
+echo $view->output();
 ?>
