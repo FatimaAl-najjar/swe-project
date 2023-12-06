@@ -5,7 +5,7 @@ require_once(__ROOT__ . "model/Patient.php");
 require_once(__ROOT__ . "controller/PatientController.php");
 require_once(__ROOT__ . "view/ViewPatient.php");
 
-$model = new Patient("");
+$model = new Patient(123);
 $controller = new PatientController($model);
 $view = new ViewPatient($controller, $model);
 
