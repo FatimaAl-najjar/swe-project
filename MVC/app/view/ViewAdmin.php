@@ -1,5 +1,5 @@
 <?php
-
+ 
 require_once(__ROOT__ . "view/View.php");
 
 class ViewAdmin extends View{

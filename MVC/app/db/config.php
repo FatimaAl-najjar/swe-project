@@ -1,5 +1,5 @@
 <?php
-    // define('__ROOT__', "../app/");
+    Define ("__Root__", "");
     define('DB_SERVER', "localhost");
     define('DB_USER', "root");
     define('DB_PASS', "");

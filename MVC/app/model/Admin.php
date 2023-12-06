@@ -1,5 +1,5 @@
 <?php
-
+ 
 require_once(__ROOT__ . "model/Model.php");
 
 class Admin extends Model {
@@ -83,21 +83,21 @@ class Admin extends Model {
     return $this->db->query($sql);
    }
   //   static function viewAll(){
-  //   $db = self::connect();
-  //   $sql= "SELECT * FROM admin";
-  //   $result=$db->query($sql);
+  // //   $db = self::connect();
+  // //   $sql= "SELECT * FROM admin";
+  // //   $result=$db->query($sql);
 
-  //   $admins= array();
+  // //   $admins= array();
 
-  //   if($result->num_rows>0){
-  //     while($row=$result->fetch_assoc()){
-  //       $admin=new Admin($row["ID"],$row["Email"], $row["Username"],$row["Password"]);
-  //       $admins[]=$admin;
-  //     }
-  //     return $admins;
-  //   }
-  //  }
+  // //   if($result->num_rows>0){
+  // //     while($row=$result->fetch_assoc()){
+  // //       $admin=new Admin($row["ID"],$row["Email"], $row["Username"],$row["Password"]);
+  // //       $admins[]=$admin;
+  // //     }
+  // //     return $admins;
+  // //   }
+  // //  }
 
-  }
+   }
   }
 ?>
