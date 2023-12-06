@@ -1,13 +1,7 @@
 <?php
 
 require_once(__ROOT__ . "model/Model.php");
-?>
-<!-- $FirstName = $_REQUEST['FirstName'];
-		$LastName = $_REQUEST['LastName'];
-		$Email = $_REQUEST['Email'];
-		$Password = $_REQUEST['Password'];
-		$Phonenumber = $_REQUEST['Phonenumber']; -->
-<?php
+
 class Admin extends Model {
     private $id;
     private $Email;
@@ -22,12 +16,9 @@ class Admin extends Model {
     if(""===$Email){
       $this->find($id);
     }else{
-      // $this->FirstName = $FirstName;
-      // $this->LastName = $LastName;
       $this->Username = $Username;
       $this->Email = $Email;
       $this->Password = $Password;
-      // $this->Phonenumber = $Phonenumber;
     }
   }
 
@@ -54,47 +45,59 @@ class Admin extends Model {
     return $this->id;
   }
 
-  //Edit this function to satisfy your needs
   function find($id){
-   // $sql = "SELECT * FROM admin where ID=".$id;
-    //$db = $this->connect();
-    //$result = $db->query($sql);
-    //if ($result->num_rows == 1){
-    //$row = $db->fetchRow();
-    // $this->name = $row["Name"];
-		// $_SESSION["Name"]=$row["Name"];
-		// $this->password=$row["Password"];
-    //     $this->age = $row["Age"];
-		// $this->phone = $row["Phone"];
-    // }
-    // else {
-    //     $this->name = "";
-		// $this->password="";
-    //     $this->age = "";
-		// $this->phone = "";
+    $sql="SELECT * FROM admin WHERE ID='$id' ";
+    $result= $this->db->query($sql);
+
+    if($result -> num_rows>0){
+      $row=$result->fetch_assoc();
+      $this->id=$row["ID"];
+      $this->Email=$row["Email"];
+      $this->Username=$row["Username"];
+      $this->Password=$row["Password"];
     }
   }
-  
 
-  // Apply your class functions here..
-  // function editUser($name, $password, $age, $phone){
-  //     $sql = "update user set name='$name',password='$password', age='$age', phone='$phone' where id=$this->id;";
-  //       if($this->db->query($sql) === true){
-  //           echo "updated successfully.";
-  //           $this->readUser($this->id);
-  //       } else{
-  //           echo "ERROR: Could not able to execute $sql. " . $conn->error;
-  //       }
+  function addadmin(){
+    $Email=$this->getEmail();
+    $Username=$this->getUsername();
+    $Password=$this->getUsername();
 
-  // }
-  
-  // function deleteUser(){
-	//   $sql="delete from user where id=$this->id;";
-	//   if($this->db->query($sql) === true){
-  //           echo "deletet successfully.";
-  //       } else{
-  //           echo "ERROR: Could not able to execute $sql. " . $conn->error;
-  //       }
-	// }
-	 
+    if($this->getID()){
+      $sql="UPDATE admin SET Email='$Email' , Username='$Username', Password='$Password' WHERE ID=".$this->getID();
+    }else{
+      $sql="INSERT INTO admin(Email , Username , Password) VALUES ($Email,$Username,$Password)";
+    }
+    return $this->db->query($sql);
+  }
+
+  function deleteadmin(){
+    $sql= "DELETE FROM admin WHERE ID=".$this->getID();
+    if($this->db->query($sql) === true)
+    {
+        echo "Deleted successfully!";
+    }
+    else 
+    {
+        echo "ERROR: Could not able to execute $sql. " . $conn->error;
+    }
+    return $this->db->query($sql);
+  }
+   static function viewAll(){
+    $db = self::connect();
+    $sql= "SELECT * FROM admin";
+    $result=$db->query($sql);
+
+    $admins= array();
+
+    if($result->num_rows>0){
+      while($row=$result->fetch_assoc()){
+        $admin=new Admin($row["ID"],$row["Email"], $row["Username"],$row["Password"]);
+        $admins[]=$admin;
+      }
+      return $admins;
+    }
+   }
+
+  }
 ?>

@@ -1,4 +1,5 @@
 <?php
+Define("__ROOT__","");
 
 require_once(__ROOT__ . "controller/Controller.php");
 
