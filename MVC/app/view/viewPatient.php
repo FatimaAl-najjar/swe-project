@@ -3,7 +3,8 @@
 require_once(__ROOT__ . "view/View.php");
 
 class ViewPatient extends View{	
-	public function output(){
+	
+    public function output() {
 		$str = "";
 		$str .= '<section class="home">';
 		$str .= '<div class="form-container">';
@@ -14,14 +15,17 @@ class ViewPatient extends View{
 		$str .= '<h2 style="text-align: center;">My Profile</h2>';
 		$str .= '<br><hr><br>';
 		$str .= '<div class="profile-info">';
-		$str .= '<label for="username" class="profile-label">User Name:</label>';
-		$str .= '<p class="profile-value">Welcome ' . $this->model->getFirstName() . '</p>';
-	
+		$str .= '<label for="firstname" class="profile-label">First Name:</label>';
+		$str .= '<p class="profile-value"> ' . $this->model->getFirstName() . '</p>';
+		$str .= '<label for="lastname" class="profile-label">Last Name:</label>';
+		$str .= '<p class="profile-value"> ' . $this->model->getLastName() . '</p>';
 		$str .= '<label for="email" class="profile-label">Email:</label>';
-		$str .= '<p class="profile-value">LastName ' . $this->model->getLastName() . '</p>';
-	
+		$str .= '<p class="profile-value"> ' . $this->model->getEmail() . '</p>';
+		$str .= '<label for="password" class="profile-label">Password:</label>';
+		$str .= '<p class="profile-value"> ' . $this->model->getPassword() . '</p>';
 		$str .= '<label for="phone" class="profile-label">Phone Number:</label>';
 		$str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
+		$str .= '<p class="profile-value"> ' . $this->model->getPhonenumber() . '</p>';
 	
 		$str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
 		$str .= '<a href="PatientProfile.php?action=signOut" class="button-link">Sign Out</a><br><br>';
@@ -36,32 +40,46 @@ class ViewPatient extends View{
 	
 	function loginForm(){
 		$str='<form action="index.php" method="post">
-		<div><input type="text" name="name" placeholder="Enter name"/></div><br>
-		<div><input type="password" name="password" placeholder="Enter password"/></div><br>
-		<div><input type="submit" name="login"/></div>
+		<div><input type="text" name="FirstName" placeholder="Enter name"/></div><br>
+		<div><input type="password" name="Password" placeholder="Enter password"/></div><br>
+		<div><input class="btn" type="submit" name="login"/></div>
 		</form>';
 		return $str;
 	}
 
 	function signupForm(){
-		$str='<form action="index.php?action=insert" method="post">
-		<div><input type="text" name="name" placeholder="Enter name"/></div><br>
-		<div><input type="password" name="password" placeholder="Enter password"/></div><br>
-		<div><input type="text" name="age" placeholder="Enter age"/></div><br>
-		<div><input type="text" name="phone" placeholder="Enter phone"/></div><br>
-		<div><input type="submit" /></div>
-		</form>';
+		$str='
+        <div class="card">
+            <form action="index.php?action=insert" method="post">
+                <label>First Name:</label>
+                <input type="text" name="FirstName" placeholder="Enter your first name"><br>
+                <label>Last Name:</label>
+                <input type="text" name="LastName" placeholder="Enter your last name"><br>
+                <label>Email:</label>
+                <input type="text" name="Email" placeholder="Enter your email"><br>
+                <label>Password:</label>
+                <input type="password" name="Password" placeholder="Enter your password"><br>
+                <label>Re-enter Password:</label>
+                <input type="password" name="repeatPassword" placeholder="Re-enter your password" required><br>
+                <label>Phone number:</label>
+                <input type="text" name="Phonenumber" placeholder="Enter your phone number"><br>
+                <button class="btn" type="submit" value="submit">Sign Up</button>
+                <button class="btn" name="cancel" formnovalidate>Cancel</button>
+            </form>
+        </div>';
 		return $str;
 	}
 
 	public function editForm(){
-		$str='<form action="profile.php?action=editaction" method="post">
-		<div>Name:</div><div> <input type="text" name="name" value="'.$this->model->getName().'"/></div><br>
-		<div>Password:</div><div> <input type="password" name="password" value="'.$this->model->getPassword().'"/></div><br>
-		<div>Age:</div><div> <input type="text" name="age" value="'.$this->model->getAge().'"/></div><br>
-		<div>Phone: </div><div><input type="text" name="phone" value="'.$this->model->getPhone().'"/></div><br>
+		$str='<form action="PatientProfile.php?action=editaction" method="post">
+		<div>First Name:</div><div> <input type="text" name="FirstName" value="'.$this->model->getFirstName().'"/></div><br>
+		<div>First Name:</div><div> <input type="text" name="LastName" value="'.$this->model->getLastName().'"/></div><br><div>Email:</div><div>
+		 <input type="text" name="Email" value="'.$this->model->getEmail().'"/></div><br>
+		<div>Password:</div><div> <input type="password" name="Password" value="'.$this->model->getPassword().'"/></div><br>
+		<div>Phone: </div><div><input type="text" name="Phonenumber" value="'.$this->model->getPhonenumber().'"/></div><br>
 		<div><input type="submit" /></div>';
 		return $str;
 	}
+
 }
 ?>

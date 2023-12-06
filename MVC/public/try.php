@@ -14,29 +14,23 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 }
 
 if(isset($_POST['login']))	{
-	$name=$_REQUEST["name"];
+	$Email=$_REQUEST["Email"];
 	$password=$_REQUEST["password"];
-	$sql = "SELECT * FROM user where Name='$name' and password='$password'";
+	$sql = "SELECT * FROM patients where Email='$Email' and Password='$Password'";
 	$dbh = new Dbh();
 	$result = $dbh->query($sql);
 	if ($result->num_rows == 1){
 		$row = $dbh->fetchRow();
 		$_SESSION["ID"]=$row["ID"];
-		$_SESSION["Name"]=$row["Name"];
+		$_SESSION["FirstName"]=$row["FirstName"];
+		$_SESSION["LastName"]=$row["LastName"];
+		$_SESSION["Email"]=$row["Email"];
+		$_SESSION["Password"]=$row["Password"];
+		$_SESSION["Phonenumber"]=$row["Phonenumber"];
 		header("Location:profile.php");
 	}
 }
 
+echo $view->loginForm();
+echo $view->output();
 ?>
-<table width='100%' align='center' >
-	<tr>
-		<td align="center">Login</td>
-		<td></td>
-		<td align="center">SignUp</td>
-	</tr>
-	<tr>
-		<td width='40%' align="center"><?php echo $view->loginForm();?></td>
-		<td align="center">OR</td>
-		<td width='40%' align="center"><?php echo $view->signupForm();?></td>
-	</tr>
-</table>
