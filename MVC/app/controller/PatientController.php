@@ -1,7 +1,7 @@
 <?php
 
 require_once(__ROOT__ . "controller/Controller.php");
-require_once(__ROOT__ . "model/PatientModel.php");
+// require_once(__ROOT__ . "model/PatientModel.php");
 
 class PatientController extends Controller
 {
