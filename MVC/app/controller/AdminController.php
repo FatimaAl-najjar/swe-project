@@ -1,4 +1,5 @@
 <?php
+Define("__ROOT__","");
 
 require_once(__ROOT__ . "controller/Controller.php");
 
@@ -37,6 +38,15 @@ class AdminController extends Controller{
 	public function deleteAdmin(){
 		$this->model->deleteadmin();
 	}
+	public function adminlogin()
+    {
+        
+        $Email = $_REQUEST['Email'];
+		$Username=$_REQUEST['Username'];
+        $Password = $_REQUEST['Password'];
+        $this->model->login( $Email,$Username ,$Password);
+        
+    }
 
 }
 ?>
