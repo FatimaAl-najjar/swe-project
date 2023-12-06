@@ -79,25 +79,25 @@ class Admin extends Model {
     }
     else 
     {
-        echo "ERROR: Could not able to execute $sql. " . $conn->error;
-    }
+        echo "ERROR: Could not able to execute $sql. " .  $this->db->error;
     return $this->db->query($sql);
-  }
-   static function viewAll(){
-    $db = self::connect();
-    $sql= "SELECT * FROM admin";
-    $result=$db->query($sql);
-
-    $admins= array();
-
-    if($result->num_rows>0){
-      while($row=$result->fetch_assoc()){
-        $admin=new Admin($row["ID"],$row["Email"], $row["Username"],$row["Password"]);
-        $admins[]=$admin;
-      }
-      return $admins;
-    }
    }
+  //   static function viewAll(){
+  //   $db = self::connect();
+  //   $sql= "SELECT * FROM admin";
+  //   $result=$db->query($sql);
 
+  //   $admins= array();
+
+  //   if($result->num_rows>0){
+  //     while($row=$result->fetch_assoc()){
+  //       $admin=new Admin($row["ID"],$row["Email"], $row["Username"],$row["Password"]);
+  //       $admins[]=$admin;
+  //     }
+  //     return $admins;
+  //   }
+  //  }
+
+  }
   }
 ?>

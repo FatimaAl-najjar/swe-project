@@ -44,6 +44,7 @@ class Dbh{
     public function prepare($sql) {
         return $this->conn->prepare($sql);
     }
+	
 	function fetchRow($result=""){
 		if (empty($result)){ 
 			$result = $this->result; 
