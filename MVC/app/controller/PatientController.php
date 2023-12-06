@@ -41,13 +41,6 @@ class PatientController extends Controller
         $this->model->editPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
     }
 
-    public function delete()
-    {
-        $this->model->deletePatient();
-    }
-
-    
-
     public function allPatients()
     {
         $this->model->selectAllPatients();
@@ -57,6 +50,11 @@ class PatientController extends Controller
     {
         $id = $_REQUEST['id'];
         $this->model->searchForPatient($id);
+    }
+
+    public function delete()
+    {
+        $this->model->deletePatient();
     }
 }
 ?>

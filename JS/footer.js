@@ -39,4 +39,5 @@ const createFooter = () => {
             </ul> -->
         </div>
     </div>
-    <h1 style="
+    <h1 style="`;
+}
