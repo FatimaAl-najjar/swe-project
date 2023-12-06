@@ -9,8 +9,8 @@ class FeedbackView extends View {
         echo "<h1>Feedback</h1>";
 
         foreach ($feedbacks as $feedback) {
-            echo "<p class='patient'>" . $feedback['Patient'] . "</p>";
-            echo "<p class='message'>" . $feedback['Message'] . "</p>";
+            echo "<p class='content'>" . $feedback['ID'] ." ".$feedback['PatientID']." ".$feedback['Message']."</p>";
+            
         }
     }
 }
