@@ -23,4 +23,4 @@ echo $view->output();
 
 ?>
 
-<a href="PatientProfile.php"><button>Profile</button></a> 
+<a href="PatientProfile.php"><button>Profile</button></a>

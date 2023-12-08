@@ -4,14 +4,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/index.css">
-		<link rel="stylesheet" href="css/PatientProfile.css">
 	</head>
 </html>
-
 <?php
-
 require_once(__ROOT__ . "view/View.php");
-
 class ViewPatient extends View{	
 	
     public function output() {
@@ -50,39 +46,20 @@ class ViewPatient extends View{
 	}
 	
 	function loginForm(){
-		$str='
-		<section class="home">
-			<div class="form-container">
-				<i class="uil uil-times form_close"></i>
-				<div class="form view_form">
-					<form action="#">
-						<div class="card1">
-							<h2 style="text-align: center;">My Profile</h2>
-							<br><hr><br>
-							<div class="profile-info">
-								$str="";
-								<label for="username" class="profile-label">User Name:</label>';
-								$str .= '<p class="profile-value">Welcome ' . $this->model->getFName() . '</p>';
-
-								$str .= '<label for="email" class="profile-label">Email:</label>';
-								$str .= '<p class="profile-value">LastName ' . $this->model->getLName() . '</p>';
-
-
-								$str .= '<label for="phone" class="profile-label">Phone Number:</label>';
-								$str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
-
-								$str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
-								$str .= '<a href="PatientProfile.php?action=signOut" class="button-link">Sign Out</a><br><br>';
-								$str .= '<a href="PatientProfile.php?action=delete" class="button-link">Delete Account</a>';
-							$str .= '</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</section>';
+		$str='<div class="card">
+		<h1>Login</h1>
+		<form action="try.php" method="POST">
+			<label>Email:</label>
+			<input type="text" placeholder="please enter your e-mail" name="Email" required><br>
+			<label>Password:</label>
+			<input type="password" placeholder="please enter your password" name="Password" required><br>
+			<button class="btn" type="submit" name="submit" value="submit">Login</button>
+			<a href="signup.php"><button type="button" class="btn">Sign up</button></a>     
+			<a href="homepage.php"><button type="button" class="btn">Back</button></a>     
+			</form>
+		</div>';
 		return $str;
 	}
-
 	function signupForm(){
 		$str='
         <div class="card">
@@ -105,7 +82,6 @@ class ViewPatient extends View{
         </div>';
 		return $str;
 	}
-
 	public function editForm(){
 		$str='<form action="PatientProfile.php?action=editaction" method="post">
 		<div>First Name:</div><div> <input type="text" name="FirstName" value="'.$this->model->getFirstName().'"/></div><br>
@@ -116,6 +92,5 @@ class ViewPatient extends View{
 		<div><input type="submit" /></div>';
 		return $str;
 	}
-
 }
 ?>
