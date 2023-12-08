@@ -41,7 +41,7 @@ class ViewPatient extends View{
 	function loginForm(){
 		$str='<div class="card">
 		<h1>Login</h1>
-		<form action="" method="POST">
+		<form action="homepage.php" method="POST">
 			<label>Email:</label>
 			<input type="text" placeholder="please enter your e-mail" name="Email" required><br>
 			<label>Password:</label>
