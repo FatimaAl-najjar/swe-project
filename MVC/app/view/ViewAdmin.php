@@ -19,7 +19,7 @@ class ViewAdmin extends View{
 	function loginForm(){
 		$str='<div class="card">
             <h1>Login</h1>
-            <form action="like" method="POST">
+            <form action="../index.php" method="POST">
             <label>Email:</label>
             <input type="text" placeholder="please enter your email" name="Email" required><br>
             <label>Password:</label>
