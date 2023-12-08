@@ -11,7 +11,7 @@ class Patient extends Model {
     private $Password;
     private $Phonenumber;
 
-    function __construct($ID, $FirstName="", $LastName="", $Email="", $Password="", $Phonenumber="")
+    function __construct($ID="", $FirstName="", $LastName="", $Email="", $Password="", $Phonenumber="")
     {
         $this->ID = $ID;
         $this->db = $this->connect();
@@ -26,6 +26,26 @@ class Patient extends Model {
             $this->Email = $Email;
             $this->Password = $Password;
             $this->Phonenumber = $Phonenumber;
+        }
+    }
+
+    function login($Email, $Password){
+        $sql = "SELECT * FROM patients WHERE Email='$Email' AND Password='$Password'";
+        $db = $this->connect();
+        $result = $db->query($sql);
+        if ($result->num_rows == 1)
+        {
+            $row = $db->fetchRow();
+            $this->FirstName = $row["FirstName"];
+            $this->LastName = $row["LastName"];
+            $this->Email = $row["Email"];
+            $this->Password = $row["Password"];
+            $this->Phonenumber = $row["Phonenumber"];
+            header("Location:PatientProfile.php");
+        }
+        else
+        {
+            echo "No patient with this Email";
         }
     }
 
