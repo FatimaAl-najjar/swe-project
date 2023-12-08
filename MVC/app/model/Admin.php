@@ -84,5 +84,10 @@ class Admin extends Model {
    }
 
    }
+   function validateAdminLoginCredentials($Email, $Password){
+    $sql = "SELECT * FROM admin WHERE Email='$Email' AND Password='$Password'";
+    $result = $this->$db->query($sql);
+    return $result->num_rows==1;
+   }
   }
 ?>
