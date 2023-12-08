@@ -39,11 +39,17 @@ class ViewPatient extends View{
 	}
 	
 	function loginForm(){
-		$str='<form action="index.php" method="post">
-		<div><input type="text" name="Email" placeholder="Enter your e-mail"/></div><br>
-		<div><input type="password" name="Password" placeholder="Enter password"/></div><br>
-		<div><input class="btn" type="submit" name="login"/></div>
-		</form>';
+		$str='<div class="card">
+		<h1>Login</h1>
+		<form action="" method="POST">
+			<label>Email:</label>
+			<input type="text" placeholder="please enter your e-mail" name="Email" required><br>
+			<label>Password:</label>
+			<input type="password" placeholder="please enter your password" name="Password" required><br>
+			<button class="btn" type="submit" value="submit">Login</button>
+			<a href="homepage.php"><button type="button" class="btn">Back</button></a>     
+			</form>
+		</div>';
 		return $str;
 	}
 
