@@ -41,5 +41,7 @@ class User
         echo "Username: {$this->Username}<br>";
         echo "Password: {$this->Password}<br>";
     }
+
+    
 }
 ?>
