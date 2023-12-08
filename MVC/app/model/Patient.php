@@ -60,7 +60,7 @@ class Patient extends Model {
             echo "Updated successfully.";
             $this->readPatient($this->ID);
         } else{
-            echo "ERROR: Could not able to execute $sql. " . $conn->error;
+            echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
         }
 
     }
@@ -73,7 +73,7 @@ class Patient extends Model {
         }
         else 
         {
-            echo "ERROR: Could not able to execute $sql. " . $conn->error;
+            echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
         }
     }
 	 
