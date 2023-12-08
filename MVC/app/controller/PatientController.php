@@ -1,7 +1,6 @@
 <?php
 
 require_once(__ROOT__ . "controller/Controller.php");
-// require_once(__ROOT__ . "model/PatientModel.php");
 
 class PatientController extends Controller
 {
@@ -16,7 +15,6 @@ class PatientController extends Controller
         $Password = $_REQUEST['Password'];
         $Phonenumber = $_REQUEST['Phonenumber'];
         $this->model->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
-        // PatientModel->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
     }
 
     public function insert()

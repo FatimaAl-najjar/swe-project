@@ -38,6 +38,7 @@ class ViewPatient extends View{
 	
 		$str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
 		$str .= '<a href="PatientProfile.php?action=signOut" class="button-link">Sign Out</a><br><br>';
+		$str .= '<a href="PatientProfile.php?action=delete" class="button-link">Delete Account </a>';
 		$str .= '</div>';
 		$str .= '</div>';
 		$str .= '</form>';

@@ -16,13 +16,13 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 if(isset($_POST['login']))	{
 	$Email=$_REQUEST["Email"];
 	$Password=$_REQUEST["Password"];
-	$sql = "SELECT * FROM patients where Email='$Email' and Password='$Password'";
+	$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
 	$dbh = new Dbh();
 	$result = $dbh->query($sql);
 	if ($result->num_rows == 1){
 		$row = $dbh->fetchRow();
 		$_SESSION["ID"]=$row["ID"];
-		$_SESSION["FirstName"]=$row["FirstName"];
+		$_SESSION["Email"]=$row["Email"];
 		header("Location:homepage.php");
 	}
 }

@@ -11,11 +11,11 @@ class Patient extends Model {
     private $Password;
     private $Phonenumber;
 
-    function __construct($ID="", $FirstName="", $LastName="", $Email="", $Password="", $Phonenumber="")
+    function __construct($ID, $FirstName="", $LastName="", $Email="", $Password="", $Phonenumber="")
     {
         $this->ID = $ID;
         $this->db = $this->connect();
-        if($FirstName === "")
+        if($Email === "")
         {
             $this->readPatient($ID);
         }
@@ -59,6 +59,7 @@ class Patient extends Model {
             $this->FirstName = $row["FirstName"];
             $this->LastName = $row["LastName"];
             $this->Email = $row["Email"];
+            $_SESSION["Email"] = $row["Email"];
             $this->Password = $row["Password"];
             $this->Phonenumber = $row["Phonenumber"];
         }
