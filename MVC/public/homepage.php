@@ -22,3 +22,5 @@ echo $view->output();
 // echo "OUTPUT"."<br>";
 
 ?>
+
+<a href="PatientProfile.php"><button>Profile</button></a>
