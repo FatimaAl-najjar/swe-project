@@ -13,7 +13,8 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
 
-if(isset($_POST['login']))	{
+if(isset($_POST['submit']))	{
+	echo "Function";
 	$Email=$_REQUEST["Email"];
 	$Password=$_REQUEST["Password"];
 	$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
@@ -23,6 +24,8 @@ if(isset($_POST['login']))	{
 		$row = $dbh->fetchRow();
 		$_SESSION["ID"]=$row["ID"];
 		$_SESSION["Email"]=$row["Email"];
+		echo $_SESSION["ID"];
+		echo $_SESSION["Email"];
 		header("Location:homepage.php");
 	}
 }

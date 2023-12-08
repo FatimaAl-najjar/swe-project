@@ -51,12 +51,13 @@ class ViewPatient extends View{
 	function loginForm(){
 		$str='<div class="card">
 		<h1>Login</h1>
-		<form action="homepage.php" method="POST">
+		<form action="try.php" method="POST">
 			<label>Email:</label>
 			<input type="text" placeholder="please enter your e-mail" name="Email" required><br>
 			<label>Password:</label>
 			<input type="password" placeholder="please enter your password" name="Password" required><br>
-			<button class="btn" type="submit" value="submit">Login</button>
+			<button class="btn" type="submit" name="submit" value="submit">Login</button>
+			<a href="signup.php"><button type="button" class="btn">Sign up</button></a>     
 			<a href="homepage.php"><button type="button" class="btn">Back</button></a>     
 			</form>
 		</div>';
