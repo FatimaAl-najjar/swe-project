@@ -31,7 +31,6 @@ class ViewPatient extends View{
 		$str .= '<label for="password" class="profile-label">Password:</label>';
 		$str .= '<p class="profile-value"> ' . $this->model->getPassword() . '</p>';
 		$str .= '<label for="phone" class="profile-label">Phone Number:</label>';
-		$str .= '<p class="profile-value">phone: ' . $this->model->getPhonenumber() . '</p>';
 		$str .= '<p class="profile-value"> ' . $this->model->getPhonenumber() . '</p>';
 	
 		$str .= '<a href="PatientProfile.php?action=edit" class="button-link">Edit Profile</a><br><br>';
