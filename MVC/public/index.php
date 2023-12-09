@@ -12,6 +12,7 @@ $view = new ViewPatient($controller, $model);
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
+
 if(isset($_POST['login']))	{
 	$name=$_REQUEST["FirstName"];
 	$password=$_REQUEST["Password"];

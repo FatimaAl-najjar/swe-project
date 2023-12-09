@@ -64,7 +64,7 @@ class ViewPatient extends View{
 	function signupForm(){
 		$str='
         <div class="card">
-            <form action="index.php?action=insert" method="post">
+            <form action="try.php" method="post">
                 <label>First Name:</label>
                 <input type="text" name="FirstName" placeholder="Enter your first name"><br>
                 <label>Last Name:</label>
@@ -77,7 +77,7 @@ class ViewPatient extends View{
                 <input type="password" name="repeatPassword" placeholder="Re-enter your password" required><br>
                 <label>Phone number:</label>
                 <input type="text" name="Phonenumber" placeholder="Enter your phone number"><br>
-                <button class="btn" type="submit" value="submit">Sign Up</button>
+                <button class="btn" type="submit" name="submit" value="submit">Sign Up</button>
                 <button class="btn" name="cancel" formnovalidate>Cancel</button>
             </form>
         </div>';

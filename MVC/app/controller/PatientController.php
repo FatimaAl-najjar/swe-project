@@ -25,7 +25,9 @@ class PatientController extends Controller
         $Password = $_REQUEST['Password'];
         $Phonenumber = $_REQUEST['Phonenumber'];
         //validation
+        echo "Model->insertPatient<br>";
         $this->model->insertPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
+        echo "INSERTED SUCCESSFULLY IN DATABASE<br>";
     }
 
     public function edit()

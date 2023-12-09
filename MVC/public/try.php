@@ -14,23 +14,36 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 }
 
 if(isset($_POST['submit']))	{
-	echo "Function";
-	$Email=$_REQUEST["Email"];
-	$Password=$_REQUEST["Password"];
-	$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
+	echo "try.php<br>";
+	$FirstName = $_REQUEST["FirstName"];
+	$LastName = $_REQUEST["LastName"];
+	$Email = $_REQUEST["Email"];
+	$Password = $_REQUEST["Password"];
+	$Phonenumber = $_REQUEST["Phonenumber"];
+	$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
 	$dbh = new Dbh();
+	echo "INSERT IN DATABASE"."<br>";
 	$result = $dbh->query($sql);
-	if ($result->num_rows == 1){
-		$row = $dbh->fetchRow();
-		$_SESSION["ID"]=$row["ID"];
-		$_SESSION["Email"]=$row["Email"];
-		echo $_SESSION["ID"];
-		echo $_SESSION["Email"];
-		header("Location:homepage.php");
+	if ($result){
+		// $row = $dbh->fetchRow();
+		$_SESSION["FirstName"] = $FirstName;
+		$_SESSION["LastName"] = $LastName;
+		$_SESSION["Email"] = $Email;
+		$_SESSION["Password"] = $Password;
+		$_SESSION["Phonenumber"] = $Phonenumber;
+		echo "SESSION['FirstName']: ".$_SESSION["FirstName"]."<br>";
+		echo "SESSION['LastName']: ".$_SESSION["LastName"]."<br>";
+		echo "SESSION['Email']: ".$_SESSION["Email"]."<br>";
+		echo "SESSION['Password']: ".$_SESSION["Password"]."<br>";
+		echo "SESSION['Phonenumber']: ".$_SESSION["Phonenumber"]."<br>";
+		header("Location:PatientProfile.php");
 	}
 }
 ?>
 
 <?php
-echo $view->loginForm();
+// to check if the $view object is created successfully
+// var_dump($view);
+echo $view->signupForm();
 ?>
