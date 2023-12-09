@@ -22,13 +22,13 @@ class Feedbacks extends Model {
 		return $this->feedbacks;
 	}
 
-	// function getFeedback($ID) {
-	// 	foreach($this->feedbacks as $feedback) {
-	// 		if ($ID == $feedback->getID()) {
-	// 			return $feedback;
-	// 		}
-	// 	}
-	// }
+	function getFeedback($ID) {
+		foreach($this->feedbacks as $feedback) {
+			if ($ID == $feedback->getID()) {
+				return $feedback;
+			}
+		}
+	}
 
 	function readFeedbacks(){
 		$sql = "SELECT * FROM feedback";  //where PatientID=".$_SESSION['ID'];

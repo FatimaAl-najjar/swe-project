@@ -9,13 +9,13 @@ class FeedbackController extends Controller {
         $this->model->insertFeedback($Message);
     }
     
-    public function edit() {
+    public function edit($ID) {
         $Message = $_REQUEST['Message'];
-        $this->model->editFeedback($Message);
+        $this->model->getFeedback($ID)->editFeedback($Message);
     }
     
     public function delete() {
-        $this->model->deleteFeedback();
+        $this->model->getFeedback($ID)->deleteFeedback();
     }
     
 }
