@@ -6,7 +6,7 @@ class FeedbackController extends Controller {
     public function insert() {
         $Message = $_REQUEST['Message'];
         //validation
-        $this->model->insert($Message);
+        $this->model->insertFeedback($Message);
     }
     
     public function edit() {
