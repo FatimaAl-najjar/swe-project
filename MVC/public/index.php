@@ -124,13 +124,7 @@ if(isset($_POST['login']))	{
                 <div class="nav-arrow prev" onclick="showReview(-1)">❮</div>
                 <div class="nav-arrow next" onclick="showReview(1)">❯</div>
             </div>
-
-
-            <a href="login.php"><button style="right: 110px;">Log in</button></a>
-            <a href="signup.php"><button>Sign up</button></a>
-
-
-
+            
 			<script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';
