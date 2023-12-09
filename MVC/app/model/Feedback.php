@@ -73,7 +73,6 @@ class Feedback extends Model {
 			$row = $db->fetchRow();
 			$this->Message = $row["Message"];
 			$this->PatientID = $row["PatientID"];
-			$_SESSION["PatientID"] = $row["PatientID"];
 		}
 		else {
 			$this->Message = "";

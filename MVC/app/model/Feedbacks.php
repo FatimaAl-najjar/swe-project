@@ -34,7 +34,6 @@ class Feedbacks extends Model {
 		$sql = "SELECT * FROM feedback";  //where PatientID=".$_SESSION['ID'];
 		$result = $this->db->query($sql);
 		if ($result->num_rows > 0){
-			// var_dump($result);
 			return $result;
 		}
 		else {

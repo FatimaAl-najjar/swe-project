@@ -14,7 +14,7 @@ class FeedbackController extends Controller {
         $this->model->getFeedback($ID)->editFeedback($Message);
     }
     
-    public function delete() {
+    public function delete($ID) {
         $this->model->getFeedback($ID)->deleteFeedback();
     }
     
