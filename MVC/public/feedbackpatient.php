@@ -14,18 +14,18 @@ $view = new ViewFeedback($controller, $model);
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	switch($_GET['action']){
 		case 'insert':
-			$controller->insertFeedback();
+			$controller->insert();
 			echo $view->output();
 			break;
 		case 'edit':
-			echo $view->editFeedback($_GET['id']);
+			echo $view->edit($_GET['id']);
 			break;
 		case 'editAction':
 			$controller->edit($_GET['id']);
 			echo $view->output();
 			break;
 		case 'delete':
-			$controller->deleteFeedback($_GET['id']);
+			$controller->delete($_GET['id']);
 			echo $view->output();
 			break;
 	}

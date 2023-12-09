@@ -13,7 +13,7 @@ class Feedbacks extends Model {
 		$this->db = $this->connect();
 		$result = $this->readFeedbacks();
 		while ($row = $result->fetch_assoc()) {
-			array_push($this->feedbacks, new Feedback($row["ID"]));
+			array_push($this->feedbacks, new Feedback($row["ID"], $row["Message"], $row["PatientID"]));
 		}
 	}
 
@@ -22,18 +22,19 @@ class Feedbacks extends Model {
 		return $this->feedbacks;
 	}
 
-	function getFeedback($ID) {
-		foreach($this->feedbacks as $feedback) {
-			if ($ID == $feedback->getID()) {
-				return $feedback;
-			}
-		}
-	}
+	// function getFeedback($ID) {
+	// 	foreach($this->feedbacks as $feedback) {
+	// 		if ($ID == $feedback->getID()) {
+	// 			return $feedback;
+	// 		}
+	// 	}
+	// }
 
 	function readFeedbacks(){
-		$sql = "SELECT * FROM feedback where PatientID=".$_SESSION['ID'];
+		$sql = "SELECT * FROM feedback";  //where PatientID=".$_SESSION['ID'];
 		$result = $this->db->query($sql);
 		if ($result->num_rows > 0){
+			// var_dump($result);
 			return $result;
 		}
 		else {
@@ -48,7 +49,7 @@ class Feedbacks extends Model {
 			$this->fillArray();
 		} 
 		else{
-			echo "ERROR: Could not able to execute $sql. " . $conn->error;
+			echo "ERROR: Could not able to execute $sql. " . $this->db->error;
 		}
 	}
 }

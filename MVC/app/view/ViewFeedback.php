@@ -2,7 +2,7 @@
 
 require_once(__ROOT__ . "view/View.php");
 
-class FeedbackView extends View {
+class ViewFeedback extends View {
     // public function output() {
     //     $feedbacks = $this->model->getFeedbacks();
 
@@ -49,9 +49,9 @@ class FeedbackView extends View {
 		$str.="<table>";
 		$str.="<tr><th>Message</th><th>Action</th></tr>";
 		foreach($this->model->getFeedbacks() as $Feedback){
-			if($Movie->getID()===$ID) 	{
+			if($Feedback->getID()===$ID) 	{
 				$str.="<tr>";
-				$str.="<form action='feedbackpatient.php?action=editAction&id=".$Movie->getID()."' method='post'>";
+				$str.="<form action='feedbackpatient.php?action=editAction&id=".$Feedback->getID()."' method='post'>";
 				$str.="<td><input type='text' name='Message' value='".$Feedback->getMessage() ."'>  </td> ";
 				$str.="<td><input type='submit' value='Change'/></td>";
 				$str.="</form>";
@@ -59,7 +59,7 @@ class FeedbackView extends View {
 			}
 			else	{
 				$str.="<tr>";
-				$str.="<td>".$Movie->getMessage() ."  </td> ";
+				$str.="<td>".$Feedback->getMessage() ."  </td> ";
 				$str.="<td><a href='feedbackpatient.php?action=edit&id=".$Feedback->getID()."'>Edit</a></td>";
 				$str.="</tr>";
 			}

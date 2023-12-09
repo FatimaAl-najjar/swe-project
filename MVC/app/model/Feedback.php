@@ -29,7 +29,7 @@
 
 require_once(__ROOT__ . "model/Model.php");
 
-class Movie extends Model {
+class Feedback extends Model {
 	private $ID;
 	private $Message;
 	private $PatientID;
@@ -62,10 +62,10 @@ class Movie extends Model {
 	}
 
 	function getID() {
-		return $this->id;
+		return $this->ID;
 	}
 
-	function readMessage($ID){
+	function readFeedback($ID){
 		$sql = "SELECT * FROM feedback where ID=".$ID;
 		$db = $this->connect();
 		$result = $db->query($sql);
@@ -73,6 +73,7 @@ class Movie extends Model {
 			$row = $db->fetchRow();
 			$this->Message = $row["Message"];
 			$this->PatientID = $row["PatientID"];
+			$_SESSION["PatientID"] = $row["PatientID"];
 		}
 		else {
 			$this->Message = "";
@@ -81,21 +82,21 @@ class Movie extends Model {
 	}
 
 	function editFeedback($Message){
-		$sql = "update feedback set Message='$Message'where ID=$this->ID;";
+		$sql = "UPDATE feedback SET Message='$Message'WHERE ID=$this->ID;";
 		if($this->db->query($sql) === true){
 			echo "updated successfully.";
-			$this->readMessage($this->ID);
+			$this->readFeedback($this->ID);
 		} else{
-			echo "ERROR: Could not able to execute $sql. " . $conn->error;
+			echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
 		}
 	}
 
 	function deleteFeedback(){
-		$sql="delete from feedback where ID=$this->ID;";
+		$sql="DELETE FROM feedback WHERE ID=$this->ID;";
 		if($this->db->query($sql) === true){
 			echo "deleted successfully.";
 		} else{
-			echo "ERROR: Could not able to execute $sql. " . $conn->error;
+			echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
 		}
 	}
 }
