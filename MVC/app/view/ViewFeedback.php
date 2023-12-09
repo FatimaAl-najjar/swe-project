@@ -13,5 +13,9 @@ class FeedbackView extends View {
             
         }
     }
+
+    public function insertFeedback(){
+        
+    }
 }
 ?>

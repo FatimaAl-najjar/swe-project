@@ -12,5 +12,5 @@ $model = new Feedback("0");
 $controller = new FeedbackController($model);
 $view = new FeedbackView($controller, $model);
 
-echo $view->output();
+echo $view->insertFeedback();
 ?>

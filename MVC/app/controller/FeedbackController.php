@@ -3,26 +3,19 @@ require_once(__ROOT__ . "model/Feedback.php");
 require_once(__ROOT__ . "controller/Controller.php");
 
 class FeedbackController extends Controller {
-    public function addFeedback($Patient, $Message) {
-        $feedback = new Feedback(null, $Patient, $Message);
-        $feedback->addFeedback($Patient, $Message);
+    public function addFeedback() {
+        $Message = $_REQUEST['Message'];
+        //validation
+        $this->model->insertFeedback($Message);
     }
     
-    public function editFeedback($ID, $Patient, $Message) {
-        $feedback = new Feedback($ID);
-        $feedback->editFeedback($Patient, $Message);
+    public function editFeedback($ID) {
+        $this->model->getFeedback($ID)->editFeedback($Message);
     }
     
     public function deleteFeedback($ID) {
-        $feedback = new Feedback($ID);
-        $feedback->deleteFeedback();
+        $this->model->getFeedback($ID)->deleteFeedback();
     }
     
-    public function getFeedback($ID) {
-        $feedback = new Feedback($ID);
-        $patient = $feedback->getPatient();
-        $message = $feedback->getMessage();
-        // Do something with the patient and message data
-    }
 }
 ?>
