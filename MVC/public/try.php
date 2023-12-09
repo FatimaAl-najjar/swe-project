@@ -14,30 +14,30 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 }
 
 // Sign Up
-// if(isset($_POST['submit']))	{
-// 	$FirstName = $_REQUEST["FirstName"];
-// 	$LastName = $_REQUEST["LastName"];
-// 	$Email = $_REQUEST["Email"];
-// 	$Password = $_REQUEST["Password"];
-// 	$Phonenumber = $_REQUEST["Phonenumber"];
-// 	$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
-//         VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
-// 	$dbh = new Dbh();
-// 	$result = $dbh->query($sql);
-// 	if ($sql) {
-// 		$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
-// 		$dbh = new Dbh();
-// 		$result = $dbh->query($sql);
-// 		if ($result->num_rows == 1){
-// 			$row = $dbh->fetchRow();
-// 			$_SESSION["ID"]=$row["ID"];
-// 			$_SESSION["Email"]=$row["Email"];
-// 			echo $_SESSION["ID"];
-// 			echo $_SESSION["Email"];
-// 			header("Location:PatientProfile.php");
-// 		}
-// 	}
-// }
+if(isset($_POST['submit']))	{
+	$FirstName = $_REQUEST["FirstName"];
+	$LastName = $_REQUEST["LastName"];
+	$Email = $_REQUEST["Email"];
+	$Password = $_REQUEST["Password"];
+	$Phonenumber = $_REQUEST["Phonenumber"];
+	$sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
+	$dbh = new Dbh();
+	$result = $dbh->query($sql);
+	if ($sql) {
+		$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
+		$dbh = new Dbh();
+		$result = $dbh->query($sql);
+		if ($result->num_rows == 1){
+			$row = $dbh->fetchRow();
+			$_SESSION["ID"]=$row["ID"];
+			$_SESSION["Email"]=$row["Email"];
+			echo $_SESSION["ID"];
+			echo $_SESSION["Email"];
+			header("Location:PatientProfile.php");
+		}
+	}
+}
 ?>
 
 <?php
