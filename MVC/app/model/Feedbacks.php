@@ -31,7 +31,7 @@ class Feedbacks extends Model {
 	}
 
 	function readFeedbacks(){
-		$sql = "SELECT * FROM feedback";  //where PatientID=".$_SESSION['ID'];
+		$sql = "SELECT * FROM feedback where PatientID=".$_SESSION['ID'];
 		$result = $this->db->query($sql);
 		if ($result->num_rows > 0){
 			return $result;
