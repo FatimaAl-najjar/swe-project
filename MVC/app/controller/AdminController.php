@@ -38,23 +38,23 @@ class AdminController extends Controller{
 	public function deleteAdmin(){
 		$this->model->deleteadmin();
 	}
-	function adminLogin($Email, $Password){
 
-        if ($this->model->validateAdminLoginCredentials($Email,$Password))
-        {
-            $row = $db->fetchRow();
-            $this->Email = $row["Email"];
-            $this->Password = $row["Password"];
-			$this->model->adminLogin($Email,$Password);
-			echo"<h1>la2eit eladmin</h1>";
-        }
-        else
-        {
-            echo "<h1>No admin with this Email</h1>";
-        }
-    }
 
-}
+		public function adminLogin($email, $username, $password) {
+			// Validate email format
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				return false; // Invalid email format
+			}
+	
+			// Call the login method of the Admin model
+			$admin = $this->model->adminLogin($email, $username, $password);
+	
+			return $admin;
+		}
+	}
+    
+
+
 
 
 

@@ -3,10 +3,10 @@
 require_once(__ROOT__ . "model/Model.php");
 
 class Admin extends Model {
-    private $id;
-    private $Email;
-    private $Username;
-    private $Password;
+    public $ID; 
+    public $Email;
+    public $Username;
+    public $Password;
  
 
   function __construct($id,$Email="",$Username="",$Password="") {
@@ -84,10 +84,15 @@ class Admin extends Model {
    }
 
    }
-   function validateAdminLoginCredentials($Email, $Password){
-    $sql = "SELECT * FROM admin WHERE Email='$Email' AND Password='$Password'";
-    $result = $this->$db->query($sql);
-    return $result->num_rows==1;
-   }
+   public function adminLogin($email, $username, $password) {
+    $sql = "SELECT * FROM admin WHERE Email='$email' AND Username='$username' AND Password='$password'";
+    $result = $this->db->query($sql);
+
+    if ($row = mysqli_fetch_array($result)) {
+        return new Admin($row["ID"]);
+    }
+
+    return null;
+}
   }
 ?>

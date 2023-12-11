@@ -11,14 +11,27 @@ $view = new ViewAdmin($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
-
-if ($action == '') {
-        
-    $controller->adminLogin($_REQUEST['Email'], $_REQUEST['Username'], $_REQUEST['Password']);
-    header("Location: ..admin/edit_patient.php");
-    exit();
-
 }
-}
+    $errorMessage = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $email = $_POST["Email"];
+        $username = $_POST["Username"];
+        $password = $_POST["Password"];
+    
+        $admin = $controller->adminLogin($email, $username, $password);
+    
+        if ($admin) {
+            $_SESSION["ID"] = $admin->ID;
+            $_SESSION["Username"] = $admin->Username;
+            $_SESSION["Email"] = $admin->Email;
+            $_SESSION["Password"] = $admin->Password;
+    
+            header("Location: ../index.php");
+        } else {
+            $errorMessage = "<h2>Incorrect email, username, or password</h2>";
+        }
+    }
+
 ?>
 <?php echo $view->loginForm();?>
