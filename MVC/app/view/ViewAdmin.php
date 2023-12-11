@@ -30,14 +30,22 @@ class ViewAdmin extends View{
 		return $str;
 	}
 
-	function signupForm(){
-		$str='<form action="index.php?action=insert" method="post">
-		<div><input type="text" name="name" placeholder="Enter name"/></div><br>
-		<div><input type="password" name="password" placeholder="Enter password"/></div><br>
-		<div><input type="text" name="age" placeholder="Enter age"/></div><br>
-		<div><input type="text" name="phone" placeholder="Enter phone"/></div><br>
-		<div><input type="submit" /></div>
-		</form>';
+	function addAdminForm(){
+		$str='<form action="" method="post">
+		<label>Email:</label>
+		<input type="text" name="Email" placeholder="Enter your email"><br>
+		<label>Username:</label>
+		<input type="text" name="Username" placeholder="Enter your Username"><br>
+		<label>Password:</label>
+		<input type="password" name="Password" placeholder="Enter your password" required><br>
+		<div class="clearfix">
+			<button class="btn" type="submit" value="submit">Add Admin</button>
+			<button type="button" class="btn">Cancel</button>
+		</div>
+	    </form>
+        </div>';
+		
+	
 		return $str;
 	}
 

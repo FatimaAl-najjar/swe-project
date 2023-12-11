@@ -58,7 +58,7 @@ class Admin extends Model {
     }
   }
 
-  function addadmin(){
+  /*function addadmin(){
     $Email=$this->getEmail();
     $Username=$this->getUsername();
     $Password=$this->getUsername();
@@ -69,7 +69,7 @@ class Admin extends Model {
       $sql="INSERT INTO admin(Email , Username , Password) VALUES ($Email,$Username,$Password)";
     }
     return $this->db->query($sql);
-  }
+  }*/
 
   function deleteadmin(){
     $sql= "DELETE FROM admin WHERE ID=".$this->getID();
@@ -95,4 +95,17 @@ class Admin extends Model {
     return null;
 }
   }
+  public function addAdmin($Email, $Username, $Password) {
+    $sql = "INSERT INTO admin (Email, Username, Password) VALUES (?, ?, ?)";
+    $Email=$this->getEmail();
+    $Username=$this->getUsername();
+    $Password=$this->getUsername();
+
+    if($this->getID()){
+      $sql="UPDATE admin SET Email='$Email' , Username='$Username', Password='$Password' WHERE ID=".$this->getID();
+    }else{
+      $sql="INSERT INTO admin(Email , Username , Password) VALUES ($Email,$Username,$Password)";
+    }
+    return $this->db->query($sql);
+}
 ?>
