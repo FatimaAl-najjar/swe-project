@@ -44,12 +44,20 @@ class ViewAdmin extends View{
 		</div>
 	    </form>
         </div>';
-		
-	
 		return $str;
 	}
 
 	public function editForm(){
+		$str='<form action="profile.php?action=editaction" method="post">
+		<div>Name:</div><div> <input type="text" name="name" value="'.$this->model->getName().'"/></div><br>
+		<div>Password:</div><div> <input type="password" name="password" value="'.$this->model->getPassword().'"/></div><br>
+		<div>Age:</div><div> <input type="text" name="age" value="'.$this->model->getAge().'"/></div><br>
+		<div>Phone: </div><div><input type="text" name="phone" value="'.$this->model->getPhone().'"/></div><br>
+		<div><input type="submit" /></div>';
+		return $str;
+	}
+
+	public function deleteForm(){
 		$str='<form action="profile.php?action=editaction" method="post">
 		<div>Name:</div><div> <input type="text" name="name" value="'.$this->model->getName().'"/></div><br>
 		<div>Password:</div><div> <input type="password" name="password" value="'.$this->model->getPassword().'"/></div><br>

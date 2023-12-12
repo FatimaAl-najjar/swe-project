@@ -71,19 +71,13 @@ class Admin extends Model {
     return $this->db->query($sql);
   }*/
 
-  function deleteadmin(){
-    $sql= "DELETE FROM admin WHERE ID=".$this->getID();
-    if($this->db->query($sql) === true)
-    {
-        echo "Deleted successfully!";
-    }
-    else 
-    {
-        echo "ERROR: Could not able to execute $sql. " .  $this->db->error;
-    return $this->db->query($sql);
-   }
+  public function deleteAdmin($adminID) {
+    return function () use ($adminID) {
+        $sql = "DELETE FROM admin WHERE ID = $adminID";
+        return mysqli_query($this->db, $sql);
+    };
+}
 
-   }
    public function adminLogin($email, $username, $password) {
     $sql = "SELECT * FROM admin WHERE Email='$email' AND Username='$username' AND Password='$password'";
     $result = $this->db->query($sql);
@@ -94,18 +88,15 @@ class Admin extends Model {
 
     return null;
 }
+static function addadmin($Email, $Username, $Password) {
+  // Ensure you have a database connection established here, or include it.
+  $sql = "INSERT INTO admin (Email, Username, Password) VALUES ('$Email','$Username','$Password')";
+  if (mysqli_query($GLOBALS['conn'], $sql)) {
+      return true;
+  } else {
+      return false;
   }
-  public function addAdmin($Email, $Username, $Password) {
-    $sql = "INSERT INTO admin (Email, Username, Password) VALUES (?, ?, ?)";
-    $Email=$this->getEmail();
-    $Username=$this->getUsername();
-    $Password=$this->getUsername();
-
-    if($this->getID()){
-      $sql="UPDATE admin SET Email='$Email' , Username='$Username', Password='$Password' WHERE ID=".$this->getID();
-    }else{
-      $sql="INSERT INTO admin(Email , Username , Password) VALUES ($Email,$Username,$Password)";
-    }
-    return $this->db->query($sql);
 }
+  }
+ 
 ?>
