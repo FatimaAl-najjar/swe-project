@@ -58,12 +58,11 @@ class ViewAdmin extends View{
 	}
 
 	public function deleteForm(){
-		$str='<form action="profile.php?action=editaction" method="post">
-		<div>Name:</div><div> <input type="text" name="name" value="'.$this->model->getName().'"/></div><br>
-		<div>Password:</div><div> <input type="password" name="password" value="'.$this->model->getPassword().'"/></div><br>
-		<div>Age:</div><div> <input type="text" name="age" value="'.$this->model->getAge().'"/></div><br>
-		<div>Phone: </div><div><input type="text" name="phone" value="'.$this->model->getPhone().'"/></div><br>
-		<div><input type="submit" /></div>';
+		$str='<div>Name:</div><div> <input type="text" name="name" value="<?php echo $this->model->getName(); ?>"/></div><br>
+		<div>Password:</div><div> <input type="password" name="password" value="<?php echo $this->model->getPassword(); ?>"/></div><br>
+		<div>Age:</div><div> <input type="text" name="age" value="<?php echo $this->model->getAge(); ?>"/></div><br>
+		<div>Phone: </div><div><input type="text" name="phone" value="<?php echo $this->model->getPhone(); ?>"/></div><br>
+		';
 		return $str;
 	}
 }
