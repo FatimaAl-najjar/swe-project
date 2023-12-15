@@ -37,8 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorMessage = "<h2>An error occurred during registration.</h2>";
         }
     }
+    
 }
-
+echo $errorMessage;
 
 ?>
 <?php echo $view->addAdminForm();?>

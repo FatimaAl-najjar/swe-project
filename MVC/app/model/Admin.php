@@ -91,10 +91,12 @@ class Admin extends Model {
 static function addadmin($Email, $Username, $Password) {
   // Ensure you have a database connection established here, or include it.
   $sql = "INSERT INTO admin (Email, Username, Password) VALUES ('$Email','$Username','$Password')";
-  if (mysqli_query($GLOBALS['conn'], $sql)) {
-      return true;
-  } else {
-      return false;
+  if($this->db->query($sql) === true){
+    echo "admin added successfully.";
+    $this->fillArray();
+  } 
+  else{
+    echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
   }
 }
   }

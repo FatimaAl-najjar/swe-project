@@ -38,10 +38,17 @@ class AdminController extends Controller{
 	public function addAdmin($Email, $Username, $Password) {
         return $this->model->addAdmin($Email, $Username, $Password);
     }
-	
-	public function deleteAdmin(){
-		$this->model->deleteadmin();
-	}
+
+	public function deleteAdmin($adminID) {
+        $admin = $this->model->find($adminID);
+
+        if ($admin) {
+            $result = $this->model->deleteAdmin($admin->ID);
+            return $result;
+        }
+
+        return false;
+    }
 
 
 		public function adminLogin($email, $username, $password) {

@@ -58,11 +58,13 @@ class ViewAdmin extends View{
 	}
 
 	public function deleteForm(){
-		$str='<div>Name:</div><div> <input type="text" name="name" value="<?php echo $this->model->getName(); ?>"/></div><br>
-		<div>Password:</div><div> <input type="password" name="password" value="<?php echo $this->model->getPassword(); ?>"/></div><br>
-		<div>Age:</div><div> <input type="text" name="age" value="<?php echo $this->model->getAge(); ?>"/></div><br>
-		<div>Phone: </div><div><input type="text" name="phone" value="<?php echo $this->model->getPhone(); ?>"/></div><br>
-		';
+		$str='<div id="todelete" class="card">
+		<form id="deleteForm" action="" method="post">
+		<input type="text" name="adminIDToDelete" placeholder="Enter admin ID"></br>
+		<button class="btn" type="Submit" value="submit">Delete Admin</button>
+		<button class="btn" name="cancel" formnovalidate>cancel</button>	
+		</form>
+		</div>';
 		return $str;
 	}
 }

@@ -30,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             echo "Error deleting Admin with ID $adminIDToDelete ";
         }
     }
+  
 }
+echo $errorMessage;
  ?>
  <?php echo $view->deleteForm();?>
