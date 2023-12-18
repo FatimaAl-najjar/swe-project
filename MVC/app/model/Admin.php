@@ -2,6 +2,7 @@
  
 require_once(__ROOT__ . "model/Model.php");
 
+
 class Admin extends Model {
     public $ID; 
     public $Email;
@@ -58,24 +59,10 @@ class Admin extends Model {
     }
   }
 
-  /*function addadmin(){
-    $Email=$this->getEmail();
-    $Username=$this->getUsername();
-    $Password=$this->getUsername();
 
-    if($this->getID()){
-      $sql="UPDATE admin SET Email='$Email' , Username='$Username', Password='$Password' WHERE ID=".$this->getID();
-    }else{
-      $sql="INSERT INTO admin(Email , Username , Password) VALUES ($Email,$Username,$Password)";
-    }
-    return $this->db->query($sql);
-  }*/
-
-  public function deleteAdmin($adminID) {
-    return function () use ($adminID) {
-        $sql = "DELETE FROM admin WHERE ID = $adminID";
-        return mysqli_query($this->db, $sql);
-    };
+  static function deleteAdmin($id) {
+    $sql = "DELETE FROM admin WHERE ID = $id";
+    return mysqli_query($this->db->query($sql), $sql);
 }
 
    public function adminLogin($email, $username, $password) {
@@ -88,15 +75,17 @@ class Admin extends Model {
 
     return null;
 }
-static function addadmin($Email, $Username, $Password) {
+   public function addadmin($Email, $Username, $Password) {
   // Ensure you have a database connection established here, or include it.
-  $sql = "INSERT INTO admin (Email, Username, Password) VALUES ('$Email','$Username','$Password')";
-  if($this->db->query($sql) === true){
+   $sql = "INSERT INTO admin (Email, Username, Password) VALUES ('$Email','$Username','$Password')";
+   $result = $this->db->query($sql);
+
+   if($result === true){
     echo "admin added successfully.";
-    $this->fillArray();
+    $this->Admin->fillArray();
   } 
   else{
-    echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
+    echo "ERROR: Could not able to execute $sql. " . $this->db->getconn()->error;
   }
 }
   }

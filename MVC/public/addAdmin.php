@@ -10,9 +10,8 @@ $controller = new AdminController($model);
 $view = new ViewAdmin($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-	$controller->{$_GET['action']}();
+    $controller->{$_GET['action']}();
 }
-
 
 $errorMessage = "";
 
@@ -21,9 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Username = isset($_POST["Username"]) ? $_POST["Username"] : "";
     $Password = isset($_POST["Password"]) ? $_POST["Password"] : "";
 
+    // Ensure you have a database connection established here
+    $conn = $db->getConn();
+
     if (empty($Username) || empty($Email) || empty($Password)) {
         $errorMessage = "<h2>Please fill the required field</h2>";
     } else {
+        // Use the connection from $db
         $Email = mysqli_real_escape_string($conn, $Email);
         $Username = mysqli_real_escape_string($conn, $Username);
         $Password = mysqli_real_escape_string($conn, $Password);
@@ -37,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorMessage = "<h2>An error occurred during registration.</h2>";
         }
     }
-    
 }
+
 echo $errorMessage;
 
 ?>

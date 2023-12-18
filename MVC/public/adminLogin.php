@@ -26,7 +26,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             $_SESSION["Username"] = $admin->Username;
             $_SESSION["Email"] = $admin->Email;
             $_SESSION["Password"] = $admin->Password;
-            header("Location: ./index.php");
+            header("Location: ../index.php");
         } else {
             $errorMessage = "<h2>Incorrect email, username, or password</h2>";
         }
