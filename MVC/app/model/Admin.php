@@ -60,9 +60,17 @@ class Admin extends Model {
   }
 
 
-  static function deleteAdmin($id) {
-    $sql = "DELETE FROM admin WHERE ID = $id";
-    return mysqli_query($this->db->query($sql), $sql);
+   
+
+  public function deleteAdmin($id) {
+    $sql = "DELETE FROM admin WHERE ID=$id";
+    $result = $this->db->query($sql);
+
+    if ($result === true) {
+        return true;
+    } else {
+        return $this->db->getConn()->error;
+    }
 }
 
    public function adminLogin($email, $username, $password) {

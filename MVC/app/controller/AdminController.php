@@ -40,15 +40,15 @@ class AdminController extends Controller{
     }
 
 	public function deleteAdmin($adminID) {
-        $admin = $this->model->find($adminID);
+        $result = $this->model->deleteAdmin($adminID);
 
-        if ($admin) {
-            $result = $this->model->deleteAdmin($admin->ID);
-            return $result;
+        if ($result === true) {
+            echo "Admin with ID $adminID has been successfully deleted.";
+        } else {
+            echo "Error deleting Admin with ID $adminID: " . $result;
         }
 
-        return false;
-    }
+	}
 
 
 		public function adminLogin($email, $username, $password) {

@@ -60,10 +60,10 @@ class ViewAdmin extends View{
 	public function deleteForm(){
 		$str='<div id="todelete" class="card">
 		<form id="deleteForm" action="" method="post">
-		<input type="text" name="adminIDToDelete" placeholder="Enter admin ID"></br>
-		<button class="btn" type="Submit" value="submit">Delete Admin</button>
-		<button class="btn" name="cancel" formnovalidate>cancel</button>	
-		</form>
+   		 <input type="text" name="adminIDToDelete" placeholder="Enter admin ID"><br>
+    	 <button class="btn" type="submit" name="action" value="Delete Admin">Delete Admin</button>
+    	 <button class="btn" type="submit" name="cancel" formnovalidate>Cancel</button>
+		</form>	
 		</div>';
 		return $str;
 	}

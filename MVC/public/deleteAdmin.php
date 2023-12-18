@@ -5,6 +5,8 @@ require_once(__ROOT__ . "model/Admin.php");
 require_once(__ROOT__ . "controller/AdminController.php");
 require_once(__ROOT__ . "view/ViewAdmin.php");
 
+$errorMessage="";
+
 $model = new Admin("");
 $db = new Dbh();
 $controller = new AdminController($model);
@@ -14,24 +16,30 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['action'])) {
+        $action = $_POST['action'];
 
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
-    $action = $_POST['action'];
-
-    if ($action == "Delete Admin") {
-        $adminIDToDelete = $_POST['adminIDToDelete'];
-        $result = $controller->deleteAdmin($adminIDToDelete);
-
-        if ($result) {
-            echo "Admin with ID $adminIDToDelete has been successfully deleted ";
+        if ($action == "Delete Admin") {
+            if (isset($_POST['adminIDToDelete'])) {
+                $adminIDToDelete = $_POST['adminIDToDelete'];
+                echo "Submitted ID: $adminIDToDelete"; // Check if the correct ID is captured
+                $controller->deleteAdmin($adminIDToDelete);
+            } else {
+                echo "Admin ID not provided in the form.";
+            }
+        } elseif ($action == "cancel") {
+            echo "Cancel button clicked.";
+            // You can add cancel logic if needed
         } else {
-            echo "Error deleting Admin with ID $adminIDToDelete ";
+            echo "Unknown action: $action";
         }
     }
-  
 }
+
+
+  
+
 echo $errorMessage;
  ?>
  <?php echo $view->deleteForm();?>
