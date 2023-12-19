@@ -6,15 +6,15 @@ require_once(__ROOT__ . "controller/Controller.php");
 
 class AppointmentsController extends Controller {
     public function insert() {
-        // $name = $_REQUEST['patients_id'];
+        // $patientId = $_REQUEST['patients_id']; // Add the patient's ID
         $date = $_REQUEST['day'];
         $time = $_REQUEST['duration'];
 
-        $this->model->insertAppointment( $date, $time);
+        $this->model->insertAppointment($date, $time); // Pass the patient's ID to the insertAppointment method
         
-        header("Location:appointment_index.php");
+        // Redirect to the booking form page
+        header("Location: appointment_index.php");
     }
-
     public function edit() {
         $id = $_REQUEST['id'];
         $name = $_REQUEST['patients_id'];

@@ -4,8 +4,9 @@ require_once(__ROOT__ . "view/View.php");
  ?>
  <?php
 class ViewAppointment extends View {
-
+  
     public function outputPatientView() {
+        $this->model->getAllAppointments();
 //         $currentDateTime = new DateTime();
 // $halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
 // $halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');
@@ -24,9 +25,9 @@ class ViewAppointment extends View {
         // return $str;
         $str = "";
             $str .= "<div class='row'>\n";
-         $str .= "<div class='home-img'>\n";
-        $str .= "<img class='my-img' src='images/waiting_room2.jpg'>\n";
-        $str .= "</div>\n";
+        //  $str .= "<div class='home-img'>\n";
+        // $str .= "<img class='my-img' src='images/waiting_room2.jpg'>\n";
+        // $str .= "</div>\n";
         // $str .= "<h1>Book Appointment</h1>";
         $str .= "<form action='appointment_index.php?action=insert' method='POST'>";
           if (!empty($this->errors)) {
