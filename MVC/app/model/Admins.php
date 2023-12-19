@@ -63,4 +63,14 @@ class Admins extends Model {
         return $rowCount;
 	}
 
+	public function getNamebyID($ID) {
+		$sql = "SELECT * FROM admin WHERE ID = $ID";
+        $db = $this->connect();
+        $result = $db->query($sql);
+        if ($result->num_rows == 1){
+            $row = $db->fetchRow();
+            return $row["Username"];
+        }
+	}
+
 }

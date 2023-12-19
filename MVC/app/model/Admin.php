@@ -4,7 +4,7 @@ require_once(__ROOT__ . "model/Model.php");
 
 
 class Admin extends Model {
-    public $ID; 
+    public $id; 
     public $Email;
     public $Username;
     public $Password;

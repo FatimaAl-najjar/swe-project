@@ -3,6 +3,7 @@ define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/Admins.php");
 
 $model = new Admins();
+// echo $_SESSION["ID"];    // Working
 
 ?>
 <!DOCTYPE html>
@@ -116,7 +117,7 @@ $model = new Admins();
                 </button>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Admin</b></p>
+                        <p>Hey, <b><?php echo $model->getNamebyID($_SESSION["ID"]); ?></b></p>
                         <small class="text-muted">Admin</small>
                     </div>
                     
