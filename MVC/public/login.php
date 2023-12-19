@@ -10,14 +10,15 @@ $model = new Patients();
 $controller = new PatientController($model);
 $view = new ViewPatient($controller, $model);
 $errormessage="";
-// $model = new Patient(123);
-// $controller = new PatientController($model);
-// $view = new ViewPatient($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-	$controller->{$_GET['action']}();
+    switch($_GET['action']){
+		case 'Logout':
+			session_destroy();
+			header("Location:login.php");
+			break;
+	}
 }
-
 if(isset($_POST['submit']))	{
 	$Email = $_REQUEST["Email"];
 	$Password = $_REQUEST["Password"];
@@ -51,12 +52,6 @@ if(isset($_POST['submit']))	{
 			$errormessage="<h2>Wrong e-mail or password please re-enter</h2>";
 		}
 	}
-		// echo $_SESSION["ID"];
-		// echo $_SESSION["Email"];
-		// header("Location:index.php");
-		// header("Location:feedbackPatient.php");
-		// header("Location:PatientProfile.php"); // WORKING
-	
 }
 	echo $errormessage;
 ?>
