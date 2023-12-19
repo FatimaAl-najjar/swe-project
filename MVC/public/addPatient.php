@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     }else{
         $errorMessage = "<h2>An error occurred during adding admin.</h2>";
     }
+    echo $errorMessage;
 }
 ?>
 <?php echo $view->addPatientform();?>

@@ -11,7 +11,7 @@ $model = new Admin("");
 $db = new Dbh();
 $controller = new AdminController($model);
 $view = new ViewAdmin($controller, $model);
-
+$errorMessage = "";
 if (isset($_GET['action']) && !empty($_GET['action'])) {
 	$controller->{$_GET['action']}();
 }
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Submitted ID: $adminIDToDelete"; // Check if the correct ID is captured
                 $controller->deleteAdmin($adminIDToDelete);
             } else {
-                echo "Admin ID not provided in the form.";
+                $errorMessage= "<h2>Admin ID not provided in the form.</h2>";
             }
         } elseif ($action == "cancel") {
             echo "Cancel button clicked.";

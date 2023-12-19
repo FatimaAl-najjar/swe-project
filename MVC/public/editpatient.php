@@ -8,7 +8,7 @@ $db = new Dbh();
 $controller = new AdminController($model);
 $view = new ViewAdmin($controller, $model);
 
-
+$errorMessage = "";
 
 // Check for form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 
             $controller->editPatient($patientIDToEdit, $data);
         } else {
-            echo "Patient ID not provided in the form.";
+             $errorMessage ="<h2>Patient ID not provided in the form.</h2>";
         }
     }
 }
-
+echo $errorMessage;
 ?>
 <?php echo $view->editPatientForm();?>

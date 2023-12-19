@@ -101,6 +101,7 @@ public function editPatient($patientID, $data) {
   }
 }
 
+
   public function deleteAdmin($id) {
     $sql = "DELETE FROM admin WHERE ID=$id";
     $result = $this->db->query($sql);

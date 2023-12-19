@@ -9,6 +9,7 @@ class AdminController extends Controller{
         return $this->model->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
     }
 
+	
 	public function editPatient($patientID, $data) {
         $result = $this->model->editPatient($patientID, $data);
 
