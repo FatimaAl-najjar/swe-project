@@ -1,19 +1,17 @@
-
 <?php
 require_once(__ROOT__ . "view/ViewPatient.php");
-require_once(__ROOT__ . "model/Model.php")
-?>
-<?php
-// $view = new ViewAppointment($controller, $model);
+require_once(__ROOT__ . "model/Model.php");
+
 class Appointment extends Model {
-    // ...
     private $id;
     private $name;
     private $date;
     private $time;
+    private $patientId;
 
     function __construct($id, $name = "", $date = "", $time = "") {
         $this->id = $id;
+        // $this->patientId = $patientId;
         $this->db = $this->connect();
 
         // if ("" === $name) {
@@ -52,14 +50,29 @@ class Appointment extends Model {
     function getID() {
         return $this->id;
     }
-    function getAllAppointments()
-    {
-        echo"lma rabna ykremna isa kda 3shan ana t3bt bokra b2a";
-        exit;
+
+    function getAllAppointments() {
+        
+        $sql = "SELECT appointments.*, patients.FirstName FROM appointments JOIN patients ON appointments.patients_id = patients.id";
+        $result = $this->db->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "Appointment ID: " . $row["ID"] . "<br>";
+                echo "Patient Name: " . $row["FirstName"] . "<br>";
+                echo "Date: " . $row["day"] . "<br>";
+                echo "Time: " . $row["duration"] . "<br>";
+                echo "<br>";
+            }
+        } else {
+            echo "No appointments found.";
+        }
     }
 
     function readAppointment($id) {
-        $sql = "SELECT * FROM appointments WHERE patients_id=" . $id;
+        session_start();
+        if (isset($_SESSION['ID'])) {
+        $sql = "SELECT * FROM appointments WHERE patients_id=" .$_SESSION['ID'];
         $db = $this->connect();
         $result = $db->query($sql);
 
@@ -74,7 +87,11 @@ class Appointment extends Model {
             $this->time = "";
         }
     }
+    }
+
     function insertAppointment( $date, $time) {
+  
+        if (isset($_SESSION['ID'])) {
         // $selectedDay = $selectedDateTime->format('N'); // 1 (Monday) to 7 (Sunday)
         if (empty(trim($date))) {
             echo " <div class='error-box'>Error: pick an appointment first please <br></br>";
@@ -100,14 +117,20 @@ class Appointment extends Model {
         }
 
         // Insert the appointment into the database
-        $sql = "INSERT INTO appointments (  day, duration) VALUES (   '$date', '$time')";
+        $sql = "INSERT INTO appointments (patients_id, day, duration) VALUES (".$_SESSION['ID'].", '$date', '$time')";
          
         if ($this->db->query($sql) === true) {
             echo "Appointment created successfully.";
             exit;
-        } else {
+        } 
+    else{
             echo "ERROR: Could not able to execute $sql. " . $this->db->error;
         }
+    }
+    else {
+        echo "<div class='error-box'> you must be logged in first";
+        exit;
+    }
     }
 
     function validateAppointmentTime($time) {
@@ -124,32 +147,11 @@ class Appointment extends Model {
         return (date('N', strtotime($date)) != 5); // 5 corresponds to Friday
     }
 
-    function checkAppointmentAvailability($date, $time) {
-        // Check if the appointment slot is already booked
-        $sql = "SELECT * FROM appointments WHERE day='$date' AND duration='$time'";
-        $result = $this->db->query($sql);
+function checkAppointmentAvailability($date, $time) {
+    // Check if the appointment slot is already booked
+    $sql = "SELECT * FROM appointments WHERE day='$date' AND duration='$time'";
+    $result = $this->db->query($sql);
 
-        return ($result->num_rows == 0); // Return true if no appointments are found for the given date and time
-    }
-
-    function editAppointment($id, $name, $date, $time) {
-        $sql = "UPDATE appointments SET   day='$date', duration='$time' WHERE ID=$id";
-
-        if ($this->db->query($sql) === true) {
-            echo "Appointment updated successfully.";
-        } else {
-            echo "ERROR: Could not able to execute $sql. " . $this->db->error;
-        }
-    }
-
-    function deleteAppointment($id) {
-        $sql = "DELETE FROM appointments WHERE ID=$id";
-
-        if ($this->db->query($sql) === true) {
-            echo "Appointment deleted successfully.";
-        } else {
-            echo "ERROR: Could not able to execute $sql. " . $this->db->error;
-        }
-    }
+    return ($result->num_rows == 0);
 }
-?>
+}
