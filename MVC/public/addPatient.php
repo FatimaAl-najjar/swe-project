@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $Phonenumber = $_POST['Phonenumber'];
 
         $controller->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
-        $errorMessage="<h2>Patient was successfully added</h2>";
     }else{
         $errorMessage = "<h2>An error occurred during adding admin.</h2>";
     }

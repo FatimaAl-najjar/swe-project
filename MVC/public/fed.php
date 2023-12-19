@@ -1,33 +1,18 @@
-<?php
 
-define('__ROOT__', "../app/");
-require_once(__ROOT__ . "model/Patient.php");
-require_once(__ROOT__ . "controller/PatientController.php");
-require_once(__ROOT__ . "view/viewPatient.php");
-
-$model = new Patient($_SESSION["ID"]);
-$controller = new PatientController($model);
-$view = new viewPatient($controller, $model);
-
-if (isset($_GET['action']) && !empty($_GET['action'])) {
-	switch($_GET['action']){
-		case 'editaction':
-			$controller->edit();
-			echo $view->output();
-			break;
-		case 'feedback':
-			header("Location:feedbackpatient.php");
-			break;
-		case 'delete':
-			$controller->delete();
-			echo $view->output();
-		case 'signOut':
-			session_destroy();
-			header("Location:index.php");
-			break;
-	}
-}
-else
-	echo $view->output();
-
-?>
+<style>
+	
+	
+</style>
+<div class="card">
+    <div class="card-header">
+        <h3>Feedback</h3>
+    </div>
+    <div class="card-body">
+        <textarea id="comment" placeholder="Enter your comment"></textarea>
+    </div>
+    <div class="card-footer">
+        <button class="btn edit-btn">Edit</button>
+        <button class="btn delete-btn">Delete</button>
+        <button class="btn insert-btn">Insert</button>
+    </div>
+</div>

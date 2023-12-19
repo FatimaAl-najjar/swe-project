@@ -1,4 +1,4 @@
-
+<?php include('static.php'); ?>
 <link rel="stylesheet" href="css/bookAppointment.css">
 <?php
 
