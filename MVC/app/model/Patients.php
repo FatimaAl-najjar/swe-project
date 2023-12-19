@@ -17,6 +17,17 @@ class Patients extends Model {
 		}
 	}
 
+	function isAdmin ($Email) {
+		$sql = "SELECT * FROM admin WHERE Email='$Email'";
+        $db = $this->connect();
+        $result = $db->query($sql);
+        if ($result->num_rows == 1)
+        {
+            return true;
+        }
+        return false;
+	}
+
 	function getPatients() {
 		return $this->patients;
 	}

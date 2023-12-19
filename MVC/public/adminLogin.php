@@ -10,7 +10,12 @@ $controller = new AdminController($model);
 $view = new ViewAdmin($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-	$controller->{$_GET['action']}();
+    switch($_GET['action']){
+		case 'Logout':
+			session_destroy();
+			header("Location:login.php");
+			break;
+	}
 }
     $errorMessage = "";
 
@@ -26,7 +31,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
             $_SESSION["Username"] = $admin->Username;
             $_SESSION["Email"] = $admin->Email;
             $_SESSION["Password"] = $admin->Password;
-            header("Location: ../adminindex.php");
+            header("Location:adminindex.php");
         } else {
             $errorMessage = "<h2>Incorrect email, username, or password</h2>";
         }
