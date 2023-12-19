@@ -10,7 +10,12 @@ $controller = new AdminController($model);
 $view = new ViewAdmin($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-	$controller->{$_GET['action']}();
+    switch($_GET['action']){
+		case 'Logout':
+			session_destroy();
+			header("Location:adminLogin.php");
+			break;
+	}
 }
     $errorMessage = "";
 

@@ -13,7 +13,6 @@ class ViewAdmin extends View{
 		$str.="<h5>Phone: ".$this->model->getPhone()."</h5>";
 		$str.="<br><br>";
 		$str.="<a href='profile.php?action=edit'>Edit Profile </a><br><br>";
-		$str.="<a href='profile.php?action=movie'>My Movies </a><br><br>";
 		$str.="<a href='profile.php?action=signOut'>SignOut </a><br><br>";
 		$str.="<a href='profile.php?action=delete'>Delete Account </a>";
 		return $str;
@@ -45,32 +44,32 @@ class ViewAdmin extends View{
 
             <div class="sidebar">
                 <a class="active" href="adminindex.php">
-                    <i class="bx bxs-grid-alt"></i>
+                    <i class=\'bx bxs-grid-alt\' ></i>
                     <h3>Dashboard</h3>
                 </a>
                 <a href="addAdmin.php">
-                    <i class="bx bx-add-to-queue"></i>
+                    <i class=\'bx bx-add-to-queue\' ></i>
                     <h3>Add Admin</h3>
                 </a>
                 <a href="addPatient.php">
-                    <i class="bx bxs-add-to-queue"></i>
+                    <i class=\'bx bxs-add-to-queue\'></i>
                     <h3>Add Patient</h3>
                 </a>
                 <a href="editpatient.php">
-                    <i class="bx bxs-edit"></i>
+                    <i class=\'bx bxs-edit\'></i>
                     <h3>Edit Patient</h3>
                 </a>
                 <a href="delete_patient.php">
-                    <i class="bx bxs-minus-square"></i>
+                    <i class=\'bx bxs-minus-square\'></i>
                     <h3>Delete Patient</h3>
                     <!-- <span class="message-count">26</span> -->
                 </a>
                 
                 
-                <a href="#">
-                    <i class="bx bxs-log-out"></i>
-                    <h3>Logout</h3>
-                </a>
+                <a href=\'adminLogin.php?action=Logout\'>
+                <i class=\'bx bxs-log-out\'></i>
+                <h3>Logout</h3>
+            </a>
             </div>
         </aside>
         <!--=================== END OF ASIDE ===================-->
@@ -160,10 +159,10 @@ return $str;
                 </a>
                 
                 
-                <a href="#">
-                    <i class=\'bx bxs-log-out\'></i>
-                    <h3>Logout</h3>
-                </a>
+                <a href=\'adminLogin.php?action=Logout\'>
+                <i class=\'bx bxs-log-out\'></i>
+                <h3>Logout</h3>
+            </a>
             </div>
         </aside>
         <!--=================== END OF ASIDE ===================-->
@@ -233,8 +232,8 @@ return $str;
                     <!-- <span class="message-count">26</span> -->
                 </a>
                 
-                <a href="#">
-                    <i class="bx bxs-log-out"></i>
+                <a href=\'adminLogin.php?action=Logout\'>
+                    <i class=\'bx bxs-log-out\'></i>
                     <h3>Logout</h3>
                 </a>
             </div>
@@ -276,33 +275,34 @@ return $str;
             </div>
 
             <div class="sidebar">
-                <a class="active" href="adminindex.php">
-                    <i class="bx bxs-grid-alt"></i>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="addAdmin.php">
-                    <i class="bx bx-add-to-queue"></i>
-                    <h3>Add Admin</h3>
-                </a>
-                <a href="addPatient.php">
-                    <i class="bx bxs-add-to-queue"></i>
-                    <h3>Add Patient</h3>
-                </a>
-                <a href="editpatient.php">
-                    <i class="bx bxs-edit"></i>
-                    <h3>Edit Patient</h3>
-                </a>
-                <a href="delete_patient.php">
-                    <i class="bx bxs-minus-square"></i>
-                    <h3>Delete Patient</h3>
-                    <!-- <span class="message-count">26</span> -->
-                </a>
-                
-                <a href="#">
-                    <i class="bx bxs-log-out"></i>
+            <a class="active" href="adminindex.php">
+                <i class=\'bx bxs-grid-alt\' ></i>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="addAdmin.php">
+                <i class=\'bx bx-add-to-queue\' ></i>
+                <h3>Add Admin</h3>
+            </a>
+            <a href="addPatient.php">
+                <i class=\'bx bxs-add-to-queue\'></i>
+                <h3>Add Patient</h3>
+            </a>
+            <a href="editpatient.php">
+                <i class=\'bx bxs-edit\'></i>
+                <h3>Edit Patient</h3>
+            </a>
+            <a href="delete_patient.php">
+                <i class=\'bx bxs-minus-square\'></i>
+                <h3>Delete Patient</h3>
+                <!-- <span class="message-count">26</span> -->
+            </a>
+            
+            
+            <a href=\'adminLogin.php?action=Logout\'>
+                    <i class=\'bx bxs-log-out\'></i>
                     <h3>Logout</h3>
                 </a>
-            </div>
+        </div>
         </aside>
         <!--=================== END OF ASIDE ===================-->
         <main id="swup" class="transition-fade">
