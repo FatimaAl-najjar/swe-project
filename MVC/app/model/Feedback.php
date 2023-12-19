@@ -65,8 +65,31 @@ class Feedback extends Model {
 		return $this->ID;
 	}
 
+	function readFeedbacks(){
+		$sql = "SELECT * FROM feedback";
+		$result = $this->db->query($sql);
+		if ($result->num_rows > 0){
+			return $result;
+		}
+		else {
+			return false;
+		}
+	}
+	function fillArray() {
+		$this->feedbacks = array();
+		$this->db = $this->connect();
+		$result = $this->readFeedbacks();
+		while ($row = $result->fetch_assoc()) {
+			array_push($this->feedbacks, new Feedback($row["ID"], $row["Message"], $row["PatientID"]));
+		}
+	}
+	function getFeedbacks() {
+		$this->fillArray();  
+		return $this->feedbacks;
+	}
+
 	function readFeedback($ID){
-		$sql = "SELECT * FROM feedback where ID=".$ID;
+		$sql = "SELECT * FROM feedback";
 		$db = $this->connect();
 		$result = $db->query($sql);
 		if ($result->num_rows == 1){

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/feedback.css">
-<?php include('static.php'); ?>
+
 
 <?php
 
@@ -8,6 +8,7 @@ require_once(__ROOT__ . "view/View.php");
 class ViewFeedback extends View {
 
     public function output(){
+		
 		$str = "";
 foreach ($this->model->getFeedbacks() as $Feedback) {
     // $str .= "<div class='card'>";
@@ -52,5 +53,18 @@ return $str;
 		$str.="<a href='feedbackpatient.php'>Back </a>";
 		return $str;
 	}
+
+
+	public function listedfeedback() {
+		$Feedbacks = $this->model->getFeedbacks();
+        echo "<h1>Feedback</h1>";
+		$str = "";
+		foreach ($Feedbacks as $Feedback) {
+			$str .= "<div class='card'>";
+			$str .= "<div><strong>Message:</strong> " . $Feedback->getMessage() . "</div>";
+			$str .= "</div>";
+			return $str;
+		}
+    }
 }
 ?>
