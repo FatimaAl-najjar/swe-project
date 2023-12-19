@@ -57,14 +57,15 @@ return $str;
 
 	public function listedfeedback() {
 		$Feedbacks = $this->model->getFeedbacks();
-        echo "<h1>Feedback</h1>";
+		echo "<h1>Feedback</h1>";
 		$str = "";
 		foreach ($Feedbacks as $Feedback) {
 			$str .= "<div class='card'>";
+			$str .= "<div><strong>ID of patient:</strong> " . $Feedback->getPatientID() . "</div>";
 			$str .= "<div><strong>Message:</strong> " . $Feedback->getMessage() . "</div>";
 			$str .= "</div>";
-			return $str;
 		}
-    }
+		return $str;
+	}
 }
 ?>
