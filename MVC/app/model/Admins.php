@@ -73,4 +73,15 @@ class Admins extends Model {
         }
 	}
 
+	function getAdminByEmail($email) {
+		$sql = "SELECT * FROM admin WHERE Email='$email'";
+		$result = $this->db->query($sql);
+	
+		if ($result->num_rows > 0) {
+			$row = $result->fetch_assoc();
+			return new Patient($row["ID"], $row["FirstName"], $row["LastName"], $row["Email"], $row["Password"], $row["Phonenumber"]);
+		} else {
+			return null;
+		}
+	}
 }
