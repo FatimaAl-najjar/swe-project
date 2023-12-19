@@ -1,3 +1,6 @@
+
+
+<link rel="stylesheet" href="css/drAnnouncements.css">;
 <?php
 require_once(__ROOT__ . "model/doctorAnnouncements.php");
 require_once(__ROOT__ . "view/View.php");

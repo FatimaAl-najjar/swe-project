@@ -7,11 +7,13 @@
     overflow-y: auto;
     border: 1px solid #00316e;
     border-radius: 50px;
-    border-width: 10px;
+    border-width: 7px;
     padding: 10px;
     align-self: center;
     align-content: center;
     align-items: center;
+    margin-bottom: 80px;
+    margin-top: 80px;
     /* width: min-content; */
    
 }

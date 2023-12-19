@@ -11,4 +11,4 @@ require_once(__ROOT__ . "view/ViewAppointment.php");
 $model = new Appointment("0");
 $controller = new AppointmentsController($model);
 $view = new ViewAppointment($controller, $model);
-?><?php echo $view->outputDoctorView()()?>
+?><?php echo $view->listAppointments()?>

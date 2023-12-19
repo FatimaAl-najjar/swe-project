@@ -57,6 +57,6 @@ class ShowAppointments extends View {
         $str .= "</div>";
 
         return $str;
-    }
-}
+    }}
+   
 ?>

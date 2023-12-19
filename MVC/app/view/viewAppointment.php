@@ -2,11 +2,33 @@
 require_once(__ROOT__ . "model/Appointment.php");
 require_once(__ROOT__ . "view/View.php");
  ?>
+ <link rel="stylesheet" href="css/listedAppointments.css">
  <?php
 class ViewAppointment extends View {
-  
+    public function listAppointments() {
+        $appointments = $this->model->getAllAppointments(); // Retrieve all appointments
+
+        // Display the appointments with enhanced styling
+        $str = "<div class='appointment-list'>";
+        if (!empty($appointments)) {
+            $str .= "<ul class='appointment-list'>";
+            foreach ($appointments as $appointment) {
+                $str .= "<li class='appointment-item'>";
+                // $str .= "Patient ID: " . $appointment->getPatientId() . "<br>";
+                $str .= "Date: " . $appointment->getDate() . "<br>";
+                $str .= "Time: " . $appointment->getTime() . "<br>";
+                $str .= "</li>";
+            }
+            $str .= "</ul>";
+        } else {
+            $str .= "<p>No appointments found.</p>";
+        }
+        $str .= "</div>";
+
+        return $str;
+    }
     public function outputPatientView() {
-        $this->model->getAllAppointments();
+        // $this->model->getAllAppointments();
 //         $currentDateTime = new DateTime();
 // $halfHourLater = $currentDateTime->add(new DateInterval('PT30M'));
 // $halfHourLaterFormatted = $halfHourLater->format('Y-m-d\TH:i');

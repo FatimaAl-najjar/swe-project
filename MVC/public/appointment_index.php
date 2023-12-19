@@ -8,12 +8,14 @@ define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/Appointment.php");
 require_once(__ROOT__ . "controller/Appointments.php");
 require_once(__ROOT__ . "view/ViewAppointment.php");
+require_once(__ROOT__ . "view/showAppointments.php");
  
 // Create instances of the model, controller, and view
 $model = new Appointment("");
  
 $controller = new AppointmentsController($model);
 $view = new ViewAppointment($controller, $model);
+$view1= new ShowAppointments($controller, $model);
 
 // Handle actions based on request parameters
 if (isset($_GET['action']) && !empty($_GET['action'])) {
@@ -39,4 +41,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 //     echo $view->outputDoctorView();
 // }
 
-?><?php echo $view->outputPatientView()?>
+?><?php 
+echo $view->outputPatientView();
+echo $view1->listAppointments()?>

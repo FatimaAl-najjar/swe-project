@@ -27,6 +27,17 @@ class Patients extends Model {
         }
         return false;
 	}
+	
+	function isDoctor ($Email) {
+		$sql = "SELECT * FROM doctors WHERE Email='$Email'";
+        $db = $this->connect();
+        $result = $db->query($sql);
+        if ($result->num_rows == 1)
+        {
+            return true;
+        }
+        return false;
+	}
 
 	function getID($FirstName, $LastName, $Email, $Password, $Phonenumber) {
 		$sql = "SELECT * FROM patients WHERE FirstName='$FirstName' AND LastName='$LastName'

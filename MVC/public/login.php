@@ -36,7 +36,26 @@ if(isset($_POST['submit']))	{
 		}else{
 			$errormessage="<h2>Wrong e-mail or password please re-enter</h2>";
 		}
-	} else {
+	} 
+	else if(isset($_POST['submit']))	{
+		$Email = $_REQUEST["Email"];
+		$Password = $_REQUEST["Password"];
+		if ($model->isDoctor($Email)) {
+			// Admin login detected
+			$sql = "SELECT * FROM doctors where Email='$Email' AND Password='$Password'";
+			$dbh = new Dbh();
+			$result = $dbh->query($sql);
+			if ($result->num_rows == 1){
+				$row = $dbh->fetchRow();
+				$_SESSION["ID"] = $row["ID"];
+				$_SESSION["Email"] = $row["Email"];
+				header("Location: drIndex.php");
+				exit;
+			}else{
+				$errormessage="<h2>Wrong e-mail or password please re-enter</h2>";
+			}
+		}
+		else {
 		// Regular user login
 		$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
 		$dbh = new Dbh();
@@ -52,7 +71,7 @@ if(isset($_POST['submit']))	{
 			$errormessage="<h2>Wrong e-mail or password please re-enter</h2>";
 		}
 	}
-}
+}}
 	echo $errormessage;
 ?>
 
