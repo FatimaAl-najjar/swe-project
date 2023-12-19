@@ -16,7 +16,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
 
 if(isset($_POST['submit'])) {
-    echo "sign-up.php<br>";
     $FirstName = $_REQUEST["FirstName"];
     $LastName = $_REQUEST["LastName"];
     $Email = $_REQUEST["Email"];
@@ -48,7 +47,8 @@ if(isset($_POST['submit'])) {
         // echo "SESSION['Phonenumber']: ".$_SESSION["Phonenumber"]."<br>";
         
         // header("Location:index.php");
-        header("Location:PatientProfile.php");
+        // header("Location:PatientProfile.php");
+        header("Location:index.php");
     } else {
         echo "Failed to insert data into the database.";
     }
