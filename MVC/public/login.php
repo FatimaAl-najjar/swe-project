@@ -15,9 +15,13 @@ $view = new ViewPatient($controller, $model);
 // $view = new ViewPatient($controller, $model);
 
 if (isset($_GET['action']) && !empty($_GET['action'])) {
-	$controller->{$_GET['action']}();
+    switch($_GET['action']){
+		case 'Logout':
+			session_destroy();
+			header("Location:login.php");
+			break;
+	}
 }
-
 if(isset($_POST['submit']))	{
 	$Email = $_REQUEST["Email"];
 	$Password = $_REQUEST["Password"];

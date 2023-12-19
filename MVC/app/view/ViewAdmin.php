@@ -66,7 +66,7 @@ class ViewAdmin extends View{
                 </a>
                 
                 
-                <a href=\'adminLogin.php?action=Logout\'>
+                <a href=\'login.php?action=Logout\'>
                 <i class=\'bx bxs-log-out\'></i>
                 <h3>Logout</h3>
             </a>
@@ -159,7 +159,7 @@ return $str;
                 </a>
                 
                 
-                <a href=\'adminLogin.php?action=Logout\'>
+                <a href=\'login.php?action=Logout\'>
                 <i class=\'bx bxs-log-out\'></i>
                 <h3>Logout</h3>
             </a>
@@ -232,7 +232,7 @@ return $str;
                     <!-- <span class="message-count">26</span> -->
                 </a>
                 
-                <a href=\'adminLogin.php?action=Logout\'>
+                <a href=\'login.php?action=Logout\'>
                     <i class=\'bx bxs-log-out\'></i>
                     <h3>Logout</h3>
                 </a>
@@ -298,7 +298,7 @@ return $str;
             </a>
             
             
-            <a href=\'adminLogin.php?action=Logout\'>
+            <a href=\'login.php?action=Logout\'>
                     <i class=\'bx bxs-log-out\'></i>
                     <h3>Logout</h3>
                 </a>

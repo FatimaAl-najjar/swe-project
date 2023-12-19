@@ -2,12 +2,19 @@
 session_start();
 include_once "../includes/dbh.inc.php";
 
+if (isset($_GET['action']) && !empty($_GET['action'])) {
+    switch($_GET['action']){
+		case 'Logout':
+			session_destroy();
+			header("Location:login.php");
+			break;
+	}
+}
 $errormessage="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Email = $_POST["Email"];
     $Password = $_POST["Password"];
 
-    // Validate email (you can add more comprehensive email validation)
     if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
         $errormessage = "<script>alert('Invalid Email Format');</script>";
 

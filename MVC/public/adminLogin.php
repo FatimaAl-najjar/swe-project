@@ -13,7 +13,7 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
     switch($_GET['action']){
 		case 'Logout':
 			session_destroy();
-			header("Location:adminLogin.php");
+			header("Location:login.php");
 			break;
 	}
 }
