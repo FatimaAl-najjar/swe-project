@@ -64,7 +64,10 @@ class ViewAdmin extends View{
                     <h3>Delete Patient</h3>
                     <!-- <span class="message-count">26</span> -->
                 </a>
-                
+                <a href="feedbacks.php">
+                <i class=\'bx bxs-view-square\'></i>
+                <h3>View Feedbacks</h3>
+            </a>
                 
                 <a href=\'login.php?action=Logout\'>
                 <i class=\'bx bxs-log-out\'></i>
@@ -158,7 +161,10 @@ return $str;
                     <!-- <span class="message-count">26</span> -->
                 </a>
                 
-                
+                <a href="feedbacks.php">
+                <i class=\'bx bxs-view-square\'></i>
+                <h3>View Feedbacks</h3>
+            </a>
                 <a href=\'login.php?action=Logout\'>
                 <i class=\'bx bxs-log-out\'></i>
                 <h3>Logout</h3>
@@ -231,7 +237,10 @@ return $str;
                     <h3>Delete Patient</h3>
                     <!-- <span class="message-count">26</span> -->
                 </a>
-                
+                <a href="feedbacks.php">
+                <i class=\'bx bxs-view-square\'></i>
+                <h3>View Feedbacks</h3>
+            </a>
                 <a href=\'login.php?action=Logout\'>
                     <i class=\'bx bxs-log-out\'></i>
                     <h3>Logout</h3>
@@ -296,7 +305,10 @@ return $str;
                 <h3>Delete Patient</h3>
                 <!-- <span class="message-count">26</span> -->
             </a>
-            
+            <a href="feedbacks.php">
+            <i class=\'bx bxs-view-square\'></i>
+            <h3>View Feedbacks</h3>
+        </a>
             
             <a href=\'login.php?action=Logout\'>
                     <i class=\'bx bxs-log-out\'></i>

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/feedback.css">
-
+<link rel="stylesheet" href="css/static.css">
 
 <?php
 
@@ -56,16 +56,72 @@ return $str;
 
 
 	public function listedfeedback() {
-		$Feedbacks = $this->model->getFeedbacks();
-		echo "<h1>Feedback</h1>";
-		$str = "";
-		foreach ($Feedbacks as $Feedback) {
-			$str .= "<div class='card'>";
-			$str .= "<div><strong>ID of patient:</strong> " . $Feedback->getPatientID() . "</div>";
-			$str .= "<div><strong>Message:</strong> " . $Feedback->getMessage() . "</div>";
-			$str .= "</div>";
-		}
-		return $str;
+		$str = '<div class="container">
+        <aside>
+            <div class="top">
+                <div class="close" id="close-btn">
+                    <i class="bx bxs-log-out-circle"></i>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a class="active" href="adminindex.php">
+                    <i class=\'bx bxs-grid-alt\' ></i>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="addAdmin.php">
+                    <i class=\'bx bx-add-to-queue\' ></i>
+                    <h3>Add Admin</h3>
+                </a>
+                <a href="addPatient.php">
+                    <i class=\'bx bxs-add-to-queue\'></i>
+                    <h3>Add Patient</h3>
+                </a>
+                <a href="editpatient.php">
+                    <i class=\'bx bxs-edit\'></i>
+                    <h3>Edit Patient</h3>
+                </a>
+                <a href="delete_patient.php">
+                    <i class=\'bx bxs-minus-square\'></i>
+                    <h3>Delete Patient</h3>
+                    <!-- <span class="message-count">26</span> -->
+                </a>
+				<a href="feedbacks.php">
+                <i class=\'bx bxs-view-square\'></i>
+                <h3>View Feedbacks</h3>
+            </a>
+                <a href=\'login.php?action=Logout\'>
+                    <i class=\'bx bxs-log-out\'></i>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+		<main id="swup" class="transition-fade">
+			<h1>My Dashboard</h1>
+
+			<div class="insights">
+				<div class="sales">
+					<div class="middle">
+						<div class="left">
+							<h1>Feedback</h1>';
+
+$Feedbacks = $this->model->getFeedbacks();
+
+foreach ($Feedbacks as $Feedback) {
+    $str .= "<div class='card'>";
+    $str .= "<div><strong>ID of patient:</strong> " . $Feedback->getPatientID() . "</div>";
+    $str .= "<div><strong>Message:</strong> " . $Feedback->getMessage() . "</div>";
+    $str .= "</div>";
+}
+
+$str .= '</div>
+        	</div>
+        </div>
+    </div>
+</main>
+</div>';
+
+return $str;
 	}
 }
 ?>
