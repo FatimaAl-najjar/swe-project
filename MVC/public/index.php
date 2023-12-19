@@ -28,6 +28,28 @@ if(isset($_POST['login']))	{
 	}
 }
 ?>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   <style>
+    .open-button {
+  background-color: #3e37b0;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+    }
+  .open-button:hover {
+  opacity: 1;
+}
+
+   </style> 
+</head>
  <div class="container">
         <img class="img" src="Images/background1.jpeg" alt="medicalbackground">
         <div class="text-block">
@@ -132,7 +154,13 @@ if(isset($_POST['login']))	{
                 <div class="nav-arrow prev" onclick="showReview(-1)">❮</div>
                 <div class="nav-arrow next" onclick="showReview(1)">❯</div>
             </div>
+            
               <?php include('footer.php'); ?>
+              <a href="mapsAi.php">
+    <button class="open-button">
+        <i class="material-icons" style="font-size: 36px;">place</i>
+    </button>
+</a>
 			<script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';
