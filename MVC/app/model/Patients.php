@@ -77,4 +77,15 @@ class Patients extends Model {
 			echo "ERROR: Could not able to execute $sql. " . $this->conn->error;
 		}
 	}
+	function getPatientByEmail($email) {
+		$sql = "SELECT * FROM patients WHERE Email='$email'";
+		$result = $this->db->query($sql);
+	
+		if ($result->num_rows > 0) {
+			$row = $result->fetch_assoc();
+			return new Patient($row["ID"], $row["FirstName"], $row["LastName"], $row["Email"], $row["Password"], $row["Phonenumber"]);
+		} else {
+			return null;
+		}
+	}
 }

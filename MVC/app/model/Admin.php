@@ -1,8 +1,9 @@
 <?php
  
 require_once(__ROOT__ . "model/Model.php");
+// require_once(__ROOT__ . "model/Admins.php");
 
-
+// $model = new Admins();
 class Admin extends Model {
     public $id; 
     public $Email;
@@ -130,7 +131,8 @@ public function editPatient($patientID, $data) {
 
    if($result === true){
     echo "admin added successfully.";
-    $this->Admin->fillArray();
+    // $this->Admin->fillArray();
+    // $this->$model->fillArray();
   } 
   else{
     echo "ERROR: Could not able to execute $sql. " . $this->db->getconn()->error;
