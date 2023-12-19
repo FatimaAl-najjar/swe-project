@@ -20,24 +20,28 @@ if (isset($_POST['submit'])) {
     $Password = $_REQUEST["Password"];
     $Phonenumber = $_REQUEST["Phonenumber"];
 
-    // Check if the patient already exists
+    $errorOccurred = false;
+
     $existingPatient = $model->getPatientByEmail($Email);
 
     if (empty($FirstName) || empty($LastName)) {
         echo "Error: First Name and Last Name cannot be empty." . "<br>";
+        $errorOccurred = true;
     }
     if ($existingPatient) {
-        // Patient with the same email already exists
         echo "Error: Patient with the same email already exists." . "<br>";
+        $errorOccurred = true;
     }
     if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
         echo "Error: Invalid email format." . "<br>";
+        $errorOccurred = true;
     }
     if (!preg_match('/^\d{11}$/', $Phonenumber)) {
         echo "Error: Invalid phone number format (should be 11 digits)." . "<br>";
+        $errorOccurred = true;
     }
-    else {
-        // Insert the new patient
+
+    if (!$errorOccurred) { 
         $sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
                 VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
 
@@ -55,7 +59,7 @@ if (isset($_POST['submit'])) {
             $_SESSION["Password"] = $Password;
             $_SESSION["Phonenumber"] = $Phonenumber;
 
-            header("Location: PatientProfile.php");
+            header("Location: index.php");
         } else {
             echo "Failed to insert data into the database.";
         }
