@@ -23,12 +23,18 @@ if (isset($_POST['submit'])) {
     // Check if the patient already exists
     $existingPatient = $model->getPatientByEmail($Email);
 
+    if (empty($FirstName) || empty($LastName)) {
+        echo "Error: First Name and Last Name cannot be empty." . "<br>";
+    }
     if ($existingPatient) {
         // Patient with the same email already exists
-        echo "Error: Patient with the same email already exists.";
+        echo "Error: Patient with the same email already exists." . "<br>";
     }
-    else if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
-        echo "Error: Invalid email format.";
+    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+        echo "Error: Invalid email format." . "<br>";
+    }
+    if (!preg_match('/^\d{11}$/', $Phonenumber)) {
+        echo "Error: Invalid phone number format (should be 11 digits)." . "<br>";
     }
     else {
         // Insert the new patient
