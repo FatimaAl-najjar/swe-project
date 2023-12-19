@@ -53,4 +53,14 @@ class Admins extends Model {
 		// echo $rowCount;
         return $rowCount;
 	}
+
+	public function countAdmins() {
+		$sql = "SELECT * FROM admin";
+        $db = $this->connect();
+        $result = $db->query($sql);
+		$rowCount = mysqli_num_rows($result);
+		// echo $rowCount;
+        return $rowCount;
+	}
+
 }

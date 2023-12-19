@@ -89,7 +89,7 @@ $model = new Admins();
                     <div class="middle">
                         <div class="left">
                             <h3>Total Admins</h3>
-                            <h1>10</h1>
+                            <h1><?php echo $model->countAdmins(); ?></h1>
                         </div>
                         <div class="progress">
                             <svg>
