@@ -30,15 +30,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Email = mysqli_real_escape_string($conn, $Email);
         $Username = mysqli_real_escape_string($conn, $Username);
         $Password = mysqli_real_escape_string($conn, $Password);
-
-        $result = $controller->addAdmin($Email, $Username, $Password);
-
-        // if ($result) {
-        //     header("Location:login.php");
-        //     exit;
-        // } else {
-        //     $errorMessage = "<h2>An error occurred during registration.</h2>";
-        // }
+        if (empty($Email) || empty($Username)) {
+            echo "Error: User Name and Email cannot be empty." . "<br>";
+        }
+        if ($existingAdmin) {
+            echo "Error: Admin with the same email already exists." . "<br>";
+        }
+        if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+            echo "Error: Invalid email format." . "<br>";
+        }
+        else {
+            $result = $controller->addAdmin($Email, $Username, $Password);
+        }
     }
 }
 
