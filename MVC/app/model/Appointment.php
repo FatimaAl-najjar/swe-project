@@ -3,25 +3,35 @@ require_once(__ROOT__ . "view/ViewPatient.php");
 require_once(__ROOT__ . "model/Model.php");
 
 class Appointment extends Model {
+    
     private $id;
     private $name;
     private $date;
     private $time;
     private $patientId;
-
-    function __construct($id, $name = "", $date = "", $time = "") {
-        $this->id = $id;
+    function __construct() {
+        
+        // $this->id = $id;
         // $this->patientId = $patientId;
         $this->db = $this->connect();
+        
+		// $this->getAllAppointments();
+	}
+ 
+    // function __construct($id, $name = "", $date = "", $time = "") {
+    //     $this->id = $id;
+    //     // $this->patientId=$_SESSION['ID'];
+    //     // $this->patientId = $patientId;
+    //     $this->db = $this->connect();
 
-        // if ("" === $name) {
-        //     $this->readAppointment($id);
-        // } else {
-        //     $this->name = $name;
-        //     $this->date = $date;
-        //     $this->time = $time;
-        // }
-    }
+    //     // if ("" === $name) {
+    //     //     $this->readAppointment($id);
+    //     // } else {
+    //     //     $this->name = $name;
+    //     //     $this->date = $date;
+    //     //     $this->time = $time;
+    //     // }
+    // }
 
     function getName() {
         return $this->name;
@@ -42,7 +52,13 @@ class Appointment extends Model {
     function getTime() {
         return $this->time;
     }
-
+    function setPatientId($patientId){
+        return $this->$patientId;
+    }
+    // function getPatientId() {
+    //     return $this->$patientId;
+    // }
+   
     function setTime($time) {
         return $this->time = $time;
     }
@@ -52,25 +68,33 @@ class Appointment extends Model {
     }
 
     function getAllAppointments() {
-        
+        // session_start();
         $sql = "SELECT appointments.*, patients.FirstName FROM appointments JOIN patients ON appointments.patients_id = patients.id";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
+            $appointments=array();
             while ($row = $result->fetch_assoc()) {
-                echo "Appointment ID: " . $row["ID"] . "<br>";
-                echo "Patient Name: " . $row["FirstName"] . "<br>";
-                echo "Date: " . $row["day"] . "<br>";
-                echo "Time: " . $row["duration"] . "<br>";
-                echo "<br>";
+                // echo "Appointment ID: " . $row["ID"] . "<br>";
+                // echo "Patient Name: " . $row["FirstName"] . "<br>";
+                // echo "Date: " . $row["day"] . "<br>";
+                // echo "Time: " . $row["duration"] . "<br>";
+                // echo "<br>";
+                $appointment = new Appointment();
+                // $appointment->setPatientId($_SESSION['ID']);
+                $appointment->setDate($row['day']);
+                $appointment->setTime($row['duration']);
+
+                $appointments[] = $appointment;
             }
+            return $appointments;
         } else {
             echo "No appointments found.";
         }
     }
 
     function readAppointment($id) {
-        session_start();
+        
         if (isset($_SESSION['ID'])) {
         $sql = "SELECT * FROM appointments WHERE patients_id=" .$_SESSION['ID'];
         $db = $this->connect();

@@ -1,0 +1,32 @@
+.appointment-list {
+    list-style: none;
+    margin-left: 200px;
+    padding: 0; 
+    margin:center; 
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #00316e;
+    border-radius: 50px;
+    border-width: 10px;
+    padding: 10px;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    width: min-content;
+   
+}
+
+.appointment-item {
+    background-color:rgba(193, 222, 250, 0.2);
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    padding-left: 250px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .appointment-list {
+        max-height: 200px;
+    }
+}
