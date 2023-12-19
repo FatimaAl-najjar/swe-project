@@ -14,7 +14,6 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 }
 
 if (isset($_POST['submit'])) {
-    echo "sign-up.php<br>";
     $FirstName = $_REQUEST["FirstName"];
     $LastName = $_REQUEST["LastName"];
     $Email = $_REQUEST["Email"];
