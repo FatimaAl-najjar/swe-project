@@ -48,7 +48,7 @@ class ViewPatient extends View{
 	function loginForm(){
 		$str='<div class="card">
 		<h1>Login</h1>
-		<form action="try.php" method="POST">
+		<form action="index.php" method="POST">
 			<label>Email:</label>
 			<input type="text" placeholder="please enter your e-mail" name="Email" required><br>
 			<label>Password:</label>
@@ -63,7 +63,7 @@ class ViewPatient extends View{
 	function signupForm(){
 		$str='
         <div class="card">
-            <form action="try.php" method="post">
+            <form action="index.php" method="post">
                 <label>First Name:</label>
                 <input type="text" name="FirstName" placeholder="Enter your first name"><br>
                 <label>Last Name:</label>
