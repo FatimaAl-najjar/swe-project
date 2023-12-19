@@ -9,7 +9,7 @@ require_once(__ROOT__ . "view/ViewPatient.php");
 $model = new Patients();
 $controller = new PatientController($model);
 $view = new ViewPatient($controller, $model);
-
+$errormessage="";
 // $model = new Patient(123);
 // $controller = new PatientController($model);
 // $view = new ViewPatient($controller, $model);
@@ -32,6 +32,8 @@ if(isset($_POST['submit']))	{
 			$_SESSION["Email"] = $row["Email"];
 			header("Location: adminindex.php");
 			exit;
+		}else{
+			$errormessage="<h2>Wrong e-mail or password please re-enter</h2>";
 		}
 	} else {
 		// Regular user login
@@ -45,6 +47,8 @@ if(isset($_POST['submit']))	{
 			echo $_SESSION["ID"];
 			header("Location: index.php");
 			exit;
+		}else{
+			$errormessage="<h2>Wrong e-mail or password please re-enter</h2>";
 		}
 	}
 		// echo $_SESSION["ID"];
@@ -54,7 +58,7 @@ if(isset($_POST['submit']))	{
 		// header("Location:PatientProfile.php"); // WORKING
 	
 }
-
+	echo $errormessage;
 ?>
 
 <?php echo $view->loginForm();?>
