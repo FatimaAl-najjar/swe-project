@@ -1,47 +1,31 @@
+<link rel="stylesheet" href="css/feedback.css">
+<?php include('static.php'); ?>
+
 <?php
 
 require_once(__ROOT__ . "view/View.php");
 
 class ViewFeedback extends View {
-    // public function output() {
-    //     $feedbacks = $this->model->getFeedbacks();
-
-    //     echo "<h1>Feedback</h1>";
-
-    //     foreach ($feedbacks as $feedback) {
-    //         echo "<p class='content'>" . $feedback['ID'] ." ".$feedback['PatientID']." ".$feedback['Message']."</p>";
-            
-    //     }
-    // }
-
-    // public function insertFeedback(){
-        
-    // }
 
     public function output(){
 		$str = "";
-		$str.="<table>";
-		$str.="<tr><th>Message</th><th>Action</th></tr>";
-		foreach($this->model->getFeedbacks() as $Feedback){
-			$str.="<tr>";
-			$str.="<td>".$Feedback->getMessage() ."  </td> ";
-			$str.="<td>
-			<a href='feedbackpatient.php?action=edit&id=".$Feedback->getID()."'>Edit</a>
-			/
-			<a href='feedbackpatient.php?action=delete&id=".$Feedback->getID()."'>Delete</a>
-			</td>";
-			$str.="</tr>";
-		}
-		$str.="<tr>";
-		$str.="<form action='feedbackpatient.php?action=insert' method='post'>";
-		$str.="<td><input type='text' name='Message' placeholder='Enter message'/></td>";
-		$str.="<td><input type='submit' value='insert'/></td>";
-		$str.="</form>";
-		$str.="</tr>";
-		$str.="</table>";
-		$str.="<a href='fed.php'>Back</a>";
+foreach ($this->model->getFeedbacks() as $Feedback) {
+    // $str .= "<div class='card'>";
+    // $str .= "<div><strong>Message:</strong> " . $Feedback->getMessage() . "</div>";
+    // $str .= "</div>";
+}
 
-		return $str;
+$str .= "<div class='card'>";
+$str .= " <h1>Add Your Feedback</h1>";
+$str .= "<form action='feedbackpatient.php?action=insert' method='post'>";
+$str .= "<input class=\"text1\" type='text' name='Message' placeholder='Enter message' />";
+$str .= "<input type='submit' value='Submit' class='btn' />";
+$str .= "</form>";
+$str .= "<a class=\"a1\" href='index.php' >Back</a>";
+$str .= "</div>";
+
+return $str;
+
 	}
 	
 	public function edit($ID){

@@ -11,8 +11,8 @@
         <ul class="navbar">
             <li><img class="logo-image" style="width:259px;height:90px;" src="images/logo3.png" alt="Logo1"></li>
             <li><a  href="index.php">Home</a></li>
-            <li><a  href="#">Services</a></li>
             <li><a  href="appointment_index.php">Book an appointment</a></li>
+            <li><a  href="feedbackpatient.php">feedback</a></li>
             <li><a href="announcement_index.php"><i class="fa fa-bullhorn" style="font-size:28px;color:#484da0;"></i></a></li>
 
             <div class="nav_btn">

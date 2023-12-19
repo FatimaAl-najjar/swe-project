@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $controller->addAdmin($Email, $Username, $Password);
 
         if ($result) {
-            header("Location: ./adminlogin.php");
+            header("Location:login.php");
             exit;
         } else {
             $errorMessage = "<h2>An error occurred during registration.</h2>";

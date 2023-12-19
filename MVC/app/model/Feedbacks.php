@@ -41,13 +41,14 @@ class Feedbacks extends Model {
 		}
 	}
 
-	function insertFeedback($Message){
+	function insertFeedback($Message) {
 		$sql = "INSERT INTO feedback (PatientID, Message) VALUES ('".$_SESSION['ID']."','$Message')";
-		if($this->db->query($sql) === true){
-			echo "inserted successfully.";
+		if ($this->db->query($sql) === true) {
+			$Messageerror = "add successfully";
 			$this->fillArray();
-		} 
-		else{
+	
+			echo "<script>alert('$Messageerror');</script>";
+		} else {
 			echo "ERROR: Could not able to execute $sql. " . $this->db->error;
 		}
 	}
