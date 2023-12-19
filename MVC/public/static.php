@@ -17,7 +17,7 @@
 
             <div class="nav_btn">
             <a href="PatientProfile.php"><i class="fa fa-user"style="font-size:28px;"></i></a>
-                <a href="../index/signout.php"><button style="font-size:17px;" >Logout</button></a>
+                <a href="login.php"><button style="font-size:17px;" >Logout</button></a>
             </div>
             <a href="javascript:void(0);" class="icon1" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
