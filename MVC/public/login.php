@@ -21,6 +21,15 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 if(isset($_POST['submit']))	{
 	$Email = $_REQUEST["Email"];
 	$Password = $_REQUEST["Password"];
+	echo $Email . "<br>";
+	echo $Password . "<br>";
+	echo $model->isAdmin($Email);
+	if ($model->isAdmin($Email)){
+		echo "Admin" . "<br>";
+	}
+	else {
+		echo "Patient" . "<br>";
+	}
 	$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
 	$dbh = new Dbh();
 	$result = $dbh->query($sql);
@@ -28,13 +37,20 @@ if(isset($_POST['submit']))	{
 		$row = $dbh->fetchRow();
 		$_SESSION["ID"]=$row["ID"];
 		$_SESSION["Email"]=$row["Email"];
+		if ($model->isAdmin($Email)){
+			header("Location:adminindex.php");
+		}
+		else {
+			header("Location:index.php");
+		}
 		echo $_SESSION["ID"];
 		echo $_SESSION["Email"];
-		header("Location:index.php");
+		// header("Location:index.php");
 		// header("Location:feedbackPatient.php");
 		// header("Location:PatientProfile.php"); // WORKING
 	}
 }
 
 ?>
+
 <?php echo $view->loginForm();?>
