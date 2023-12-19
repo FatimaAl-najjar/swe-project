@@ -59,7 +59,19 @@ class Admin extends Model {
     }
   }
 
+  public function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+    $sql = "INSERT INTO patients (FirstName, LastName, Email, Password, Phonenumber) 
+        VALUES ('$FirstName', '$LastName', '$Email', '$Password', '$Phonenumber')";
 
+    $result = $this->db->query($sql);
+
+    if ($result === true) {
+        echo "Patient added successfully.";
+        // You may want to redirect or perform additional actions after adding a patient
+    } else {
+        echo "ERROR: Could not add patient. " . $this->db->getConn()->error;
+    }
+}
    
 
   public function deleteAdmin($id) {

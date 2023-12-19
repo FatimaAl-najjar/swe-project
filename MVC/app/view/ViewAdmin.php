@@ -67,5 +67,26 @@ class ViewAdmin extends View{
 		</div>';
 		return $str;
 	}
+
+	public function addPatientform(){
+		$str='
+		<div class="card">
+		<h1>Add Patient</h1>
+		<form action="" method="post">
+			<label>First Name:</label>
+			<input type="text" name="FirstName" placeholder="Enter patient first name"><br>
+			<label>Last Name:</label>
+			<input type="text" name="LastName" placeholder="Enter patient last name"><br>
+			<label>Email:</label>
+			<input type="text" name="Email" placeholder="Enter patient email"><br>
+			<label>Password:</label>
+			<input type="Password" name="Password" placeholder="Enter patient password"><br>
+			<label>Phone number:</label>
+			<input type="text" name="Phonenumber" placeholder="Enter patient phone number"><br>
+			<button class="btn" type="submit" name="action" value="Add Patient">Add Patient</button>
+		</form>
+	</div>';
+	return $str;
+	}
 }
 ?>

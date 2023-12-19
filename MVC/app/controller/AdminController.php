@@ -4,15 +4,10 @@
 require_once(__ROOT__ . "controller/Controller.php");
 
 class AdminController extends Controller{
-	public function addUser() {
-		$FirstName = $_REQUEST['FirstName'];
-		$LastName = $_REQUEST['LastName'];
-		$Email = $_REQUEST['Email'];
-		$Password = $_REQUEST['Password'];
-		$Phonenumber = $_REQUEST['Phonenumber'];
-
-		$this->model->addUser($FirstName,$LastName,$Email,$Password,$Phonenumber);
-	}
+	
+	public function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+        return $this->model->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
+    }
 
 	public function editUser() {
 		$FirstName = $_REQUEST['FirstName'];
@@ -28,13 +23,7 @@ class AdminController extends Controller{
 		 $this->model->deleteUser();
 	}
 
-	/*public function addAdmin(){
-		$Email=$_REQUEST['Email'];
-		$Username=$_REQUEST['Username'];
-		$Password=$_REQUEST['Password'];
-
-		$this->model->addadmin($Email,$Username,$Password);
-	}*/
+	
 	public function addAdmin($Email, $Username, $Password) {
         return $this->model->addadmin($Email, $Username, $Password);
     }
