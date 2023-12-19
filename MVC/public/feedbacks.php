@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/static.css">
 <?php 
 
 define('__ROOT__', "../app/");

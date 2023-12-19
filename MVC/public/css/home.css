@@ -90,7 +90,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    max-width: 80%;
+    max-width: 90%;
 }
 .card{
     display: flex;
@@ -245,7 +245,7 @@ height: 400px;
     z-index: 100;
 }
 .profileinfo{
-    margin-top: 10%;
+    margin-top: 20%;
     margin-right: 550px;
 }
 .buttons-info{

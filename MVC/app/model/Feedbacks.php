@@ -44,7 +44,7 @@ class Feedbacks extends Model {
 	function insertFeedback($Message) {
 		$sql = "INSERT INTO feedback (PatientID, Message) VALUES ('".$_SESSION['ID']."','$Message')";
 		if ($this->db->query($sql) === true) {
-			$Messageerror = "add successfully";
+			$Messageerror = "Thank you for your feedback";
 			$this->fillArray();
 	
 			echo "<script>alert('$Messageerror');</script>";

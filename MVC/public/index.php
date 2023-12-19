@@ -41,7 +41,11 @@ if(isset($_POST['login']))	{
           <button class="explorebutton">Explore More</button>
         </div>
       </div>    
-      <div class="container2">
+      <div class="container2" style="display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;">
                 <div class="card">
             <div class="circle">
                 <img src="Images/cycle5.jpeg" class="circlepic">
@@ -92,7 +96,9 @@ if(isset($_POST['login']))	{
                     <div class="leftpart">
                         <img class="profilepicture" src="Images/profile.jpeg" alt="doctor pic">
                     </div>
-                    <div class="profileinfo">
+                    <div class="profileinfo" style="margin-top: 15%;">
+                    
+                    </>
                         <h2>Dr.Merhan Samy Nasr </h2>
                         <p>Prof merhan samy worked since 2002 at el demerdash hospitals ASU  starting as a resident till became a professor in 2020 
                             During these years she also worked as a consultant at ain shams specialized hospital clinics, diabetic foot center at the greek hospital and at el haya hospital clinics before founding her own private clinic in 2015.</p>
@@ -126,7 +132,7 @@ if(isset($_POST['login']))	{
                 <div class="nav-arrow prev" onclick="showReview(-1)">❮</div>
                 <div class="nav-arrow next" onclick="showReview(1)">❯</div>
             </div>
-            
+              <?php include('footer.php'); ?>
 			<script>
         document.getElementsByClassName("explorebutton").onclick = function() {
              window.location.href='aboutdoctor.html';
@@ -151,6 +157,6 @@ if(isset($_POST['login']))	{
         showReview(0);
 
         </script> 
-        <link rel="stylesheet" href="css/index.css">
+        
 
-<?php //echo $view->loginForm();?>
+      
