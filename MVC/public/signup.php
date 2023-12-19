@@ -33,19 +33,22 @@ if(isset($_POST['submit'])) {
     
     if ($result) {
         // Insertion successful
+		$_SESSION["ID"] = $model->getID($FirstName, $LastName, $Email, $Password, $Phonenumber);
         $_SESSION["FirstName"] = $FirstName;
         $_SESSION["LastName"] = $LastName;
         $_SESSION["Email"] = $Email;
         $_SESSION["Password"] = $Password;
         $_SESSION["Phonenumber"] = $Phonenumber;
         
+        // echo "SESSION['ID']: ".$_SESSION["ID"]."<br>";
         // echo "SESSION['FirstName']: ".$_SESSION["FirstName"]."<br>";
         // echo "SESSION['LastName']: ".$_SESSION["LastName"]."<br>";
         // echo "SESSION['Email']: ".$_SESSION["Email"]."<br>";
         // echo "SESSION['Password']: ".$_SESSION["Password"]."<br>";
         // echo "SESSION['Phonenumber']: ".$_SESSION["Phonenumber"]."<br>";
         
-        header("Location:index.php");
+        // header("Location:index.php");
+        header("Location:PatientProfile.php");
     } else {
         echo "Failed to insert data into the database.";
     }

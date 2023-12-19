@@ -28,6 +28,18 @@ class Patients extends Model {
         return false;
 	}
 
+	function getID($FirstName, $LastName, $Email, $Password, $Phonenumber) {
+		$sql = "SELECT * FROM patients WHERE FirstName='$FirstName' AND LastName='$LastName'
+		AND Email='$Email' AND Password='$Password' AND Phonenumber='$Phonenumber'";
+        $db = $this->connect();
+        $result = $db->query($sql);
+        if ($result->num_rows == 1)
+        {
+            $row = $db->fetchRow();
+			return $row["ID"];
+        }
+	}
+
 	function getPatients() {
 		return $this->patients;
 	}
