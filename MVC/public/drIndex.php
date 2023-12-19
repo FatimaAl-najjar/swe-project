@@ -37,10 +37,11 @@ $model = new Admins();
                 </a>
                 <a href="drAnnouncements.php">
                     <i class='bx bx-add-to-queue' ></i>
-                    <!-- <h3>Add Announcement</h3> -->
+                    <h3>Add Announcement</h3>
                 </a>
                 <a href="doctorAppointment_index.php">
                     <i class='bx bxs-add-to-queue'></i>
+                    <h3>view appointments</h3>
             
                 </a>
                 <a href="addDoctor.php">
