@@ -1,4 +1,6 @@
-<?php
+
+
+<link rel="stylesheet" href="css/viewAnnouncments.css"><?php
 
 require_once(__ROOT__ . "view/View.php");
 
