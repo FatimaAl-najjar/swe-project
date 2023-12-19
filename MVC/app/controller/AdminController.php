@@ -9,15 +9,15 @@ class AdminController extends Controller{
         return $this->model->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
     }
 
-	public function editUser() {
-		$FirstName = $_REQUEST['FirstName'];
-		$LastName = $_REQUEST['LastName'];
-		$Email = $_REQUEST['Email'];
-		$Password = $_REQUEST['Password'];
-		$Phonenumber = $_REQUEST['Phonenumber'];
+	public function editPatient($patientID, $data) {
+        $result = $this->model->editPatient($patientID, $data);
 
-		$this->model->editUser($FirstName,$LastName,$Email,$Password,$Phonenumber);
-	}
+        if ($result === true) {
+            echo "Patient with ID $patientID has been successfully edited.";
+        } else {
+            echo "Error editing Patient with ID $patientID: " . $result;
+        }
+    }
 	
 	public function deletePatient($patientID) {
         $result = $this->model->deletePatient($patientID);

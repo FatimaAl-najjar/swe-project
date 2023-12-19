@@ -82,7 +82,24 @@ public function deletePatient($patientID) {
       return $this->db->getConn()->error;
   }
 }
-   
+ 
+public function editPatient($patientID, $data) {
+  // $data is an associative array containing the updated patient information
+  $setValues = [];
+  foreach ($data as $key => $value) {
+      $setValues[] = "$key = '$value'";
+  }
+
+  $setValuesString = implode(', ', $setValues);
+  $sql = "UPDATE patients SET $setValuesString WHERE ID = $patientID";
+  $result = $this->db->query($sql);
+
+  if ($result === true) {
+      return true;
+  } else {
+      return $this->db->getConn()->error;
+  }
+}
 
   public function deleteAdmin($id) {
     $sql = "DELETE FROM admin WHERE ID=$id";

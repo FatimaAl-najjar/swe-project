@@ -100,5 +100,24 @@ class ViewAdmin extends View{
         </div>';
         return $str;
     }
+
+	public function editPatientForm() {
+        $str = '
+        <div class="card">
+            <h1>Edit Patient by ID:</h1>
+            <form action="" method="post">
+                <input type="text" name="patientIDToEdit" placeholder="Enter patient ID">
+                <input type="text" name="updatedFirstName" placeholder="Updated First Name">
+                <input type="text" name="updatedLastName" placeholder="Updated Last Name">
+				<input type="text" name="updatedEmail" placeholder="Updated Email">
+				<input type="text" name="updatedPassword" placeholder="UpdatedPassword">
+				<input type="text" name="updatedPhonenumber" placeholder="Updated Phonenumber">
+                
+                <button type="submit" name="action" value="Edit Patient">Edit Patient</button>
+            </form>
+        </div>';
+        return $str;
+    }
+
 }
 ?>
