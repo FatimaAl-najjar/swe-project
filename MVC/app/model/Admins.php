@@ -3,7 +3,7 @@ require_once(__ROOT__ . "model/Model.php");
 require_once(__ROOT__ . "model/Admin.php");
 
 class Admins extends Model {
-	private $patients;
+	private $Admins;
 	function __construct() {
 		$this->fillArray();
 	}
@@ -11,9 +11,9 @@ class Admins extends Model {
 	function fillArray() {
 		$this->Admins = array();
 		$this->db = $this->connect();
-		$result = $this->readPatients();
+		$result = $this->readAdmins();
 		while ($row = $result->fetch_assoc()) {
-			array_push($this->patients, new Admin($row["ID"],$row["Email"],$row["Username"],$row["Password"]));
+			array_push($this->Admins, new Admin($row["ID"],$row["Email"],$row["Username"],$row["Password"]));
 		}
 	}
 
@@ -44,4 +44,13 @@ class Admins extends Model {
             echo "ERROR: Could not execute $sql. " . $this->db->getConn()->error;
         }
     }
+
+	public function countPatients() {
+		$sql = "SELECT * FROM patients";
+        $db = $this->connect();
+        $result = $db->query($sql);
+		$rowCount = mysqli_num_rows($result);
+		// echo $rowCount;
+        return $rowCount;
+	}
 }

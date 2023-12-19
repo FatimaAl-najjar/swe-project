@@ -1,4 +1,10 @@
+<?php
+define('__ROOT__', "../app/");
+require_once(__ROOT__ . "model/Admins.php");
 
+$model = new Admins();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +17,7 @@
     <link rel="stylesheet" href="css/adminindex.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
 <body>
     <div class="container">
@@ -61,7 +68,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total Patients</h3>
-                            <h1>450</h1>
+                            <h1><?php echo $model->countPatients(); ?></h1>
                         </div>
                         <div class="progress">
                             <svg>
