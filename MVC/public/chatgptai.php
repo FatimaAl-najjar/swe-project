@@ -83,8 +83,7 @@
     </div>
 
     <script>
-      const apiKey = "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";
-//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
+      const apiKey = "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";
 
       async function sendMessage(message) {
         const response = await fetch(

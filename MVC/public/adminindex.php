@@ -62,7 +62,19 @@ $model = new Admins();
         <!--=================== END OF ASIDE ===================-->
         <main id="swup" class="transition-fade">
             <h1>My  Dashboard</h1>
-            
+            <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <i class='bx bx-menu'></i>
+                </button>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b><?php echo $model->getNamebyID($_SESSION["ID"]); ?></b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    
+                </div>
+            </div>
             <div class="insights">
                 <div class="sales">
                     <i class='bx bxs-user-account'></i>
@@ -110,55 +122,9 @@ $model = new Admins();
            
         <!-- ----------------------- END OF MAIN -------------------- -->
 
-        <div class="right">
-            <div class="top">
-                <button id="menu-btn">
-                    <i class='bx bx-menu'></i>
-                </button>
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b><?php echo $model->getNamebyID($_SESSION["ID"]); ?></b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
-                    
-                </div>
-            </div>
-            <!-- --- END OF TOP --- -->
-            <div class="recent-updates">
-                <h2>Doctor Announcments</h2>
-                <div class="updates">
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="images.png" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Vacation</b> i will not come tomorrow</p>
-                            <small class="text-muted">2 Minutes Ago</small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="images.png" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Clinic cancelled</b> My tuseday clinic will be cancelled</p>
-                            <small class="text-muted">22 Minutes Ago</small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="images.png" alt="">
-                        </div>
-                        <div class="message">
-                            <p><b>Early arriving</b> I Will be early on thursday</p>
-                            <small class="text-muted">222 Minutes Ago</small>
-                        </div>
-                    </div>
-                </div>
-            </div>            
-            </div>
-        </div>
-        </div>
+ 
+          
+            
 
     </body>
     </html>
