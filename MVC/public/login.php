@@ -21,34 +21,38 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 if(isset($_POST['submit']))	{
 	$Email = $_REQUEST["Email"];
 	$Password = $_REQUEST["Password"];
-	echo $Email . "<br>";
-	echo $Password . "<br>";
-	echo $model->isAdmin($Email);
-	if ($model->isAdmin($Email)){
-		echo "Admin" . "<br>";
-	}
-	else {
-		echo "Patient" . "<br>";
-	}
-	$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
-	$dbh = new Dbh();
-	$result = $dbh->query($sql);
-	if ($result->num_rows == 1){
-		$row = $dbh->fetchRow();
-		$_SESSION["ID"]=$row["ID"];
-		$_SESSION["Email"]=$row["Email"];
-		if ($model->isAdmin($Email)){
-			header("Location:adminindex.php");
+	if ($model->isAdmin($Email)) {
+		// Admin login detected
+		$sql = "SELECT * FROM admin where Email='$Email' AND Password='$Password'";
+		$dbh = new Dbh();
+		$result = $dbh->query($sql);
+		if ($result->num_rows == 1){
+			$row = $dbh->fetchRow();
+			$_SESSION["ID"] = $row["ID"];
+			$_SESSION["Email"] = $row["Email"];
+			header("Location: adminindex.php");
+			exit;
 		}
-		else {
-			header("Location:index.php");
+	} else {
+		// Regular user login
+		$sql = "SELECT * FROM patients where Email='$Email' AND Password='$Password'";
+		$dbh = new Dbh();
+		$result = $dbh->query($sql);
+		if ($result->num_rows == 1){
+			$row = $dbh->fetchRow();
+			$_SESSION["ID"]=$row["ID"];
+			$_SESSION["Email"]=$row["Email"];
+			echo $_SESSION["ID"];
+			header("Location: index.php");
+			exit;
 		}
-		echo $_SESSION["ID"];
-		echo $_SESSION["Email"];
+	}
+		// echo $_SESSION["ID"];
+		// echo $_SESSION["Email"];
 		// header("Location:index.php");
 		// header("Location:feedbackPatient.php");
 		// header("Location:PatientProfile.php"); // WORKING
-	}
+	
 }
 
 ?>
