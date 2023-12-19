@@ -4,7 +4,7 @@
 require_once(__ROOT__ . "controller/Controller.php");
 
 class AdminController extends Controller{
-	
+
 	public function addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber) {
         return $this->model->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
     }
@@ -19,9 +19,15 @@ class AdminController extends Controller{
 		$this->model->editUser($FirstName,$LastName,$Email,$Password,$Phonenumber);
 	}
 	
-	public function deleteUser(){
-		 $this->model->deleteUser();
-	}
+	public function deletePatient($patientID) {
+        $result = $this->model->deletePatient($patientID);
+
+        if ($result === true) {
+            echo "Patient with ID $patientID has been successfully deleted.";
+        } else {
+            echo "Error deleting Patient with ID $patientID: " . $result;
+        }
+    }
 
 	
 	public function addAdmin($Email, $Username, $Password) {

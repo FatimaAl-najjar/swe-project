@@ -88,5 +88,17 @@ class ViewAdmin extends View{
 	</div>';
 	return $str;
 	}
+
+	public function deletePatientForm() {
+        $str = '
+        <div class="card">
+            <h1>Delete Patient by ID:</h1>
+            <form action="" method="post">
+                <input type="text" name="patientIDToDelete" placeholder="Enter patient ID">
+                <button type="submit" name="action" value="Delete Patient">Delete Patient</button>
+            </form>
+        </div>';
+        return $str;
+    }
 }
 ?>

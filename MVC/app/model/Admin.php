@@ -72,6 +72,16 @@ class Admin extends Model {
         echo "ERROR: Could not add patient. " . $this->db->getConn()->error;
     }
 }
+public function deletePatient($patientID) {
+  $sql = "DELETE FROM patients WHERE ID = $patientID";
+  $result = $this->db->query($sql);
+
+  if ($result === true) {
+      return true;
+  } else {
+      return $this->db->getConn()->error;
+  }
+}
    
 
   public function deleteAdmin($id) {
