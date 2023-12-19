@@ -152,4 +152,4 @@ if(isset($_POST['login']))	{
         </script> 
         <link rel="stylesheet" href="css/index.css">
 
-<?php echo $view->loginForm();?>
+<?php //echo $view->loginForm();?>
