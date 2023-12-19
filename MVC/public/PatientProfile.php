@@ -1,3 +1,4 @@
+<?php include('static.php'); ?>
 <?php 
 
 define('__ROOT__', "../app/");

@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/home.css">
+<?php include('static.php'); ?>
 <?php
 define('__ROOT__', "../app/");
 require_once(__ROOT__ . "model/Patient.php");
