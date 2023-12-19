@@ -22,7 +22,7 @@ $str .= "<form action='feedbackpatient.php?action=insert' method='post'>";
 $str .= "<input class=\"text1\" type='text' name='Message' placeholder='Enter message' />";
 $str .= "<input type='submit' value='Submit' class='btn' />";
 $str .= "</form>";
-$str .= "<a class=\"a1\" href='index.php' >Back</a>";
+;
 $str .= "</div>";
 
 return $str;

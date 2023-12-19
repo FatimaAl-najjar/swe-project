@@ -1,5 +1,6 @@
-<?php
 <?php include('static.php'); ?>
+<?php
+
 define('__ROOT__', "../app/");
 
 // Include necessary files
