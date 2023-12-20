@@ -43,4 +43,4 @@ if (isset($_GET['action']) && !empty($_GET['action'])) {
 
 ?><?php 
 echo $view->outputPatientView();
-echo $view1->listAppointments()?>
+?>

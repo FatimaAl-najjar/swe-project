@@ -37,7 +37,7 @@ class DoctorAnnouncementsView extends View {
                     <h3>view Appointments</h3>
                 </a>
                 <a href="addDoctor.php">
-                    <i class=\'bx bxs-edit\'></i>
+                <i class=\'bx bx-add-to-queue\' ></i>
                     <h3>Add Doctor</h3>
                 </a>
             
