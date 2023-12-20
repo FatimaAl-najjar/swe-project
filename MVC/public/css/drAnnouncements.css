@@ -1,7 +1,8 @@
 .announcement {
    background: #111e88;
-   width: 400px;
-   padding: 80px 90px;
+   width: 450px;
+   padding-left:60px ;
+   padding: 50px 60px;
    margin: 30px 30px;
    display: flex;
    align-items: center;
@@ -40,7 +41,7 @@
 .announcement .action form textarea[type="text"] {
    max-width: 100%;
    width:200px;
-   padding: 12px 15px;
+   padding: 12px 5px;
    margin: 50px 50px;
    background: #ffffff;
    color: #000;
@@ -53,10 +54,10 @@
 .announcement .action form button[type="submit"] {
    max-width: 100%;
    width: 200px;
-   padding: 12px 15px;
+   padding: 12px 25px;
    margin : 50px 50px;
-   background: #ffffff;
-   color: #a6b1e1;
+   background: #a6b1e1 ;
+   color: #ffffff;
    border: none;
    outline: none;
    margin: 0 10px 20px 0;
