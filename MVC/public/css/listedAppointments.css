@@ -5,9 +5,9 @@
     /* margin:center;  */
     max-height: 300px;
     overflow-y: auto;
-    border: px solid #7380ec;
+    border: px solid rgb(115, 128, 236);
     border-radius: 50px;
-    border-width: 7px;
+    border-width: 10px;
     padding: 10px;
     align-self: center;
     align-content: center;

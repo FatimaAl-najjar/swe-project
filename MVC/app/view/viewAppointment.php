@@ -3,11 +3,11 @@ require_once(__ROOT__ . "model/Appointment.php");
 require_once(__ROOT__ . "view/View.php");
  ?>
  
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="css/static.css">
+ <link rel="stylesheet" href="css/feedback.css">
+
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <link rel="stylesheet" href="css/listedAppointments.css">
+    <link rel="stylesheet" href="css/listedAppointments.css">
  <?php
 class ViewAppointment extends View {
     public function listAppointments() {
@@ -16,7 +16,7 @@ class ViewAppointment extends View {
         // Display the appointments with enhanced styling
         $str = "<div class='appointment-list'>";
         if (!empty($appointments)) {
-            // $str .= "< class='appointment-list'>";
+            // $str .= "<ul class='appointment-list'>";
             foreach ($appointments as $appointment) {
                 $str .= "<li class='appointment-item'>";
                 // $str .= "Patient ID: " . $appointment->getPatientId() . "<br>";
@@ -28,6 +28,7 @@ class ViewAppointment extends View {
         } else {
             $str .= "<p>No appointments found.</p>";
         }
+       
         return $str;
         // $str .= "</div>";
         // $str = '<div class="container">
