@@ -68,20 +68,14 @@ class Appointment extends Model {
     }
 
     function getAllAppointments() {
-        // session_start();
-        $sql = "SELECT appointments.*, patients.FirstName FROM appointments JOIN patients ON appointments.patients_id = patients.id";
+        $currentDate = date("Y-m-d");
+        $sql = "SELECT appointments.*, patients.FirstName FROM appointments JOIN patients ON appointments.patients_id = patients.id WHERE day >= '$currentDate'";
         $result = $this->db->query($sql);
 
         if ($result->num_rows > 0) {
-            $appointments=array();
+            $appointments = array();
             while ($row = $result->fetch_assoc()) {
-                // echo "Appointment ID: " . $row["ID"] . "<br>";
-                // echo "Patient Name: " . $row["FirstName"] . "<br>";
-                // echo "Date: " . $row["day"] . "<br>";
-                // echo "Time: " . $row["duration"] . "<br>";
-                // echo "<br>";
                 $appointment = new Appointment();
-                // $appointment->setPatientId($_SESSION['ID']);
                 $appointment->setDate($row['day']);
                 $appointment->setTime($row['duration']);
 
@@ -89,7 +83,7 @@ class Appointment extends Model {
             }
             return $appointments;
         } else {
-            echo "No appointments found.";
+            echo "No upcoming appointments found.";
         }
     }
 
@@ -118,25 +112,40 @@ class Appointment extends Model {
         if (isset($_SESSION['ID'])) {
         // $selectedDay = $selectedDateTime->format('N'); // 1 (Monday) to 7 (Sunday)
         if (empty(trim($date))) {
-            echo " <div class='error-box'>Error: pick an appointment first please <br></br>";
+            //  echo " <div class='error-box'>Error: pick an appointment first please <br></br>";
+            $Messageerror = "pick an appointment first please";
+            
+            echo "<script>alert('$Messageerror');</script>";
+            
+        
+            exit;
         }
         // Validate appointment time
         if (!$this->validateAppointmentTime($time)) {
-            echo " <div class='error-box'>Appointments are only available from 5pm to 10pm";
+            //  echo " <div class='error-box'>Appointments are only available from 5pm to 10pm";
+            //  exit;
+            $Messageerror = "Appointments are only available from 5pm to 10pm";
+            echo "<script>alert('$Messageerror');</script>";
             exit;
         }
 
         // Validate appointment day
         if (!$this->validateAppointmentDay($date)) {
             // echo "ERROR: Appointments are not available on Fridays.";
-            echo "<div class='error-box'>Appointments are only available from Saturday to Thursday.</div>";
+            // echo "<div class='error-box'>Appointments are only available from Saturday to Thursday.</div>";
+            // exit;
+            $Messageerror = "Appointments are only available from Saturday to Thursday.";
+            echo "<script>alert('$Messageerror');</script>";
             exit;
             // return;
         }
 
         // Check appointment availability
         if (!$this->checkAppointmentAvailability($date, $time)) {
-            echo "<div class='error-box'> The selected appointment slot is already booked.";
+            // echo "<div class='error-box'> The selected appointment slot is already booked.";
+            // exit;
+            $Messageerror = "The selected appointment slot is already booked";
+            echo "<script>alert('$Messageerror');</script>";
             exit;
         }
 
@@ -144,7 +153,10 @@ class Appointment extends Model {
         $sql = "INSERT INTO appointments (patients_id, day, duration) VALUES (".$_SESSION['ID'].", '$date', '$time')";
          
         if ($this->db->query($sql) === true) {
-            echo "Appointment created successfully.";
+            // echo "Appointment created successfully.";
+            // exit;
+            $Messageerror = "Appointment created successfully.";
+            echo "<script>alert('$Messageerror');</script>";
             exit;
         } 
     else{
@@ -152,8 +164,11 @@ class Appointment extends Model {
         }
     }
     else {
-        echo "<div class='error-box'> you must be logged in first";
-        exit;
+        // echo "<div class='error-box'> you must be logged in first";
+        // exit;
+        $Messageerror = "you must be logged in first";
+            echo "<script>alert('$Messageerror');</script>";
+            exit;
     }
     }
 

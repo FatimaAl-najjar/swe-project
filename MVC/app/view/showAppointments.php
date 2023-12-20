@@ -42,7 +42,7 @@ class ShowAppointments extends View {
         // Display the appointments with enhanced styling
         $str = "<div class='appointment-list'>";
         if (!empty($appointments)) {
-            $str .= "<ul class='appointment-list'>";
+            // $str .= "<ul class='appointment-list'>";
             foreach ($appointments as $appointment) {
                 $str .= "<li class='appointment-item'>";
                 // $str .= "Patient ID: " . $appointment->getPatientId() . "<br>";
@@ -50,7 +50,7 @@ class ShowAppointments extends View {
                 $str .= "Time: " . $appointment->getTime() . "<br>";
                 $str .= "</li>";
             }
-            $str .= "</ul>";
+            // $str .= "</ul>";
         } else {
             $str .= "<p>No appointments found.</p>";
         }

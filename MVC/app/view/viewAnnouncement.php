@@ -12,7 +12,7 @@ class AnnouncementsView extends View {
 
         foreach ($announcements as $announcement) {
             echo "<div class='announcement-card'>";
-            echo "<img class='icon' src='images/megaphone.jpg' alt='Microphone Icon'>";
+            echo "<img class='icon' src='Images/megaphone.jpg' alt='Microphone Icon'>";
             echo "<div>";
             echo "<p class='date'>" . date("F j, Y H:i:s", strtotime($announcement['date_added'])) . "</p>";
             echo "<p class='content'>" . $announcement['announcement'] . "</p>";

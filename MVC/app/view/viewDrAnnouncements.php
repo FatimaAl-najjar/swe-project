@@ -1,5 +1,8 @@
 
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="css/static.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="css/drAnnouncements.css">;
 <?php
 require_once(__ROOT__ . "model/doctorAnnouncements.php");
@@ -9,26 +12,75 @@ class DoctorAnnouncementsView extends View {
     public function output() {
          
        
-        $str = "";
-        $str .= " <section class='announcement'>";
-        $str .= " <div class='container'>";
-        $str .= " <div class='center'>";
-        $str .= "<h3>Announcements!</h3>";
-        $str .= " <p>Is there any new updates!</p>";
-        $str .= " </div>";
+       
+        $str = '<div class="container">
+        <aside>
+            <div class="top">
+                
+                <div class="close" id="close-btn">
+                    <i class="bx bxs-log-out-circle"></i>
+                </div>
+            </div>
 
-        $str .= "<div class='action'>";
-        $str .= "<form   action='drAnnouncements.php?action=love' method='POST'>";
-        $str .= "<textarea type='text' name='announcement' placeholder='Enter announcement'></textarea>";
-        $str .= "  <button type='submit'name='Submit'>Add Announcement</button>";
-        $str .=  "</form>";
-        $str .= "</div>";
-        $str .= " </div>";
-        $str .= "  </section>";
+            <div class="sidebar">
+                <a class="active" href="drIndex.php">
+                    <i class=\'bx bxs-grid-alt\' ></i>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="drAnnouncements.php">
+                    <i class=\'bx bx-add-to-queue\' ></i>
+                    <h3>Add Anouncement</h3>
+                </a>
+                <a href="doctorAppointment_index.php">
+                    <i class=\'bx bxs-add-to-queue\'></i>
+                    <h3>view Appointments</h3>
+                </a>
+                <a href="addDoctor.php">
+                    <i class=\'bx bxs-edit\'></i>
+                    <h3>Add Doctor</h3>
+                </a>
+            
+                
+                
+                <a href=\'login.php?action=Logout\'>
+                <i class=\'bx bxs-log-out\'></i>
+                <h3>Logout</h3>
+            </a>
+            </div>
+        </aside>
+        <!--=================== END OF ASIDE ===================-->
+        <main id="swup" class="transition-fade">
+            <h1>My  Dashboard</h1>
+            
+            <div class="insights">
+                <div class="sales">
+                    <div class="middle">
+                        <div class="left">
+                            <h1>Add Announcments</h1>
+                           
+                            <section class="announcement">
+    <div class="container">
+         <div class="center">
+   
+        </div>
+
+        <div class="action">
+        <form   action="drAnnouncements.php?action=love" method="POST">
+       <textarea type="text" name="announcement" placeholder="Enter announcement"></textarea>
+        <button type="submit"name="Submit">Add Announcement</button>
+       </form>
+        </div>
+        </div>
+          </section>
         
-
-        return $str;
-    }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>';
+    
+return $str;
+}
 }
 ?>
 

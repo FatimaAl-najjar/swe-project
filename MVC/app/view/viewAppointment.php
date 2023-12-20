@@ -2,6 +2,11 @@
 require_once(__ROOT__ . "model/Appointment.php");
 require_once(__ROOT__ . "view/View.php");
  ?>
+ 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="css/static.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <link rel="stylesheet" href="css/listedAppointments.css">
  <?php
 class ViewAppointment extends View {
@@ -11,7 +16,7 @@ class ViewAppointment extends View {
         // Display the appointments with enhanced styling
         $str = "<div class='appointment-list'>";
         if (!empty($appointments)) {
-            $str .= "<ul class='appointment-list'>";
+            // $str .= "< class='appointment-list'>";
             foreach ($appointments as $appointment) {
                 $str .= "<li class='appointment-item'>";
                 // $str .= "Patient ID: " . $appointment->getPatientId() . "<br>";
@@ -19,13 +24,49 @@ class ViewAppointment extends View {
                 $str .= "Time: " . $appointment->getTime() . "<br>";
                 $str .= "</li>";
             }
-            $str .= "</ul>";
+            // $str .= "</ul>";
         } else {
             $str .= "<p>No appointments found.</p>";
         }
-        $str .= "</div>";
-
         return $str;
+        // $str .= "</div>";
+        // $str = '<div class="container">
+        // <aside>
+        //     <div class="top">
+                
+        //         <div class="close" id="close-btn">
+        //             <i class="bx bxs-log-out-circle"></i>
+        //         </div>
+        //     </div>
+
+        //     <div class="sidebar">
+        //         <a class="active" href="drIndex.php">
+        //             <i class=\'bx bxs-grid-alt\' ></i>
+        //             <h3>Dashboard</h3>
+        //         </a>
+        //         <a href="drAnnouncements.php">
+        //             <i class=\'bx bx-add-to-queue\' ></i>
+        //             <h3>Add Anouncement</h3>
+        //         </a>
+        //         <a href="doctorAppointment_index.php">
+        //             <i class=\'bx bxs-add-to-queue\'></i>
+        //             <h3>view Appointments</h3>
+        //         </a>
+        //         <a href="addDoctor.php">
+        //             <i class=\'bx bxs-edit\'></i>
+        //             <h3>Add Doctor</h3>
+        //         </a>
+            
+                
+                
+        //         <a href=\'login.php?action=Logout\'>
+        //         <i class=\'bx bxs-log-out\'></i>
+        //         <h3>Logout</h3>
+        //     </a>
+        //     </div>
+        // </aside>';
+
+        // return $str;
     }
     public function outputPatientView() {
         // $this->model->getAllAppointments();

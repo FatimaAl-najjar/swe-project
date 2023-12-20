@@ -5,7 +5,7 @@
     /* margin:center;  */
     max-height: 300px;
     overflow-y: auto;
-    border: 1px solid #00316e;
+    border: px solid #7380ec;
     border-radius: 50px;
     border-width: 7px;
     padding: 10px;
@@ -13,7 +13,7 @@
     align-content: center;
     align-items: center;
     margin-bottom: 80px;
-    margin-top: 80px;
+    margin-top: 50px;
     /* width: min-content; */
    
 }

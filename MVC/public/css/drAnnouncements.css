@@ -1,77 +1,99 @@
-.announcement{
-    background: #00316e;;
-    width: 64%;
-    margin: 100px auto;
-    padding: 70px 150px;
-    display:flex;
-    align-items: center;
-    justify-content: center; 
-    text-align: center;
-    border-radius: 12px;
-    background-image: url('medium-blue-background.jpg');
-    background-size: cover;
- }
- .center h3{
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 3px;
-    color: #fff;
- }
- .center p{
-    font-size: var(--p-font);
-    color: #fff;
-    line-height: 26px;
-    margin-bottom: 25px;
- }
- .announcement .action form textarea[type="text"]{
+.announcement {
+   background: #111e88;
+   width: 400px;
+   padding: 80px 90px;
+   margin: 30px 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   border-radius: 12px;
+   background-image: url('medium-blue-background.jpg');
+   background-size: cover;
+   /* margin-right: 100px;
+   padding-right: 100px; */
+}
 
-    max-width: 100%;
-    width: 470px;
-    padding: 12px 15px;
-    background: #ffffff;
-    color:#000;
-    border: none;
-    outline: none;
-    margin: 0 10px 20px 0;
-    border-radius: 30px;
- }
- .announcement .action form button[type="submit"]{
-    padding: 12px 15px;
-    background: #a6b1e1;
-    color: #ffffff;
-    border: none;
-    outline: none;
-    margin: 0 10px 20px 0;
-    border-radius: 30px;
-    cursor: pointer;
- }
- 
- @media(max-width:1425px){
-    section{
-        padding: 120px 10%;
-        transition: .3s;
-     }
-     .announcement{
-        width: 30%;
-        transition: .3s;
-     }
-    
-    }
- @media(max-width:800px){
-    section{
-        padding: 80px 8%;
-        transition: .3s;
-     }
-     .announcement .action form textarea[type="text"]{
-        width:280px
-     }
-  }
- @media(max-width:540px){
-    .announcement{
-        width: 25%;
-        transition: .3s;
-     }
-    .announcement .action form textarea[type="text"]{
-       width:290px
-    }
- }
+.announcement .container {
+   width:400px;
+   margin: 0 auto;
+}
+
+.center h3 {
+   padding: 10px 10px;
+   margin: 50px 50px;
+   margin-right: 100px;
+   padding-right: 100px; 
+   font-size: 30px;
+   font-weight: 500;
+   margin-bottom: 3px;
+   color: #fff;
+}
+
+.center p {
+   font-size: var(--p-font);
+   color: #fff;
+   line-height: 26px;
+   margin-bottom: 25px;
+}
+
+.announcement .action form textarea[type="text"] {
+   max-width: 100%;
+   width:200px;
+   padding: 12px 15px;
+   margin: 50px 50px;
+   background: #ffffff;
+   color: #000;
+   border: none;
+   outline: none;
+   margin: 0 10px 20px 0;
+   border-radius: 30px;
+}
+
+.announcement .action form button[type="submit"] {
+   max-width: 100%;
+   width: 200px;
+   padding: 12px 15px;
+   margin : 50px 50px;
+   background: #ffffff;
+   color: #a6b1e1;
+   border: none;
+   outline: none;
+   margin: 0 10px 20px 0;
+   border-radius: 30px;
+   cursor: pointer;
+}
+
+@media (max-width: 1425px) {
+   section {
+       padding: 120px 10%;
+       transition: .3s;
+   }
+
+   .announcement {
+       width: 80%;
+       transition: .3s;
+   }
+}
+
+@media (max-width: 800px) {
+   section {
+       padding: 80px 8%;
+       transition: .3s;
+   }
+
+   .announcement .action form textarea[type="text"] {
+       width: 100%;
+   }
+}
+
+@media (max-width: 540px) {
+   .announcement {
+       width: 100%;
+       transition: .3s;
+   }
+
+   .announcement .action form textarea[type="text"] {
+       width: 100%;
+   }
+}
