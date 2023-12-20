@@ -43,11 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             $errorOccurred = true;
         }
 
-        if (!$errorOccurred) {
+        else {
             $controller->addPatient($FirstName, $LastName, $Email, $Password, $Phonenumber);
-        } else {
-            echo "<h2>An error occurred during adding patient.</h2>";
         }
+        //  else {
+        //     echo "<h2>An error occurred during adding patient.</h2>";
+        // }
     }
     else{
         $errorMessage = "<h2>An error occurred during adding admin.</h2>";
